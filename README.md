@@ -14,6 +14,7 @@ Web前端开发工程师，主要职责是利用(X)HTML/CSS/JavaScript/Flash等�
 [14潘佳琦](https://github.com/pjq123456/pjq123456.github.io)  
 
 ### 软件152
+[23江俊杰](https://github.com/hyyqc/hyyqc.github.io)
 [39王丽娜](https://github.com/waseni/waseni.github.io)
-[23江俊杰]（https://github.com/hyyqc/hyyqc.github.io）
+
 
