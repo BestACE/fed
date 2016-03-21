@@ -1,0 +1,314 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.1
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML图像元素 - By whqet</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>HTML图像元素</h1>
+<h2>演讲者：whqet</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol class="rollIn">
+<li>图像</li>
+<li>媒体嵌入与资源地址</li>
+<li>Sublime text创建新的Snippet</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2><a href="///w3school.com.cn/tags/html_ref_byfunc.asp" target="_blank">元素概述</a></h2>
+<img src="./img/03/Periodic-Table-of-HTML-Elements-large.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2><a href="///www.w3.org/TR/html/semantics.html#semantics" target="_blank">元素分类</a> <a href="///w3school.com.cn/tags/html_ref_byfunc.asp" target="_blank">w3school</a></h2>
+<table class="thinner tag">
+    <tr>
+        <th>类型</th><th>标签</th>
+    </tr>
+    <tr>
+        <td>根元素<br>The root element</td>
+        <td>html</td>
+    </tr>
+    <tr>
+        <td>文档元数据<br> Document metadata</td>
+        <td>head, title, base, meta, link, style</td>
+    </tr>
+    <tr>
+        <td>节点 Sections</td>
+        <td>body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, header, footer, address</td>
+    </tr>
+    <tr>
+        <td>组合内容<br> Grouping content</td>
+        <td>div, p, main, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption</td>
+    </tr>
+    <tr>
+        <td>文本级<br>Text-level semantics</td>
+        <td>span, a, em, strong, q, cite, mark, i, b, u, s, sup, sub, big, small, var, code, samp, kbd, data, time, ruby, rb, rp, rt, rtc, bdi, bdo, dfn, br, wbr</td>
+    </tr>
+    <tr>
+        <td>编辑 Edits</td>
+        <td>ins, del</td>
+    </tr>
+    <tr>
+        <td>嵌入内容 <br>Embedded content</td>
+        <td>img, iframe, embed, object, param, vedio, audio, surce, track, map, area</td>
+    </tr>
+    <tr>
+        <td>表格 Tabular data</td>
+        <td>table, caption, tr, th, td, thead, tbody, tfoot, col, colgroup</td>
+    </tr>
+    <tr>
+        <td>表单 Forms</td>
+        <td>form, label, input, button, select, datalist, optgroup, option, textarea, keygen, output, progress, meter, fieldset, legend</td>
+    </tr>
+    <tr>
+        <td>脚本 Scripting</td>
+        <td>script, noscript, template, canvas</td>
+    </tr>
+</table>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>图像元素img</h2>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>流内容-Flow content <br>
+            短句内容-Phrasing content  <br>
+            嵌入内容-Embedded content <br>
+            表单相关元素-Form-associated element
+        </td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>需要嵌入内容的地方</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>空，空元素，无结束标签</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 <br>
+            alt属性，图像不可见时的替代文本 <br>
+            src属性，资源地址 <br>
+            crossorigin属性，如何处理交叉请求 <br>
+            width和height属性，宽和高，只设置其中一个，另一个自动缩放。 <br>
+            usemap属性, 使用的热区名称 <br>
+            ismap属性，图像是否是服务器端的热区地图
+        </td>
+    </tr>
+</table>
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="fadein"><article>
+<div class="magic-wrapper">
+<article>
+<h2>img元素示例</h2>
+<pre><code class="html">&lt;img src=&quot;img/02/HTML5_sticker.png&quot; alt=&quot;html5 sticker&quot; width=&quot;600&quot;&gt;
+</code></pre>
+<img src="./img/02/HTML5_sticker.png" alt="html5 sticker" width="600">
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="fadein"><article>
+<div class="magic-wrapper">
+<article>
+<h2>img元素位于Figure元素中</h2>
+<blockquote>
+<p>html5 推荐方式</p>
+</blockquote>
+<pre><code class="html">&lt;figure&gt;
+    &lt;img src=&quot;img/02/HTML5_sticker.png&quot; alt=&quot;html5 sticker&quot; width=&quot;600&quot;&gt;
+    &lt;figcaption&gt;html5 is coming&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+<figure>
+    <img src="./img/02/HTML5_sticker.png" alt="html5 sticker" width="600">
+    <figcaption>html5 is coming</figcaption>
+</figure>
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide" style="background:#8B8B8B url(/img/09/url.png) center bottom no-repeat;background-size:70%;"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>媒体嵌入与资源地址</h2>
+<ol class="fadeIn">
+<li>图像、视频等媒体<strong>嵌入</strong>网页中使用</li>
+<li>资源地址是嵌入媒体最终的依据</li>
+<li>Uniform Resource Locator（URL）</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>绝对地址与相对地址</h2>
+<pre><code class="html">&lt;!-- 绝对地址 --&gt;
+&lt;img src=&quot;file:///E:/zptcsoft.github.io/ppt/img/09/url.png&quot; alt=&quot;&quot;&gt;
+&lt;img src=&quot;http://zptc.github.io/ppt/img/09/url.png&quot; alt=&quot;&quot;&gt;
+&lt;img src=&quot;//zptc.github.io/ppt/img/09/url.png&quot; alt=&quot;&quot;&gt; 
+
+&lt;!-- 相对地址 --&gt;
+&lt;img src=&quot;img/09/url.png&quot; alt=&quot;&quot;&gt;
+&lt;img src=&quot;./img/09/url.png&quot; alt=&quot;&quot;&gt;
+
+&lt;!-- 资源地址相对地址、绝对地址均可。
+     可以使用http协议、https协议，但不能采用file协议。 
+     建议采用省略协议的方式
+        &lt;img src=&quot;//zptc.github.io/ppt/img/09/url.png&quot; alt=&quot;&quot;&gt;     
+--&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide fill" style="background:#487BD3 url(img/09/snippet.png) right bottom no-repeat;"  data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="rollIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>Sublime text 新建Snippet</h2>
+<ul>
+<li>emmet对figure支持不佳</li>
+<li>Snippet方式支持figure</li>
+</ul>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="rollIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>创建步骤</h2>
+<ol>
+<li>选择菜单<strong>Tools/New Snippet…</strong>，跳出Snippet编辑窗口</li>
+<li>根据您的需要修改Snippet文件，figure代码修改如下</li>
+<li>命名为<em>figure.sublime-snippet</em>, 存到<strong>Packages</strong>下的<strong>user文件夹</strong></li>
+<li>重启sublime text，使用<strong><kbd>mfig+tab</kbd></strong>即可激活</li>
+</ol>
+<pre><code class="xml">&lt;snippet&gt;
+    &lt;content&gt;&lt;![CDATA[
+&lt;figure&gt;
+    &lt;figcaption&gt;${1:图像标题}&lt;/figcaption&gt;
+    &lt;img src=&quot;${2:图像地址}&quot; alt=&quot;${3:替代文本}&quot;&gt;
+&lt;/figure&gt;
+]]&gt;&lt;/content&gt;
+    &lt;!-- 可选: 设置如何激活该代码段 --&gt;
+    &lt;tabTrigger&gt;mfig&lt;/tabTrigger&gt;
+    &lt;!-- 可选：设置作用域，默认为所有文档有效。 ctrl+alt+shift+p 状态栏获取文件作用域--&gt;
+    &lt;scope&gt;text.html.basic&lt;/scope&gt;
+    &lt;!-- 可选，设置描述信息 --&gt;
+    &lt;!-- &lt;description&gt;My figure Snippet&lt;/description&gt; --&gt;
+&lt;/snippet&gt;
+</code></pre>
+<blockquote>
+<p>了解如何<a href="///github.com/zptcsoft/sublime-text-scope/blob/master/README.md" target="_blank">获取作用域</a></p>
+</blockquote>
+
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>网页设计与制作</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.1</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'stick',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

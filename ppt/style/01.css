@@ -1,0 +1,17 @@
+.file-setting{
+    color: yellow;
+}
+#incallback,#outcallback{
+    margin-top:10px;
+    background-color: rgba(0,0,0,.5);
+}
+.thin td, .thin th{
+	padding: 5px;
+}
+.thinner td, .thinner th{
+	padding: 2px 5px;
+}
+.tag td:nth-child(1){
+	width: 240px;
+	font-weight:normal;
+}
