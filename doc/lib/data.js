@@ -358,7 +358,7 @@ angular.module('test', ['objectTable'])
             work01: 0, work02: 0, work03: 0, work04: 0, 
             work05: 0, work06: 0, work07: 0, work08: 0, 
             work09: 0, work10: 0, github: 0,
-          grade02:0, grade03:0
+          grade02:98, grade03:0
         },
         { id: 09, 
             name: "陈猛", 
@@ -430,7 +430,7 @@ angular.module('test', ['objectTable'])
             work01: 0, work02: 0, work03: 0, work04: 0, 
             work05: 0, work06: 0, work07: 0, work08: 0, 
             work09: 0, work10: 0, github: 0,
-          grade02:0, grade03:0 
+          grade02:80, grade03:0 
         },
         { id: 21, 
             name: "王翔宇", 
@@ -550,7 +550,7 @@ angular.module('test', ['objectTable'])
             work01: 0, work02: 0, work03: 0, work04: 0, 
             work05: 0, work06: 0, work07: 0, work08: 0, 
             work09: 0, work10: 0, github: 0,
-          grade02:0, grade03:0 
+          grade02:88, grade03:0 
         },
         { id: 38, 
             name: "刘毅梅", 
@@ -566,7 +566,7 @@ angular.module('test', ['objectTable'])
             work01: 0, work02: 0, work03: 0, work04: 0, 
             work05: 0, work06: 0, work07: 0, work08: 0, 
             work09: 0, work10: 0, github: 0,
-          grade02:0, grade03:0 
+          grade02:90, grade03:0 
         },
         { id: 40, 
             name: "童伟键", 
