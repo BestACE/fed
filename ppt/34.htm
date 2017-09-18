@@ -104,9 +104,11 @@
 </ul>
 </li>
 </ul>
-<pre><code class="js">var message=“hello world”;
+<pre><code class="html">&lt;script&gt;
+var message=“hello world”;
 typeof(message); //string
 typeof 10; //number
+&lt;/script&gt;
 </code></pre>
 
 </article></section></slide>
@@ -121,10 +123,12 @@ typeof 10; //number
 </ul>
 </li>
 </ul>
-<pre><code class="js">var a;
+<pre><code class="html">&lt;script&gt;
+var a;
 console.log(typeof a);
 console.log(a==undefined);
 console.log(typeof b);
+&lt;/script&gt;
 </code></pre>
 
 </article></section></slide>
@@ -208,23 +212,26 @@ if(car != null){
 <li>NaN是一个特殊的数值<ul>
 <li>任何涉及NaN的操作都会返回NaN</li>
 <li>NaN与任何值不等，包括它本身</li>
-<li>使用isNaN()方法判断NaN
-```js
-//Number类型
-console.log(Number.MAX_VALUE);
-console.log(Number.MIN_VALUE);</li>
+<li>使用isNaN()方法判断NaN</li>
 </ul>
 </li>
 </ul>
-<p>//NaN
+<pre><code class="html">&lt;script&gt;
+//Number类型
+console.log(Number.MAX_VALUE);
+console.log(Number.MIN_VALUE);
+
+//NaN
 NaN === NaN;        // false
 Number.NaN === NaN; // false
 isNaN(NaN);         // true
-isNaN(Number.NaN);  // true</p>
-<p>var e=&#39;hello&#39;;
+isNaN(Number.NaN);  // true
+
+var e=&#39;hello&#39;;
 var f=Number(e);
 console.log(isNaN(f));
-```</p>
+&lt;/script&gt;
+</code></pre>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
@@ -237,16 +244,17 @@ console.log(isNaN(f));
 <li>NaN是一个特殊的数值<ul>
 <li>任何涉及NaN的操作都会返回NaN</li>
 <li>NaN与任何值不等，包括它本身</li>
-<li>使用isNaN()方法判断NaN
-```js
-//Number类型转换
-console.log(Number(&#39;360&#39;));
-console.log(parseInt(&#39;360degree&#39;));
-console.log(parseFloat(&#39;1.2cm&#39;));</li>
+<li>使用isNaN()方法判断NaN</li>
 </ul>
 </li>
 </ul>
-<p>//功能：将浮点数四舍五入，取小数点后2位 
+<pre><code class="html">&lt;script&gt;
+//Number类型转换
+console.log(Number(&#39;360&#39;));
+console.log(parseInt(&#39;360degree&#39;));
+console.log(parseFloat(&#39;1.2cm&#39;));
+
+//功能：将浮点数四舍五入，取小数点后2位 
 function toDecimal(x) { 
   var f = parseFloat(x); 
   if (isNaN(f)) {
@@ -257,7 +265,8 @@ function toDecimal(x) {
   return f; 
 } 
 console.log(toDecimal(1234.5678));
-```</p>
+&lt;/script&gt;
+</code></pre>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
@@ -265,19 +274,23 @@ console.log(toDecimal(1234.5678));
 <h2><a href="http://javascript.ruanyifeng.com/stdlib/string.html" target="_blank">String</a></h2>
 <ul>
 <li>属性</li>
-<li>方法
-```js
+<li>方法</li>
+</ul>
+<pre><code class="html">&lt;script&gt;
 //string
 var s1 = &#39;abc&#39;;
-var s2 = new String(&#39;abc&#39;);</li>
-</ul>
-<p>typeof s1; // &quot;string&quot;
-typeof s2; // &quot;object&quot;</p>
-<p>s2.valueOf(); // &quot;abc&quot;</p>
-<p>console.log(s1.length);  //3
+var s2 = new String(&#39;abc&#39;);
+
+typeof s1; // &quot;string&quot;
+typeof s2; // &quot;object&quot;
+
+s2.valueOf(); // &quot;abc&quot;
+
+console.log(s1.length);  //3
 console.log(s1.charAt(1)); //b
 console.log(s1[1]); //b
-```</p>
+&lt;/script&gt;
+</code></pre>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
@@ -296,19 +309,22 @@ console.log(s1[1]); //b
 </li>
 <li>split<ul>
 <li>按照给定规则分割字符串，返回一个由分割出来的子字符串组成的数组</li>
-<li>```js
-//contact
-var s3 = &#39;abc&#39;;
-var s4 = &#39;def&#39;;</li>
 </ul>
 </li>
 </ul>
-<p>var s5=s3.concat(s4) // &quot;abcdef&quot;
+<pre><code class="html">&lt;script&gt;
+//contact
+var s3 = &#39;abc&#39;;
+var s4 = &#39;def&#39;;
+
+var s5=s3.concat(s4) // &quot;abcdef&quot;
 console.log(s3,s4,s5) // &quot;abc&quot; &#39;def&#39;  &quot;abcdef&quot;
-console.log(&#39;a&#39;.concat(&#39;b&#39;, &#39;c&#39;)); // &quot;abc&quot;)</p>
-<p>//split
+console.log(&#39;a&#39;.concat(&#39;b&#39;, &#39;c&#39;)); // &quot;abc&quot;)
+
+//split
 &#39;a|b|c&#39;.split(&#39;|&#39;); // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
-```</p>
+&lt;/script&gt;
+</code></pre>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
