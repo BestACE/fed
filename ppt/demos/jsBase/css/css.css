@@ -1,0 +1,20 @@
+#user{
+	width: 600px;
+	border-collapse: collapse;
+	font-size: 14px;
+}
+table,th,td{
+	border:1px solid #aaaaaa;
+}
+th{
+	background-color: #6699cc;
+	color: #fff;
+	line-height: 1.5em;
+}
+td{
+	text-align: center;
+	height: 24px;
+}
+tr.odd td{
+	background-color: rgba(100,120,150,.2);
+}

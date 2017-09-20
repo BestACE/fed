@@ -77,6 +77,26 @@
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
+<h2>JS放在那里比较好？</h2>
+<ul>
+<li>考虑因素<ul>
+<li>页面能否执行（预加载）</li>
+<li>加载性能</li>
+<li>维护方便</li>
+<li>JS处理的元素需要在JS之前</li>
+</ul>
+</li>
+<li>处理方案<ul>
+<li>页面初始化必须的JS放head部分</li>
+<li>绝大多数的JS放body结束标签前</li>
+<li>大型页面，可以采用模块化的方式</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
 <h2>数据类型-松散类型</h2>
 <ul>
 <li>typeof运算符</li>
@@ -241,12 +261,6 @@ console.log(isNaN(f));
 <li>Number</li>
 <li>parseInt转换为整数</li>
 <li>parseFloat转换为浮点数</li>
-<li>NaN是一个特殊的数值<ul>
-<li>任何涉及NaN的操作都会返回NaN</li>
-<li>NaN与任何值不等，包括它本身</li>
-<li>使用isNaN()方法判断NaN</li>
-</ul>
-</li>
 </ul>
 <pre><code class="html">&lt;script&gt;
 //Number类型转换

@@ -1,0 +1,417 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>运算符和程序结构 - By 交互开发课题组</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>运算符和程序结构</h1>
+<h2>演讲者：交互开发课题组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>运算符</li>
+<li>条件语句</li>
+<li>循环语句</li>
+<li>案例练习</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>命名规范</h2>
+<ul>
+<li>正确<ul>
+<li>可以包含字母、数字、下划线、美元符号</li>
+<li>不能以数字开头</li>
+</ul>
+</li>
+<li>规范<ul>
+<li>匈牙利命名法</li>
+<li>表示数据类型</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>命名规范</h2>
+<table class="thin">
+    <tr>
+        <th>类型</th>
+        <th>前缀</th>
+        <th>类型</th>
+        <th>实例</th>
+    </tr>
+    <tr>
+        <td>布尔值</td>
+        <td>b</td>
+        <td>Boolean</td>
+        <td>bIsComplete</td>
+    </tr>
+    <tr>
+        <td>整数</td>
+        <td>i</td>
+        <td>Integer</td>
+        <td>iItemCount</td>
+    </tr>
+    <tr>
+        <td>浮点数</td>
+        <td>f</td>
+        <td>Float</td>
+        <td>fPrice</td>
+    </tr>
+    <tr>
+        <td>字符串</td>
+        <td>s</td>
+        <td>String</td>
+        <td>sUserName</td>
+    </tr>
+    <tr>
+        <td>数组</td>
+        <td>a</td>
+        <td>Array</td>
+        <td>aItems</td>
+    </tr>
+    <tr>
+        <td>函数</td>
+        <td>fn</td>
+        <td>Function</td>
+        <td>fnHandler</td>
+    </tr>
+    <tr>
+        <td>对象</td>
+        <td>o</td>
+        <td>Object</td>
+        <td>oDiv1</td>
+    </tr>
+    <tr>
+        <td>正则表达式</td>
+        <td>re</td>
+        <td>RegExp</td>
+        <td>reEmailCheck</td>
+    </tr>
+    <tr>
+        <td>变体变量</td>
+        <td>v</td>
+        <td>Variant</td>
+        <td>vAnything</td>
+    </tr>
+</table>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>运算符</h2>
+<ul>
+<li>算数运算符</li>
+<li>赋值运算符</li>
+<li>比较运算符</li>
+<li>布尔运算符</li>
+<li>位运算符</li>
+<li>其他运算符</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>算数运算符</h2>
+<ul>
+<li>加法运算符（Addition）：x + y</li>
+<li>减法运算符（Subtraction）： x - y</li>
+<li>乘法运算符（Multiplication）： x * y</li>
+<li>除法运算符（Division）：x / y</li>
+<li>余数运算符（Remainder）：x % y</li>
+<li>自增运算符（Increment）：++x 或者 x++</li>
+<li>自减运算符（Decrement）：--x 或者 x--</li>
+<li>数值运算符（Convert to number）： +x</li>
+<li>负数值运算符（Negate）：-x</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>加法运算符 +</h2>
+<ul>
+<li>算数运算符里的加法运算符</li>
+<li>字符串连接符</li>
+<li>运算过程<ul>
+<li>如果操作数是对象，先自动转成原始类型的值（）</li>
+<li>两个操作数都是原始类型的值以后，只要有一个操作数是字符串，则两个操作数都转为字符串，执行字符串连接运算。</li>
+<li>两个操作数都为数值，执行加法运算。<pre><code class="html">&lt;script&gt;
+&#39;1&#39; + {foo: &#39;bar&#39;} // &quot;1[object Object]&quot;
+&#39;1&#39; + 1       // &quot;11&quot;
+&#39;1&#39; + true    // &quot;1true&quot;
+&#39;1&#39; + [1]     // &quot;11&quot;
+&#39;3&#39; + 4 + 5   // &quot;345&quot;
+3 + 4 + &#39;5&#39;   // &quot;75&quot;
+[1, 2] + [3]  // &quot;1,23&quot;
+&lt;/script&gt;
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>减、乘、除</h2>
+<ul>
+<li>加法运算符以外的其他算术运算符（比如减法、除法和乘法），都不会发生重载。</li>
+<li>所有操作数一律转为数值，再进行相应的数学运算。</li>
+</ul>
+<pre><code class="html">&lt;script&gt;
+1 + &#39;2&#39; // &#39;12&#39;
+1 - &#39;2&#39; // -1
+1 * &#39;2&#39; // 2
+1 / &#39;2&#39; // 0.5
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>余数运算符</h2>
+<ul>
+<li>运算结果的正负号由第一个运算子的正负号决定。</li>
+<li>为了得到正确的负数的余数值，需要先使用绝对值函数。</li>
+</ul>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;    
+-1 % 2 // -1
+1 % -2 // 1
+
+// 错误的写法
+function isOdd(n) {
+  return n % 2 === 1;
+}
+isOdd(-5); // false
+isOdd(-4); // false
+
+// 正确的写法
+function isOdd(n) {
+  return Math.abs(n % 2) === 1;
+}
+isOdd(-5); // true
+isOdd(-4); // false
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>赋值运算符</h2>
+<ul>
+<li>赋值运算符（Assignment Operators）用于给变量赋值。</li>
+<li>最常见的赋值运算符，当然就是等号（=），表达式x = y表示将y的值赋给x。</li>
+<li>11个复合的赋值运算符<pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;                
+x += y // 等同于 x = x + y
+x -= y // 等同于 x = x - y
+x *= y // 等同于 x = x * y
+x /= y // 等同于 x = x / y
+x %= y // 等同于 x = x % y
+x &gt;&gt;= y // 等同于 x = x &gt;&gt; y
+x &lt;&lt;= y // 等同于 x = x &lt;&lt; y
+x &gt;&gt;&gt;= y // 等同于 x = x &gt;&gt;&gt; y
+x &amp;= y // 等同于 x = x &amp; y
+x |= y // 等同于 x = x | y
+x ^= y // 等同于 x = x ^ y
+&lt;/script&gt;
+</code></pre>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>比较运算符</h2>
+<ul>
+<li>比较运算符用于比较两个值，然后返回一个布尔值，表示是否满足比较条件。</li>
+<li>比较运算符可以比较各种类型的值，不仅仅是数值。</li>
+<li>JavaScript 一共提供了8个比较运算符<ul>
+<li>== 相等</li>
+<li>=== 严格相等</li>
+<li>!= 不相等</li>
+<li>!== 严格不相等</li>
+<li>&lt; 小于</li>
+<li>&lt;= 小于或等于</li>
+<li><blockquote>
+<p>大于</p>
+</blockquote>
+</li>
+<li><blockquote>
+<p>= 大于或等于</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>比较运算符</h2>
+<ul>
+<li>字符串按照字典顺序进行比较</li>
+<li>非字符串的比较<ul>
+<li>两个原始类型的值的比较，除了相等运算符（==）和严格相等运算符（===），其他比较运算符都是先转成数值再比较。</li>
+<li>如果操作数是对象，会转为原始类型的值，再进行比较。
+-</li>
+</ul>
+</li>
+<li>相等运算符<ul>
+<li>JavaScript 提供两种相等运算符：==和===</li>
+<li>相等运算符（==）比较两个值是否相等</li>
+<li>严格相等运算符（===）比较它们是否为“同一个值”（类型相同，值相同）</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>布尔运算符</h2>
+<ul>
+<li>取反运算符：!</li>
+<li>且运算符：&amp;&amp;</li>
+<li>或运算符：||</li>
+<li>三元运算符：?:</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>条件语句</h2>
+<ul>
+<li>if 结构</li>
+<li>if…else结构</li>
+<li>switch结构</li>
+<li>三元运算符 ?:</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>循环语句</h2>
+<ul>
+<li>while循环</li>
+<li>for循环<ul>
+<li>For 循环</li>
+<li>For/In 循环</li>
+</ul>
+</li>
+<li>do…while循环</li>
+<li>break语句和continue语句<ul>
+<li>break语句用于跳出代码块或循环。</li>
+<li>continue语句用于立即终止本轮循环，返回循环结构的头部，开始下一轮循环。</li>
+</ul>
+</li>
+<li>标签（label）<ul>
+<li>语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置。</li>
+<li>标签通常与break语句和continue语句配合使用，跳出特定的循环。</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>案例练习</h2>
+<h3>隔行变色和删除表行</h3>
+<iframe src="./demos/editor.html?file=jsBase/table" style="height:400px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>交互开发</h1>
+<h2>旨为前端开发工程师的前端开发课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
