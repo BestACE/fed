@@ -156,7 +156,11 @@
 <li>运算过程<ul>
 <li>如果操作数是对象，先自动转成原始类型的值（）</li>
 <li>两个操作数都是原始类型的值以后，只要有一个操作数是字符串，则两个操作数都转为字符串，执行字符串连接运算。</li>
-<li>两个操作数都为数值，执行加法运算。<pre><code class="html">&lt;script&gt;
+<li>两个操作数都为数值，执行加法运算。</li>
+</ul>
+</li>
+</ul>
+<pre><code class="html">&lt;script&gt;
 &#39;1&#39; + {foo: &#39;bar&#39;} // &quot;1[object Object]&quot;
 &#39;1&#39; + 1       // &quot;11&quot;
 &#39;1&#39; + true    // &quot;1true&quot;
@@ -166,10 +170,6 @@
 [1, 2] + [3]  // &quot;1,23&quot;
 &lt;/script&gt;
 </code></pre>
-</li>
-</ul>
-</li>
-</ul>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
@@ -246,24 +246,19 @@ x ^= y // 等同于 x = x ^ y
 <ul>
 <li>比较运算符用于比较两个值，然后返回一个布尔值，表示是否满足比较条件。</li>
 <li>比较运算符可以比较各种类型的值，不仅仅是数值。</li>
-<li>JavaScript 一共提供了8个比较运算符<ul>
-<li>== 相等</li>
-<li>=== 严格相等</li>
-<li>!= 不相等</li>
-<li>!== 严格不相等</li>
-<li>&lt; 小于</li>
-<li>&lt;= 小于或等于</li>
-<li><blockquote>
-<p>大于</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>= 大于或等于</p>
-</blockquote>
-</li>
+<li>JavaScript 一共提供了8个比较运算符</li>
 </ul>
-</li>
-</ul>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;                
+     == 相等
+     === 严格相等
+     != 不相等
+     !== 严格不相等
+     &lt; 小于
+     &lt;= 小于或等于
+     &gt; 大于
+     &gt;= 大于或等于
+&lt;/script&gt;
+</code></pre>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
