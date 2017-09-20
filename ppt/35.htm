@@ -294,6 +294,31 @@ x ^= y // 等同于 x = x ^ y
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
+<h2>布尔运算符</h2>
+<ul>
+<li>&amp;&amp; 实现条件判断</li>
+<li>|| 实现存在判断，函数默认值</li>
+</ul>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;                
+if (a&lt;5){
+    console.log(&quot;a&lt;5&quot;);
+}
+//等价于
+a&lt;5 &amp;&amp; console.log(&quot;a&lt;5&quot;);
+
+//存在判断
+var oTd=oTd||document.getElementById(&quot;oTd&quot;);
+//实现函数参数默认值
+function getNum(num){
+    var num=num||4;
+    console.log(num);
+}
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
 <h2>条件语句</h2>
 <ul>
 <li>if 结构</li>
