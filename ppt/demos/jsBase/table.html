@@ -166,7 +166,12 @@
 			//隔列变色
 			//oTd[i].style.background="hsla("+((i%10)%2)*20+",50%,50%,.5)";
 			//列色渐变
-			oTd[i].style.background="hsla("+(i%10)*20+",50%,50%,.5)";	
+			//oTd[i].style.background="hsla("+(i%10)*20+",50%,50%,.5)";
+			//console.log(oTd[i]);
+		}
+		
+		for (var i = 0; i < oTd.length; i++) {
+			oTd[i].style.background="hsla("+(i%10)*20+",50%,50%,.5)";
 		}
 
 		
