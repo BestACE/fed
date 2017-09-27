@@ -96,6 +96,7 @@
 3. [JS语言基础](//bestace.github.io/fed/ppt/34.htm)
 4. [JS运算符和表达式](//bestace.github.io/fed/ppt/35.htm)
 5. [JS语言基础练习课](//bestace.github.io/fed/ppt/36.htm)
+6. [JS数组](//bestace.github.io/fed/ppt/37.htm)
 
 ## 课程资源
 0.  自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。
