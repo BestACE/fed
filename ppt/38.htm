@@ -1,0 +1,254 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Date对象 - By 交互开发课题组</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>Date对象</h1>
+<h2>演讲者：交互开发课题组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>Date对象概述</li>
+<li>Date对象方法</li>
+<li>时间操作</li>
+<li>案例练习</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Date对象概述</h2>
+<ul>
+<li>日期对象用于处理日期和时间。</li>
+<li>时间范围是1970年1月1日00:00:00前后的各1亿天（单位为毫秒）。</li>
+<li>参考资料<ul>
+<li><a href="http://javascript.ruanyifeng.com/stdlib/date.html" target="_blank">参考1</a></li>
+<li><a href="http://w3school.com.cn/js/js_obj_date.asp" target="_blank">参考2</a></li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Date对象方法</h2>
+<ul>
+<li>构造方法</li>
+<li>静态方法</li>
+<li>实例方法<ul>
+<li>get方法</li>
+<li>set方法</li>
+<li>to方法</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Date对象构造方法</h2>
+<ul>
+<li>不带参数，返回当前时间</li>
+<li>数字做参数，返回自1970年1月1日00:00:00开始计算的毫秒数的时间</li>
+<li>日期字符串作为参数，返回所对应的时间</li>
+<li>多个整数作为参数，依次表示年、月、日、小时、分钟、秒和毫秒</li>
+</ul>
+<pre><code class="html">&lt;script type=&quot;text/javascript&quot;&gt;
+    //不带参数，返回当前时间
+    var today = new Date();
+
+    //数字做参数，返回自1970年1月1日00:00:00开始计算的毫秒数的时间
+    // 1970年1月2日的零时
+    var Jan02_1970 = new Date(3600 * 24 * 1000);
+    // 1969年12月31日的零时
+    var Dec31_1969 = new Date(-3600 * 24 * 1000);
+
+    //日期字符串作为参数，返回所对应的时间
+    //日期字符串的完整格式是“month day, year hours:minutes:seconds”
+    new Date(&#39;October 10, 2017&#39;);
+    new Date(&#39;2017-10-10&#39;)
+    new Date(&#39;2017/10/10&#39;)
+    new Date(&#39;10/10/2017&#39;)
+    new Date(&#39;2017-Oct-15&#39;)
+    new Date(&#39;Oct, 10, 2017&#39;)
+    new Date(&#39;October 10, 2017&#39;)
+    new Date(&#39;2017 Oct 10&#39;)
+
+    //多个整数作为参数，依次表示年、月、日、小时、分钟、秒和毫秒
+    new Date(2017,10,10,9,40,20,567);
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Date对象的静态方法</h2>
+<ul>
+<li><code>Date.now()</code><ul>
+<li>返回当前距离1970年1月1日 00:00:00 UTC的毫秒数</li>
+</ul>
+</li>
+<li><code>Date.parse()</code><ul>
+<li>解析日期字符串，返回距离1970年1月1日 00:00:00的毫秒数</li>
+</ul>
+</li>
+<li><code>Date.UTC()</code><ul>
+<li>默认情况下，Date对象返回的都是当前时区的时间。Date.UTC方法可以返回UTC时间（世界标准时间）。</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Date对象的实例方法</h2>
+<ul>
+<li>get类：获取Date对象的日期和时间。</li>
+<li>set类：设置Date对象的日期和时间。</li>
+<li>to类：从Date对象返回一个字符串，表示指定的时间。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>get方法</h2>
+<ul>
+<li>getTime()：返回距离1970年1月1日00:00:00的毫秒数，等同于valueOf方法。</li>
+<li>getDate()：返回实例对象对应每个月的几号（从1开始）。</li>
+<li>getDay()：返回星期几，星期日为0，星期一为1，以此类推。</li>
+<li>getYear()：返回距离1900的年数。</li>
+<li>getFullYear()：返回四位的年份。</li>
+<li>getMonth()：返回月份（0表示1月，11表示12月）。</li>
+<li>getHours()：返回小时（0-23）。</li>
+<li>getMilliseconds()：返回毫秒（0-999）。</li>
+<li>getMinutes()：返回分钟（0-59）。</li>
+<li>getSeconds()：返回秒（0-59）。</li>
+<li>getTimezoneOffset()：返回当前时间与UTC的时区差异，以分钟表示，返回结果考虑到了夏令时因素。</li>
+</ul>
+<h3>所有这些get*方法返回的都是整数，又稍有不同</h3>
+<h3>Date对象提供了上述方法的UTC版本，用来返回UTC时间</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>set类和to类</h2>
+<ul>
+<li>set类</li>
+<li>to类</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>时间操作</h2>
+<ul>
+<li>时间格式化</li>
+<li>时间差运算</li>
+<li>倒计时效果</li>
+<li>时钟效果</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>案例练习</h2>
+<h3>数字时钟效果</h3>
+<iframe src="./demos/editor.html?file=jsBase/clock" style="height:400px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>交互开发</h1>
+<h2>旨为前端开发工程师的前端开发课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
