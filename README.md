@@ -98,6 +98,7 @@
 5. [JS语言基础练习课](//bestace.github.io/fed/ppt/36.htm)
 6. [JS数组](//bestace.github.io/fed/ppt/37.htm)
 7. [JS时间](//bestace.github.io/fed/ppt/38.htm)
+7. [JS函数](//bestace.github.io/fed/ppt/39.htm)
 
 ## 课程资源
 0.  自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。
