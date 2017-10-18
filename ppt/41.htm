@@ -1,0 +1,407 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>事件 - By 交互开发课题组</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>事件</h1>
+<h2>演讲者：交互开发课题组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>事件概念</li>
+<li>事件机制</li>
+<li>事件处理</li>
+<li>案例练习</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件概念</h2>
+<ul>
+<li>事件是一种异步编程的方式</li>
+<li>事件是触发某个代码执行的机制</li>
+<li>事件是接受用户交互的一种方式<ul>
+<li>单击</li>
+<li>双击</li>
+<li>网页加载完成</li>
+<li>按下Enter键</li>
+<li>摇一摇手机</li>
+</ul>
+</li>
+<li>参考资料<ol>
+<li><a href="http://javascript.ruanyifeng.com/dom/event-type.html" target="_blank">事件种类</a></li>
+<li><a href="http://javascript.ruanyifeng.com/dom/event.html" target="_blank">事件模型</a></li>
+<li><a href="http://www.w3school.com.cn/js/js_htmldom_events.asp" target="_blank">w3school</a></li>
+</ol>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件种类</h2>
+<ul>
+<li><a href="http://javascript.ruanyifeng.com/dom/event-type.html" target="_blank">事件种类</a></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件流</h2>
+<ul>
+<li>思考<ul>
+<li>如果某个元素、它的父元素、祖先元素同时绑定了<strong>单击事件</strong>，那么执行顺序如何？</li>
+</ul>
+</li>
+<li>页面中接受事件的顺序</li>
+</ul>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+        &lt;title&gt;&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;myDiv&quot;&gt;ClickMe&lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件流</h2>
+<ul>
+<li>事件冒泡</li>
+<li>事件捕获</li>
+<li>DOM事件流</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件冒泡</h2>
+<ul>
+<li>IE的事件流叫做事件冒泡</li>
+<li>事件从最具体的元素开始，逐级向上，最后到达文档(从小到大)
+<img src="./img/41/001.png" alt=""></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件捕获</h2>
+<ul>
+<li>netscape提出并支持的事件处理方式</li>
+<li>事件从抽象元素开始，逐级具体，最后最具体元素(从大到小)
+<img src="./img/41/002.png" alt=""></li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>DOM事件流</h2>
+<ul>
+<li>DOM级事件流包含三个阶段<ul>
+<li>事件捕获阶段</li>
+<li>处于目标阶段</li>
+<li>事件冒泡阶段</li>
+</ul>
+</li>
+</ul>
+<img src="./img/41/003.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件流测试</h2>
+<h3>事件流测试</h3>
+<iframe src="./demos/editor.html?file=jsBase/eventFlow" style="height:400px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>事件处理</h2>
+<ul>
+<li>HTML事件处理</li>
+<li>DOM0级事件处理</li>
+<li>DOM2级事件处理</li>
+<li>IE事件处理</li>
+<li>跨浏览器事件处理程序</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>HTML事件处理</h2>
+<ul>
+<li>HTML标签的事件属性调用</li>
+<li>JS里面声明函数</li>
+</ul>
+<pre><code class="html">&lt;a href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot; onclick=&quot;go();&quot;&gt;HTML事件处理程序&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function go () {
+        document.write(&quot;go&quot;);
+        alert(event.type);
+        //ie浏览器没有event.target
+        alert(event.target.getAttribute(&quot;value&quot;));
+        alert(this);
+    }
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>DOM0级事件处理</h2>
+<pre><code class="html">&lt;a id=&quot;link&quot; href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot;&gt;DOM0级事件处理程序&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var oLink=document.getElementById(&quot;link&quot;);
+    oLink.onclick=function(){
+        document.write(&quot;go&quot;);
+        alert(event.type);
+        alert(event.target.getAttribute(&quot;value&quot;));
+        alert(this);
+        alert(this.getAttribute(&quot;value&quot;));
+    }
+
+    //删除事件处理
+    oLink.onclick=null;
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>DOM2级事件处理</h2>
+<pre><code class="html">&lt;a id=&quot;link&quot; href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot;&gt;DOM2级事件处理程序&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var oLink=document.getElementById(&quot;link&quot;);
+    oLink.addEventListener(&quot;click&quot;,clickHandler,true);
+    function clickHandler(){
+        document.write(&quot;go&quot;);
+        alert(event.type);
+        alert(event.target.getAttribute(&quot;value&quot;));
+        alert(this);
+        alert(this.getAttribute(&quot;value&quot;));
+    }
+
+    //删除事件处理
+    oLink.removeEventListener(&quot;click&quot;,clickHandler,true);
+    //IE9、chrom、firefox、opera等支持DOM2级
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>IE事件处理</h2>
+<pre><code class="html">&lt;a id=&quot;link&quot; href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot;&gt;IE事件处理程序&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var oLink=document.getElementById(&quot;link&quot;);
+    oLink.attachEvent(&quot;onclick&quot;,clickHandler);
+    function clickHandler () {
+        document.write(&quot;go&quot;);
+        var event = event||window.event;
+        alert(this);
+        alert(event.type);
+        alert(event.srcElement.getAttribute(&quot;value&quot;));
+        //object window
+    }
+    //删除事件处理
+    oLink.detachEvent(&quot;onclick&quot;,clickHandler);
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>跨浏览器事件处理</h2>
+<pre><code class="html">&lt;a id=&quot;link&quot; href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot;&gt;跨浏览器&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var oLink=document.getElementById(&quot;link&quot;);
+    if (oLink.addEventListener) {
+        oLink.addEventListener(&quot;click&quot;,clickHandler,false);
+    } else if(oLink.attachEvent){
+        oLink.attachEvent(&quot;onclick&quot;,clickHandler);
+    }else{
+        oLink[&quot;onclick&quot;]=clickHandler;
+    }
+    function clickHandler() {
+        document.write(&quot;go&quot;);
+        alert(event.type);
+    }
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>跨浏览器事件处理</h2>
+<pre><code class="html">&lt;a id=&quot;link&quot; href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot;&gt;跨浏览器&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var oLink=document.getElementById(&quot;link&quot;);
+    if (oLink.addEventListener) {
+        oLink.addEventListener(&quot;click&quot;,clickHandler,false);
+    } else if(oLink.attachEvent){
+        oLink.attachEvent(&quot;onclick&quot;,clickHandler);
+    }else{
+        oLink[&quot;onclick&quot;]=clickHandler;
+    }
+    function clickHandler() {
+        document.write(&quot;go&quot;);
+        alert(event.type);
+    }
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>跨浏览器事件处理-shim</h2>
+<blockquote>
+<p>定义个EventUtil对象</p>
+</blockquote>
+<pre><code class="html">&lt;a id=&quot;link&quot; href=&quot;#baidu&quot; value=&quot;这个是链接，你感觉如何&quot;&gt;跨浏览器&lt;/a&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    var oLink=document.getElementById(&quot;link&quot;);
+    var EventUtil={
+        addHandler:function(element,type,handler){
+            if (element.addEventListener) {
+                element.addEventListener(type,handler,false);
+            } else if(element.attachEvent){
+                element.attachEvent(&quot;on&quot;+type,handler);
+            }else{
+                element[&quot;on&quot;+type]=handler;
+            }
+        },
+        removeHandler:function(element,type,handler){
+            if (element.removeEventListener) {
+                element.removeEventListener(type,handler,false);
+            } else if(element.detachEvent){
+                element.detachEvent(&quot;on&quot;+type,handler);
+            }else{
+                element[&quot;on&quot;+type]=null;
+            }
+        }
+    };
+    function clickHandler() {
+        var event = event||window.event;
+        var ele = event.srcElement || event.target;
+
+        document.write(&quot;go&quot;);
+        alert(event.type);
+        alert(ele);
+    }
+    EventUtil.addHandler(oLink,&quot;click&quot;,clickHandler);
+    //删除事件
+    //EventUtil.removeHandler(oLink,&quot;click&quot;,clickHandler);
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>跨浏览器事件处理-<a href="///github.com/jonathantneal/EventListener" target="_blank">polyfill</a></h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>交互开发</h1>
+<h2>旨为前端开发工程师的前端开发课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"></p>
+<p><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe></p>
+<p><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe></p>
+<p><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

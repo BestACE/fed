@@ -100,6 +100,7 @@
 7. [JS时间](//bestace.github.io/fed/ppt/38.htm)
 8. [JS函数](//bestace.github.io/fed/ppt/39.htm)
 9. [作用域与闭包](//bestace.github.io/fed/ppt/40.htm)
+10. [事件](//bestace.github.io/fed/ppt/41.htm)
 
 ## 课程资源
 0.  自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。
