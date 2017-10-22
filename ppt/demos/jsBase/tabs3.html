@@ -11,7 +11,9 @@
 				display: block;
 			}
 			
-			.tabs {}
+			.tabs {
+				
+			}
 			
 			.tabs .tabItems {}
 			
@@ -42,34 +44,33 @@
 	<body>
 		<div class="tabs">
 			<div class="tabItems clearfix">
-				<div class="item">新闻</div>
-				<div class="item">通知</div>
-				<div class="item">公告</div>
+				<div class="item" data-tab="news">新闻</div>
+				<div class="item" data-tab="notice">通知</div>
+				<div class="item" data-tab="bulletin">公告</div>
 			</div>
 			<div class="tabContents">
-				<div class="content">新闻内容</div>
-				<div class="content">通知内容</div>
-				<div class="content">公告内容</div>
+				<div id="news" class="content">新闻内容</div>
+				<div id="notice" class="content">通知内容</div>
+				<div id="bulletin" class="content">公告内容</div>
 			</div>
 		</div>
-		<script type="text/javascript">
+		<script src="https://cdn.bootcss.com/babel-core/5.0.0/browser.min.js"></script>
+		<script type="text/babel">
 			var oItems = document.querySelectorAll(".item");
 			var oContents = document.querySelectorAll(".content");
 
 			setStyles(oContents,"display","none");
 			setStyle(oContents[0],"display","block");
 			
-			for (var i = 0; i < oItems.length; i++) {
-				oItems[i].addEventListener("click",(function(n){
-					return function(){
-						setStyles(oContents,"display","none");
-						setStyle(oContents[n],"display","block");
-					}
-				})(i))
+			for (let i = 0; i < oItems.length; i++) {
+				oItems[i].addEventListener("click",function(e){
+					setStyles(oContents,"display","none");
+					setStyle(oContents[i],"display","block");
+				})
 			}
 			
 			function setStyles (list,key,value) {
-				for (var i = 0; i < list.length; i++) {
+				for (let i = 0; i < list.length; i++) {
 					list[i].style[key]=value;
 				}
 			}
