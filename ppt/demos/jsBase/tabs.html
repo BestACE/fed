@@ -60,6 +60,7 @@
 			setStyle(oContents[0],"display","block");
 			
 			for (var i = 0; i < oItems.length; i++) {
+				//绑定事件的时候i和执行事件的i不一致
 				oItems[i].addEventListener("click",(function(n){
 					return function(){
 						setStyles(oContents,"display","none");
