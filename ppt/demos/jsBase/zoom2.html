@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				min-height: 1000px;
+			}
+			.zoom{
+				width: 400px;
+				height: 400px;
+				/*background-color: #f00;*/
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				overflow: hidden;
+				/*
+				 绝对定位的基准：最近的已经定位过的祖先元素
+				 固定定位的基准：浏览器
+
+				脱离常规流
+					从父对象里脱离
+				 * */
+			}
+			.zoom img{
+				width: 100%;
+			}
+			
+			.zoom .zoomer{
+				width: 80px;
+				height: 80px;
+				background-color: #00f;
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: translate(-50%,-50%);
+				pointer-events: none;
+				display: none;
+				background: url(img/FE.jpg);
+			}
+			.zoom:hover .zoomer{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<figure class="zoom">
+			<img src="img/FE.jpg" />
+			<div class="zoomer"></div>
+		</figure>
+		<script type="text/javascript">
+			var zoom = document.querySelector('.zoom'),
+				zoomer = zoom.querySelector('.zoomer'),
+				img=zoom.querySelector('img'),
+                ratio;
+			
+			img.addEventListener("load",function(event){
+				ratio = img.naturalWidth/img.width;
+				zoomer.style.backgroundImage = 'url(' + img.src + ')';
+			})
+			
+			zoom.addEventListener("mousemove",function(event){
+				var x=event.offsetX||event.layerX;
+				var y=event.offsetY||event.layerY;
+				zoomer.style.left=x+"px";
+				zoomer.style.top=y+"px";
+				zoomer.style.backgroundPosition=(-ratio*x+40)+"px "+(-ratio*y+40)+"px";
+			});
+		</script>
+	</body>
+</html>
