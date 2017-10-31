@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				min-height: 1000px;
+				padding: 0;
+				margin: 0;
+			}
+			.zoom{
+				width: 400px;
+				/*height: 400px;*/
+				position: absolute;
+				left: 100px;
+				top: 100px;
+				overflow: hidden;
+				border: 1px solid rgba(0,0,0,.1);
+				margin: 0;
+			}
+			.showDetail{
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 520px;
+				top: 100px;
+				overflow: hidden;
+				border: 1px solid rgba(0,0,0,.1);
+				background-repeat: no-repeat;
+			}
+			.zoom img{
+				width: 100%;
+			}
+			
+			.zoom .zoomer{
+				width: 100px;
+				height: 100px;
+				background-color: rgba(255,255,255,.6);
+				position: absolute;
+				left: 0;
+				top: 0;
+				transform: translate(-50%,-50%);
+				pointer-events: none;
+				display: none;
+			}
+			.zoom:hover .zoomer{
+				display: block;
+			}
+			.zoom+.showDetail{
+				display: none;
+			}
+			.zoom:hover+.showDetail{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<figure class="zoom">
+			<img src="img/FE.jpg" />
+			<div class="zoomer"></div>
+		</figure>
+		<div class="showDetail">
+			
+		</div>
+		<script type="text/javascript">
+			var zoom = document.querySelector('.zoom'),
+				zoomer = zoom.querySelector('.zoomer'),
+				img=zoom.querySelector('img'),
+				show=document.querySelector('.showDetail'),
+                ratio;
+			
+			img.addEventListener("load",function(event){
+				ratio = img.naturalWidth/img.width;
+				zoomerWidth=img.width/ratio;
+				zoomerHeight=img.height/ratio;
+				show.style.backgroundImage = 'url(' + img.src + ')';
+				show.style.width=img.width+"px";
+				show.style.height=zoom.style.height=img.height+"px";
+				zoomer.style.width=zoomerWidth+"px";
+				zoomer.style.height=zoomerHeight+"px";
+			})
+			
+			zoom.addEventListener("mousemove",function(event){
+				var x=event.offsetX||event.layerX;
+				var y=event.offsetY||event.layerY;
+				zoomer.style.left=x+"px";
+				zoomer.style.top=y+"px";
+				show.style.backgroundPositionX=(-ratio*(x - zoomerWidth/2))+"px";
+				show.style.backgroundPositionY=(-ratio*(y - zoomerHeight/2))+"px";
+			});
+		</script>
+	</body>
+</html>
