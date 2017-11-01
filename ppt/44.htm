@@ -39,7 +39,8 @@
 
 <h2>案例赏析</h2>
 <ul>
-<li><a href="https://bestace.github.io/fed/ppt/demos/jsBase/zoom.html" target="_blank">放大镜案例</a></li>
+<li><a href="https://bestace.github.io/fed/ppt/demos/jsBase/zoom22.html" target="_blank">放大镜案例落地版</a></li>
+<li><a href="https://bestace.github.io/fed/ppt/demos/jsBase/zoom33.html" target="_blank">放大镜案例落地版2</a></li>
 <li>参考资料<ul>
 <li><a href="http://javascript.ruanyifeng.com/dom/event.html#toc12" target="_blank">事件对象</a></li>
 <li><a href="http://www.cnblogs.com/qianduanjingying/p/5842678.html" target="_blank">event对象offsetX, clientX, pageX, screenX, layerX, x区别</a></li>
@@ -52,74 +53,25 @@
 
 <h2>案例解析</h2>
 <ul>
-<li>鼠标跟随效果</li>
-<li>图片放大的实现</li>
+<li>通过元素的类名，自动添加效果</li>
+<li>放大镜元素通过JS添加</li>
+<li>通过实践绑定传递值<ul>
+<li>闭包</li>
+<li>设置、获取属性</li>
+</ul>
+</li>
 </ul>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
-<h2>知识链接</h2>
-<ul>
-<li>offsetX、clientX、pageX、screenX等</li>
-<li>获取鼠标位置</li>
-<li>获取元素位置</li>
-</ul>
-
+<h2>放大镜案例落地版</h2>
+<iframe src="./demos/editor.html?file=jsBase/zoom22" style="height:400px;"></iframe>
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
-<h2>offsetX、clientX、pageX、screenX等</h2>
-<ul>
-<li>screenX 鼠标相对于用户显示器屏幕左上角的X,Y坐标,标准事件和IE事件都定义了这2个属性</li>
-<li>pageX 鼠标相对于文档坐标可视区域的X，Y坐标(窗口坐标),这2个属性不是标准属性，但得到了广泛支持。IE事件中没有这2个属性。</li>
-<li>clientX 鼠标相对于浏览器窗口可视区域的X，Y坐标(窗口坐标),可视区域不包括工具栏和滚动条。IE事件和标准事件都定义了这2个属性</li>
-<li>offsetX 鼠标相对于事件源元素(srcElement)的X,Y坐标,只有IE事件有这2个属性，标准事件没有对应的属性。</li>
-</ul>
-
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
-
-<h2>获取鼠标位置</h2>
-<pre><code class="javascript">//获取鼠标位置
-function getMousePos() {
-    var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
-    var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-    var x = event.pageX || event.clientX + scrollX;
-    var y = event.pageY || event.clientY + scrollY;
-    return {
-        &#39;x&#39;: x,
-        &#39;y&#39;: y
-    };
-}
-</code></pre>
-
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
-
-<h2>获取对象位置</h2>
-<pre><code class="javascript">//获取对象位置
-function getElementPos(obj) {
-    //getBoundingClientRect方法
-    var rectObject = obj.getBoundingClientRect();
-    var x = y = 0;
-    return {
-        x: rectObject.left,
-        y: rectObject.top
-    }
-}
-</code></pre>
-
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
-
-<h2>放大镜案例</h2>
-<iframe src="./demos/editor.html?file=jsBase/zoom" style="height:400px;"></iframe>
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
-
-<h2>放大镜案例简化版</h2>
-<iframe src="./demos/editor.html?file=jsBase/zoom2" style="height:400px;"></iframe>
+<h2>放大镜案例落地版2</h2>
+<iframe src="./demos/editor.html?file=jsBase/zoom33" style="height:400px;"></iframe>
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
 <h1>交互开发</h1>
