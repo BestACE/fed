@@ -46,18 +46,6 @@
 		<img src="img/FE.jpg" class="zoomPic" />
 		<script type="text/javascript">
 			(function() {
-				//一些公用函数
-				//获取元素位置
-				function getElementPos(obj) {
-					//getBoundingClientRect方法
-					var rectObject = obj.getBoundingClientRect();
-					var x = y = 0;
-					return {
-						x: rectObject.left,
-						y: rectObject.top
-					}
-				}
-
 				var ratio = [];
 				var winWidth=window.innerWidth;
 				var winHeight=window.innerHeight;
@@ -78,7 +66,7 @@
 					})(i));
 
 					zoom[i].addEventListener("mousemove", (function(n) {
-						return function() {
+						return function(event) {
 
 							if(ratio[n] <= 1) {
 								return false;
@@ -86,21 +74,23 @@
 
 							var event = event || window.event;
 							var target = event.target || event.srcElement;
-							var x = event.offsetX || event.layerX;
-							var y = event.offsetY || event.layerY;
+							//x,y 相对于浏览器的位置
+							var cx = event.clientX;
+							var cy = event.clientY;
+							//ox,oy 相对于图像的位置
+							var ox=event.offsetX||event.layerX;
+							var oy=event.offsetY||event.layerY;
 
-							var targetX = getElementPos(target).x;
-							var targetY = getElementPos(target).y;
 							var zoomShowWidth = 100;
 							var zoomShowHeight = 100;
 
 							zoomHandler.style.width = zoomShowWidth + "px";
 							zoomHandler.style.height = zoomShowHeight + "px";
-							zoomHandler.style.left = targetX + x + "px";
-							zoomHandler.style.top = targetY + y + "px";
-							zoomHandler.style.display = "block";	
+							zoomHandler.style.left = cx + "px";
+							zoomHandler.style.top =  cy + "px";	
 							zoomHandler.style.backgroundImage = 'url(' + target.src + ')';
-							zoomHandler.style.backgroundPosition = (-ratio[n] * x + zoomShowWidth / 2) + "px "+(-ratio[n] * y + zoomShowHeight / 2) + "px";
+							zoomHandler.style.backgroundPosition = (-ratio[n] *ox + zoomShowWidth / 2) + "px "+(-ratio[n] * oy + zoomShowHeight / 2) + "px";
+							zoomHandler.style.display = "block";
 						}
 					})(i));
 					zoom[i].addEventListener("mouseout", function() {
