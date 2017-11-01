@@ -11,9 +11,7 @@
 				width: 400px;
 				height: 400px;
 				/*background-color: #f00;*/
-				position: absolute;
-				left: 100px;
-				top: 100px;
+				position: relative;
 				overflow: hidden;
 				/*
 				 绝对定位的基准：最近的已经定位过的祖先元素
@@ -37,7 +35,7 @@
 				transform: translate(-50%,-50%);
 				pointer-events: none;
 				display: none;
-				background: url(img/FE.jpg);
+				/*background: url(img/FE.jpg);*/
 				background-repeat: no-repeat;
 			}
 			.zoom:hover .zoomer{
@@ -50,6 +48,8 @@
 			<img src="img/FE.jpg" />
 			<div class="zoomer"></div>
 		</figure>
+		
+		
 		<script type="text/javascript">
 			var zoom = document.querySelector('.zoom'),
 				zoomer = zoom.querySelector('.zoomer'),
