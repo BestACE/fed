@@ -104,7 +104,7 @@
 11. [事件对象](//bestace.github.io/fed/ppt/42.htm)
 12. [事件练习课](//bestace.github.io/fed/ppt/43.htm)
 13. [事件练习课2](//bestace.github.io/fed/ppt/44.htm)
-
+14. [面向对象编程](//bestace.github.io/fed/ppt/45.htm)
 
 ## 课程资源
 0.  自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。

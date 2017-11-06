@@ -28,7 +28,7 @@
 			.zoom .zoomer{
 				width: 80px;
 				height: 80px;
-				background-color: #00f;
+				/*background-color: #00f;*/
 				position: absolute;
 				left: 0;
 				top: 0;
@@ -49,7 +49,6 @@
 			<div class="zoomer"></div>
 		</figure>
 		
-		
 		<script type="text/javascript">
 			var zoom = document.querySelector('.zoom'),
 				zoomer = zoom.querySelector('.zoomer'),
@@ -62,6 +61,7 @@
 			})
 			
 			zoom.addEventListener("mousemove",function(event){
+				//x,y 获取的鼠标相对于事件触发对象的位置
 				var x=event.offsetX||event.layerX;
 				var y=event.offsetY||event.layerY;
 				zoomer.style.left=x+"px";

@@ -1,0 +1,317 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象编程 - By 交互开发课题组</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>面向对象编程</h1>
+<h2>演讲者：交互开发课题组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>概念解析</li>
+<li>创建对象</li>
+<li>属性操作</li>
+<li>继承实现</li>
+<li>案例实现</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>概念解析</h2>
+<ul>
+<li>类和对象<ul>
+<li>面向对象编程（Object Oriented Programming，缩写为 OOP）是目前主流的编程范式。它将真实世界各种复杂的关系，抽象为一个个对象，然后由对象之间的分工与合作，完成对真实世界的模拟。</li>
+<li>每一个对象都是功能中心，具有明确分工，可以完成接受信息、处理数据、发出信息等任务。</li>
+<li>面向对象编程具有灵活、代码可复用、高度模块化等特点，容易维护和开发。</li>
+</ul>
+</li>
+<li>常见对象<ul>
+<li>内置对象：由ECMAScript规范定义的对象，如数组、函数、日期等</li>
+<li>宿主对象：由JS所嵌入环境（web浏览器等）定义的对象，如window对象等</li>
+<li>自定义对象： 由运行中的JS代码所定义的对象。</li>
+</ul>
+</li>
+<li>参考资料<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_encapsulation.html" target="_blank">Javascript面向对象编程（一）：封装</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance.html" target="_blank">Javascript面向对象编程（二）：构造函数的继承</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2010/05/object-oriented_javascript_inheritance_continued.html" target="_blank">Javascript面向对象编程（三）：非构造函数的继承</a></li>
+<li><a href="http://javascript.ruanyifeng.com/#toc3" target="_blank">面向对象编程</a></li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>创建对象</h2>
+<ul>
+<li>对象直接量</li>
+<li>通过new创建对象</li>
+<li>构造函数和原型</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>对象直接量-创建对象</h2>
+<ul>
+<li>对象直接量</li>
+</ul>
+<pre><code class="javascript">//对象直接量创建对象
+var book={
+    name:&quot;javascript入门&quot;,
+    category:&quot;fed&quot;,
+    author:{
+        name:&quot;whqet&quot;,
+        age:18
+    }
+};
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>通过new创建对象-创建对象</h2>
+<ul>
+<li>通过new创建对象</li>
+</ul>
+<pre><code class="javascript">//通过new创建对象
+var book=new Object();
+book.name=&quot;javascript入门&quot;;
+book.category=&quot;fed&quot;;
+book.saleNo=0;
+book.sale=function(){
+    this.saleNo++;
+}
+book.author={
+    name:&quot;whqet&quot;,
+    age:18
+}
+console.log(book.author.age);  //18
+book.sale();
+console.log(book.saleNo); //1
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>通过构造函数和原型-创建对象</h2>
+<ul>
+<li>通过构造函数和原型</li>
+</ul>
+<pre><code class="javascript">//通过构造函数和原型
+var Book=function(name,category){
+    this.name=name;
+    this.category=category;
+}
+var book=new Book(&quot;javascript入门&quot;,&quot;fed&quot;);
+console.log(book.category);  //fed
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>属性操作</h2>
+<ul>
+<li>删除属性<ul>
+<li>delete只能删除自有属性，不能删除继承属性</li>
+</ul>
+</li>
+<li>检测属性<ul>
+<li>in运算符</li>
+<li>hasOwnProperty()</li>
+<li>propertyIsEnumrable()</li>
+</ul>
+</li>
+<li>遍历属性<ul>
+<li>for in遍历</li>
+<li>Object.keys()</li>
+<li>Object.getOwnPropertyNames()</li>
+</ul>
+</li>
+</ul>
+<pre><code class="javascript">//删除属性
+var book=new Object();
+book.name=&quot;javascript入门&quot;;
+book.category=&quot;fed&quot;;
+delete book.name;
+console.log(book.name);  //undefined
+//检测属性
+console.log(&#39;category&#39; in book);
+console.log(book.hasOwnProperty(&#39;category&#39;));
+console.log(book.propertyIsEnumerable(&#39;category&#39;));
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>属性操作-遍历属性</h2>
+<pre><code class="javascript">//遍历属性
+var o={
+    x:1,
+    y:2,
+    z:3
+};
+for(p in o){
+    //跳过继承的属性
+    if(!o.hasOwnProperty(p)) continue;
+    //跳过方法
+    if(typeof o[p]===&quot;function&quot;) continue;
+    //输出属性和属性值
+    console.log(p,o[p]);
+}
+//ES5的方式
+//ES5的方式 Object.keys(）
+console.log(Object.keys(o));
+//ES5的方式 Object.getOwnPropertyNames()
+console.log(Object.getOwnPropertyNames(o));
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>继承实现</h2>
+<ul>
+<li>直接继承prototype</li>
+<li>拷贝继承</li>
+</ul>
+<pre><code class="javascript">//直接继承prototype
+
+//Animal对象
+function Animal(){ }
+Animal.prototype.species = &quot;动物&quot;;
+//将Cat的prototype对象指向Animal的prototype对象，完成继承
+function Cat(){}
+Cat.prototype = Animal.prototype;
+Cat.prototype.constructor = Cat;
+var cat1 = new Cat();
+console.log(cat1.species); // 动物
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>继承实现</h2>
+<ul>
+<li>直接继承prototype</li>
+<li>拷贝继承</li>
+</ul>
+<pre><code class="javascript">//拷贝继承
+
+//Animal对象
+function Animal(){ }
+Animal.prototype.species = &quot;动物&quot;;
+//写个函数，实现拷贝继承
+function extend2(Child, Parent) {
+    var p = Parent.prototype;
+    var c = Child.prototype;
+　　for (var i in p) {
+　　　　c[i] = p[i];
+　　}
+　　c.uber = p;
+}
+function Cat(){}
+extend2(Cat, Animal);
+var cat1 = new Cat();
+console.log(cat1.species); // 动物
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>交互开发</h1>
+<h2>旨为前端开发工程师的前端开发课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
