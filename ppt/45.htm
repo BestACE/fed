@@ -1,7 +1,7 @@
 <!--
-    Powered By nodePPT - This is probably the best web presentation tool so far!
-    version: 1.4.2
-    site: https://github.com/ksky521/nodePPT
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
     date: 
 -->
 <!doctype html>
@@ -132,6 +132,401 @@ console.log(book.category);  //fed
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
+<h2>通过构造函数和原型-创建对象</h2>
+<ul>
+<li>通过构造函数和原型</li>
+</ul>
+<pre><code class="javascript">//通过构造函数和原型
+var Book=function(name,category){
+    this.name=name;
+    this.category=category;
+}
+Book.prototype.sale=function(){
+    console.log(&quot;sale a book&quot;);
+}
+var book=new Book(&quot;javascript入门&quot;,&quot;fed&quot;);
+book.sale();
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>利用原型修改内置对象</h2>
+<pre><code class="javascript">//利用原型的方式修改内置对象
+
+var a=[1,2,3,4];
+//修改了数组类
+//慎重
+Array.prototype.sum=function(){
+    var sum=0;
+    var arr=this;
+    for (var i = 0; i &lt;arr.length; i++) {
+        sum+=arr[i];
+    }
+    return sum;
+}
+console.log(a.sum());
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>shim和polyfill</h2>
+<ul>
+<li>shim<ul>
+<li>shim是硬垫片</li>
+<li>不一定符合标准</li>
+<li>不同API封装成一种</li>
+</ul>
+</li>
+<li>polyfill<ul>
+<li>polyfill是软垫片，严格来讲是shim的一种</li>
+<li>符合标准</li>
+<li>让旧浏览器支持新特性</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>shim和polyfill</h2>
+<h3><a href="https://github.com/xiaoruo/EventUtil/blob/master/EventUtil.js" target="_blank">EventUtil</a></h3>
+<pre><code class="javascript">/**
+ * @author [xiaoruo]
+ * [EventUtil 跨浏览器事件对象]
+ * @type {Object}
+ */
+var EventUtil = {
+    /**
+     * [addHandler 添加跨浏览器事件]
+     * @param {[Object]} element [事件对象]
+     * @param {[String]} type    [事件类型]
+     * @param {[Function]} handler [事件函数]
+     */
+    addHandler: function(element, type, handler) {
+        if (element.addEventListener) {
+            element.addEventListener(type, handler, false);
+        } else if (element.attachEvent) {
+            element.attachEvent(&quot;on&quot; + type, handler);
+        } else {
+            element[&quot;on&quot; + type] = handler;
+        }
+    },
+
+    /**
+     * [removeHandler 移除事件]
+     * @param {[Object]} element [事件对象]
+     * @param {[String]} type    [事件类型]
+     * @param {[Function]} handler [事件函数]
+     */
+    removeHandler: function(element, type, handler) {
+        if (element.removeEventListener) {
+            element.removeEventListener(type, handler, false);
+        } else if (element.detachEvent) {
+            element.detachEvent(&quot;on&quot; + type, handler);
+        } else {
+            element[&quot;on&quot; + type] = null;
+        }
+    },
+
+    /**
+     * [getEvent 跨浏览器事件]
+     * @param  {[Object]} event [事件对象]
+     * @return {[Object]}       [事件对象]
+     */
+    getEvent: function(event) {
+        return event ? event : window.event;
+    },
+
+    /**
+     * [getTarget 事件目标]
+     * @param  {[Object]} event [事件对象]
+     * @return {[Object]}       [事件目标]
+     */
+    getTarget: function(event) {
+        return event.target || event.srcElement;
+    },
+
+    /**
+     * [getRelatedTarget 与事件目标相关的节点]这个属性只对mouseover和mouseout有用（mouseover是离开的那个节点或mouseout时进入的那个节点）
+     * @param  {[Object]} event [事件对象]
+    * @return {[Object]}       [相关节点]
+     */
+    getRelatedTarget: function(event) {
+        if (event.relatedTarget) {
+            return event.relatedTarget;
+        } else if (event.toElement) {
+            return event.toElement;
+        } else if (event.fromElement) {
+            return event.fromElement;
+        } else {
+            return null;
+        }
+
+    },
+
+    /**
+     * [preventDefault 取消默认事件]
+     * @param  {[Object]} event [事件对象]
+     */
+    preventDefault: function(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+        } else {
+            event.returnValue = false;
+        }
+    },
+
+    /**
+     * [stopPropagation 取消事件的冒泡或捕获行为]
+     * @param  {[Object]} event [事件对象]
+     */
+    stopPropagation: function(event) {
+        if (event.stopPropagation) {
+            event.stopPropagation();
+        } else {
+            event.cancelBubble = true;
+        }
+    },
+
+
+    /**
+     * [getCharCode 获取键盘码]
+     * @param  {[Object]} event [事件对象]
+     * @return {[number]}       [键盘码]
+     */
+    getCharCode: function(event) {
+        if (typeof event.charCode == &quot;number&quot;) {
+            return event.charCode;
+        } else {
+            return event.keyCode;
+        }
+    },
+
+    /**
+     * [getButton 获取鼠标按键]
+     * @param  {[Object]} event [事件对象]
+     */
+    getButton: function(event) {
+        if (document.implementation.hasFeature(&quot;MouseEvents&quot;, &quot;2.0&quot;)) {
+            return event.button;
+        } else {
+            switch (event.button) {
+                case 0://没有按下按钮
+                case 1://按下主鼠标按钮
+                case 3://同时按下主次鼠标按钮
+                case 5://同时按下主中间
+                case 7://同时按下三个
+                    return 0;//主
+                case 2://按下了次鼠标按钮
+                case 6://同时按下次中间
+                    return 2;//中间
+                case 4://按下鼠标中间按钮
+                    return 1;//次
+            }
+        }
+    },
+
+    /**
+     * [getWheelDelta 鼠标滚轮事件]
+     * @param  {[Object]} event [事件对象]
+     * @return {[Number]}       [鼠标滚轮数值]上滚为正下滚为负
+     */
+    getWheelDelta: function(event) {
+        if (event.wheelDelta) {
+            return (client.engine.opera &amp;&amp; client.engine.opera &lt; 9.5 ? -event.wheelDelta : event.wheelDelta);
+        } else {
+            return -event.detail * 40;
+        }
+    },
+
+
+    /**
+     * [getClipboardText 获取剪切板数据]
+     * @param  {[Object]} event [事件对象]
+     * @return {[String]}       [剪切板数据]
+     */
+    getClipboardText: function(event) {
+        var clipboardData = (event.clipboardData || window.clipboardData);
+        return clipboardData.getData(&quot;text&quot;);
+    },
+
+
+    /**
+     * [setClipboardText 为剪切板赋予数据]
+     * @param  {[Object]} event [事件对象]
+     */
+    setClipboardText: function(event, value) {
+        if (event.clipboardData) {
+            event.clipboardData.setData(&quot;text/plain&quot;, value);
+        } else if (window.clipboardData) {
+            window.clipboardData.setData(&quot;text&quot;, value);
+        }
+    }
+};
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>shim和polyfill</h2>
+<h3><a href="https://github.com/jonathantneal/EventListener" target="_blank">EventListener Polyfill for IE</a></h3>
+<pre><code class="javascript">// EventListener | CC0 | github.com/jonathantneal/EventListener
+
+this.Element &amp;&amp; Element.prototype.attachEvent &amp;&amp; !Element.prototype.addEventListener &amp;&amp; (function () {
+    function addToPrototype(name, method) {
+        Window.prototype[name] = HTMLDocument.prototype[name] = Element.prototype[name] = method;
+    }
+
+    // add
+    addToPrototype(&quot;addEventListener&quot;, function (type, listener) {
+        var
+        target = this,
+        listeners = target.addEventListener.listeners = target.addEventListener.listeners || {},
+        typeListeners = listeners[type] = listeners[type] || [];
+
+        // if no events exist, attach the listener
+        if (!typeListeners.length) {
+            target.attachEvent(&quot;on&quot; + type, typeListeners.event = function (event) {
+                var documentElement = target.document &amp;&amp; target.document.documentElement || target.documentElement || { scrollLeft: 0, scrollTop: 0 };
+
+                // polyfill w3c properties and methods
+                event.currentTarget = target;
+                event.pageX = event.clientX + documentElement.scrollLeft;
+                event.pageY = event.clientY + documentElement.scrollTop;
+                event.preventDefault = function () { event.returnValue = false };
+                event.relatedTarget = event.fromElement || null;
+                event.stopImmediatePropagation = function () { immediatePropagation = false; event.cancelBubble = true };
+                event.stopPropagation = function () { event.cancelBubble = true };
+                event.target = event.srcElement || target;
+                event.timeStamp = +new Date;
+
+                var plainEvt = {};
+                for (var i in event) {
+                    plainEvt[i] = event[i];
+                }
+
+                // create an cached list of the master events list (to protect this loop from breaking when an event is removed)
+                for (var i = 0, typeListenersCache = [].concat(typeListeners), typeListenerCache, immediatePropagation = true; immediatePropagation &amp;&amp; (typeListenerCache = typeListenersCache[i]); ++i) {
+                    // check to see if the cached event still exists in the master events list
+                    for (var ii = 0, typeListener; typeListener = typeListeners[ii]; ++ii) {
+                        if (typeListener == typeListenerCache) {
+                            typeListener.call(target, plainEvt);
+
+                            break;
+                        }
+                    }
+                }
+            });
+        }
+
+        // add the event to the master event list
+        typeListeners.push(listener);
+    });
+
+    // remove
+    addToPrototype(&quot;removeEventListener&quot;, function (type, listener) {
+        var
+        target = this,
+        listeners = target.addEventListener.listeners = target.addEventListener.listeners || {},
+        typeListeners = listeners[type] = listeners[type] || [];
+
+        // remove the newest matching event from the master event list
+        for (var i = typeListeners.length - 1, typeListener; typeListener = typeListeners[i]; --i) {
+            if (typeListener == listener) {
+                typeListeners.splice(i, 1);
+
+                break;
+            }
+        }
+
+        // if no events exist, detach the listener
+        if (!typeListeners.length &amp;&amp; typeListeners.event) {
+            target.detachEvent(&quot;on&quot; + type, typeListeners.event);
+        }
+    });
+
+    // dispatch
+    addToPrototype(&quot;dispatchEvent&quot;, function (eventObject) {
+        var
+        target = this,
+        type = eventObject.type,
+        listeners = target.addEventListener.listeners = target.addEventListener.listeners || {},
+        typeListeners = listeners[type] = listeners[type] || [];
+
+        try {
+            return target.fireEvent(&quot;on&quot; + type, eventObject);
+        } catch (error) {
+            if (typeListeners.event) {
+                typeListeners.event(eventObject);
+            }
+
+            return;
+        }
+    });
+
+    // CustomEvent
+    Object.defineProperty(Window.prototype, &quot;CustomEvent&quot;, {
+        get: function () {
+            var self = this;
+
+            return function CustomEvent(type, eventInitDict) {
+                var event = self.document.createEventObject(), key;
+
+                event.type = type;
+                for (key in eventInitDict) {
+                    if (key == &#39;cancelable&#39;){
+                        event.returnValue = !eventInitDict.cancelable;
+                    } else if (key == &#39;bubbles&#39;){
+                        event.cancelBubble = !eventInitDict.bubbles;
+                    } else if (key == &#39;detail&#39;){
+                        event.detail = eventInitDict.detail;
+                    }
+                }
+                return event;
+            };
+        }
+    });
+
+    // ready
+    function ready(event) {
+        if (ready.interval &amp;&amp; document.body) {
+            ready.interval = clearInterval(ready.interval);
+
+            document.dispatchEvent(new CustomEvent(&quot;DOMContentLoaded&quot;));
+        }
+    }
+
+    ready.interval = setInterval(ready, 1);
+
+    window.addEventListener(&quot;load&quot;, ready);
+})();
+
+(!this.CustomEvent || typeof this.CustomEvent === &quot;object&quot;) &amp;&amp; (function() {
+    // CustomEvent for browsers which don&#39;t natively support the Constructor method
+    this.CustomEvent = function CustomEvent(type, eventInitDict) {
+        var event;
+        eventInitDict = eventInitDict || {bubbles: false, cancelable: false, detail: undefined};
+
+        try {
+            event = document.createEvent(&#39;CustomEvent&#39;);
+            event.initCustomEvent(type, eventInitDict.bubbles, eventInitDict.cancelable, eventInitDict.detail);
+        } catch (error) {
+            // for browsers which don&#39;t support CustomEvent at all, we use a regular event instead
+            event = document.createEvent(&#39;Event&#39;);
+            event.initEvent(type, eventInitDict.bubbles, eventInitDict.cancelable);
+            event.detail = eventInitDict.detail;
+        }
+
+        return event;
+    };
+})();
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
 <h2>属性操作</h2>
 <ul>
 <li>删除属性<ul>
@@ -248,7 +643,7 @@ console.log(cat1.species); // 动物
 
         <!-- <slide class="slide logoslide dark nobackground">
             <article class="flexbox vcenter">
-                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
             </article>
         </slide> -->
         <div class="slideTip" id="tip"></div>
@@ -267,6 +662,9 @@ console.log(cat1.species); // 动物
 </div>
 <script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
 <script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
 var base = location.protocol + '//' + location.host;
 
 var path = (location.pathname + '#').split('/').filter(function(v){
@@ -274,6 +672,9 @@ var path = (location.pathname + '#').split('/').filter(function(v){
 });
 path.pop();
 path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
 MixJS.config({
     baseURL: [ base, path, 'js'].join('/')+'/'
 });
