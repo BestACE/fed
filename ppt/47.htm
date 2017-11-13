@@ -1,0 +1,353 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM详解 - By 交互开发课题组</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>DOM详解</h1>
+<h2>演讲者：交互开发课题组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>DOM概述</li>
+<li>DOM节点类型</li>
+<li>Document节点</li>
+<li>案例练习</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>DOM概述</h2>
+<ul>
+<li>DOM</li>
+<li>节点</li>
+<li>参考资料<ul>
+<li><a href="http://javascript.ruanyifeng.com/dom/node.html" target="_blank">DOM概述</a></li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>DOM概述</h2>
+<ul>
+<li>文档对象模型</li>
+<li>Document Object Model</li>
+<li>将网页转为一个 JavaScript对象，从而可以用脚本进行各种操作（比如增删内容）</li>
+<li>DOM可以理解成网页的编程接口</li>
+<li>DOM 不属于JavaScript，但是操作 DOM 是 JavaScript 最常见的任务。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>节点</h2>
+<ul>
+<li>DOM的最小组成单位</li>
+<li>文档的树形结构（DOM树）由各种不同类型的节点组成</li>
+<li>每个节点可以看作是文档树的一片叶子</li>
+</ul>
+<h2>节点类型</h2>
+<ul>
+<li>Document：整个文档树的顶层节点</li>
+<li>DocumentType：doctype标签（比如&lt;!DOCTYPE html&gt;）</li>
+<li>Element：网页的各种HTML标签（比如<body>、<a>等）</li>
+<li>Attribute：网页元素的属性（比如class=&quot;right&quot;）</li>
+<li>Text：标签之间或标签包含的文本</li>
+<li>Comment：注释</li>
+<li>DocumentFragment：文档的片段</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>节点树</h2>
+<ul>
+<li>父节点关系（parentNode）：直接的那个上级节点</li>
+<li>子节点关系（childNodes）：直接的下级节点</li>
+<li>同级节点关系（sibling）：拥有同一个父节点的节点</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Node对象的属性</h2>
+<h3>特征相关的属性</h3>
+<ul>
+<li>nodeName 节点名称</li>
+<li>nodeType 节点类型</li>
+<li>nodeValue 节点文本值<ul>
+<li>只有Text节点、Comment节点、XML文档的CDATA节点有文本值，其他类型的节点一律返回null。</li>
+</ul>
+</li>
+<li>textContent 当前节点和它的所有后代节点的文本内容</li>
+<li>baseURI 当前网页的绝对路径</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Node对象的属性</h2>
+<h3>nodeName和nodeType</h3>
+<table class="thin">
+  <thead>
+    <tr>
+      <th>类型</th>
+      <th>nodeName</th>
+      <th>nodeType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ELEMENT_NODE</td>
+      <td>大写的HTML元素名</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>ATTRIBUTE_NODE</td>
+      <td>等同于Attr.name</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>TEXT_NODE</td>
+      <td>#text</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>COMMENT_NODE</td>
+      <td>#comment</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>DOCUMENT_NODE</td>
+      <td>#document</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>DOCUMENT_FRAGMENT_NODE</td>
+      <td>#document-fragment</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>DOCUMENT_TYPE_NODE</td>
+      <td>等同于DocumentType.name</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Node对象的属性</h2>
+<h3>相关节点属性</h3>
+<ul>
+<li>ownerDocument 当前节点所在的顶层文档对象，即document对象</li>
+<li>nextSibling 紧跟在当前节点后面的第一个同级节点</li>
+<li>previousSibling 当前节点前面的、距离最近的一个同级节点</li>
+<li>parentNode 当前节点的父节点</li>
+<li>childNodes 当前节点的所有子节点的 NodeList集合</li>
+<li>firstChild、lastChild 第一个最后一个子节点</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Node对象的方法</h2>
+<ul>
+<li>appendChild 附加节点</li>
+<li>hasChildNodes 判断是否有子节点</li>
+<li>cloneNode 克隆节点</li>
+<li>insertBefore 在某节点前插入子节点</li>
+<li>removeChild 删除节点</li>
+<li>replaceChild 替换节点</li>
+<li>normalize 清理当前节点内部的所有Text节点</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>document节点</h2>
+<ul>
+<li>属性<ul>
+<li>内部节点属性</li>
+<li>节点集合属性</li>
+<li>文档信息属性</li>
+</ul>
+</li>
+<li>方法<ul>
+<li>读写相关方法</li>
+<li>查找节点方法</li>
+<li>生成节点方法</li>
+<li>事件相关方法</li>
+<li>其他方法</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>document节点属性</h2>
+<h3>内部节点属性</h3>
+<ul>
+<li>document.doctype</li>
+<li>document.documentElement</li>
+<li>document.defaultView</li>
+<li>document.body</li>
+<li>document.head</li>
+<li>document.activeElement 当前文档中获得焦点的那个元素</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>document节点属性</h2>
+<h3>文档信息属性</h3>
+<ul>
+<li>document.documentURI，document.URL</li>
+<li>document.domain</li>
+<li>document.lastModified</li>
+<li>document.location</li>
+<li>document.referrer，document.title，document.characterSet</li>
+<li>document.readyState</li>
+<li>document.designMode</li>
+<li>document.implementation</li>
+<li>document.compatMode</li>
+<li>document.cookie</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>document节点方法</h2>
+<h3>读写方法</h3>
+<ul>
+<li>document.open()，document.close()</li>
+<li>document.write()，document.writeln()</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>document节点方法</h2>
+<h3>查找节点的方法</h3>
+<ul>
+<li>document.querySelector()，document.querySelectorAll()</li>
+<li>document.getElementsByTagName()</li>
+<li>document.getElementsByClassName()</li>
+<li>document.getElementsByName()</li>
+<li>getElementById()</li>
+<li>document.elementFromPoint()</li>
+</ul>
+<h3>生成节点的方法</h3>
+<ul>
+<li>document.createElement()</li>
+<li>document.createTextNode()</li>
+<li>document.createAttribute()</li>
+<li>document.createDocumentFragment()</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>案例练习</h2>
+<iframe src="./demos/editor.html?file=jsDOM/table.html" style="height:400px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>交互开发</h1>
+<h2>旨为前端开发工程师的前端开发课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

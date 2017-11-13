@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			table{
+				border-collapse:collapse;
+				border: 1px solid #888;
+				width: 600px;
+			}
+			th,td{
+				border: 1px solid #888;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="添加" />
+		<table id="user">
+			<caption>表格标题</caption>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>地址</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>男</td>
+					<td>绍兴市</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>李四</td>
+					<td>男</td>
+					<td>杭州市</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>赵四</td>
+					<td>男</td>
+					<td>宁波市</td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var oUser=document.getElementById("user");
+			var oBtn=document.getElementsByTagName('input')[0];
+			oBtn.onclick=function(){
+				
+				var row=oUser.insertRow(1);
+				var cell0=row.insertCell(0);
+				var cell1=row.insertCell(1);
+				var cell2=row.insertCell(2);
+				var cell3=row.insertCell(3);
+				cell0.appendChild(document.createTextNode('4'));
+				cell1.appendChild(document.createTextNode('王五'));
+				cell2.appendChild(document.createTextNode('男'));
+				cell3.appendChild(document.createTextNode('湖州市'));
+			}
+		</script>
+	</body>
+
+</html>
