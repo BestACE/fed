@@ -1,0 +1,261 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM详解2 - By 交互开发课题组</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>DOM详解2</h1>
+<h2>演讲者：交互开发课题组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>Element对象</li>
+<li>操作HTML</li>
+<li>操作CSS</li>
+<li>案例练习</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Element对象</h2>
+<ul>
+<li>参考资料<ul>
+<li><a href="http://javascript.ruanyifeng.com/dom/element.html" target="_blank">Element对象</a></li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>Element对象</h2>
+<ul>
+<li>元素节点</li>
+<li>Element对象对应网页的HTML标签元素</li>
+<li>每一个HTML标签元素，在DOM树上都会转化成一个Element节点对象。</li>
+<li>将网页转为一个 JavaScript对象，从而可以用脚本进行各种操作（比如增删内容）</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>特征相关的属性</h2>
+<ul>
+<li>Element.attributes</li>
+<li>Element.id</li>
+<li>Element.tagName</li>
+<li>Element.innerHTML</li>
+<li>Element.outerHTML</li>
+<li>Element.className</li>
+<li>Element.classList<ul>
+<li>Element.classList.add</li>
+<li>Element.classList.remove</li>
+<li>Element.classList.contains</li>
+<li>Element.classList.toggle</li>
+<li>Element.classList.item</li>
+<li>Element.classList.toString</li>
+</ul>
+</li>
+</ul>
+<h2>盒状模型相关属性</h2>
+<ul>
+<li>Element.clientWidth 元素节点可见部分的宽度,元素的CSS宽度加上Padding，减去滚动条（如果存在）。</li>
+<li>Element.scrollWidth 整个元素的宽度，包括由于存在滚动条而不可见的部分。默认情况下，包括Padding，但不包括Border和Margin。</li>
+<li>Element.offsetWidth 元素的水平宽度，包括Padding和Border、以及滚动条。这也意味着，如果不存在内容溢出，Element.offsetWidth只比Element.clientWidth多了边框的宽度。</li>
+<li>Element.style 元素的行内样式</li>
+<li>Element.clientLeft 元素节点左边框（left border）的宽度</li>
+<li>Element.scrollLeft 表示网页元素的水平滚动条向右侧滚动的像素数量</li>
+<li>Element.offsetLeft 相对于父节点的位移
+-</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>相关节点的属性</h2>
+<ul>
+<li>Element.children 当前元素节点的所有子元素（HTMLCollection对象）</li>
+<li>Element.childElementCount 当前元素节点包含的子HTML元素节点的个数</li>
+<li>Element.firstElementChild 当前元素节点包含的第一个HTML元素子节点</li>
+<li>Element.lastElementChild 当前元素节点包含的最后一个HTML元素子节点</li>
+<li>Element.nextElementSibling 当前HTML元素节点的后一个同级HTML元素节点，如果没有则返回null。</li>
+<li>Element.previousElementSibling 当前HTML元素节点的前一个同级HTML元素节点，如果没有则返回null</li>
+<li>Element.offsetParent 当前 HTML 元素的最靠近的、并且 CSS 的position属性不等于static的上层元素<ul>
+<li>用于确定子元素位置偏移的计算基准，Element.offsetTop和Element.offsetLeft就是offsetParent元素计算的。</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>属性相关的方法</h2>
+<ul>
+<li>Element.getAttribute</li>
+<li>Element.setAttribute</li>
+<li>Element.hasAttribute</li>
+<li>Element.removeAttribute</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>其他方法</h2>
+<ul>
+<li>Element.getBoundingClientRect 返回一个对象，提供当前元素节点的大小、位置等信息，基本上就是CSS盒状模型提供的所有信息。</li>
+<li>Element.getClientRects 返回一个类似数组的对象，里面是当前元素在页面上形成的所有矩形</li>
+<li>Element.insertAdjacentHTML 解析HTML字符串，然后将生成的节点插入DOM树的指定位置</li>
+<li>Element.remove 将当前元素节点从DOM树删除</li>
+<li>Element.focus 将当前页面的焦点转移到指定元素上</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>属性操作</h2>
+<ul>
+<li>标准属性<ul>
+<li>Element.id</li>
+<li>Element.src</li>
+<li>Element.href</li>
+<li>Element.method</li>
+</ul>
+</li>
+<li>属性操作<ul>
+<li>Element.getAttribute</li>
+<li>Element.setAttribute</li>
+<li>Element.hasAttribute</li>
+<li>Element.removeAttribute</li>
+</ul>
+</li>
+<li>dataset属性<ul>
+<li>Element.dataset.name=value 设置某个dataset属性</li>
+<li>delete Element.dataset.name 删除某个dataset属性</li>
+</ul>
+</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>CSS操作</h2>
+<ul>
+<li>style属性</li>
+<li>Style对象<ul>
+<li>setProperty()</li>
+<li>getPropertyValue()</li>
+<li>removeProperty()</li>
+</ul>
+</li>
+<li>cssText属性</li>
+<li>操作class<ul>
+<li>className</li>
+<li>classList</li>
+</ul>
+</li>
+<li>getComputedStyle</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2><a href="///bestace.github.io/fed/ppt/demos/jsDOM/modal.html" target="_blank">案例练习</a></h2>
+<iframe src="./demos/editor.html?file=jsDOM/modal.html" style="height:400px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>交互开发</h1>
+<h2>旨为前端开发工程师的前端开发课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=bestace&repo=fed&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

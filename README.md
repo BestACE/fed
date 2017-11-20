@@ -107,16 +107,17 @@
 14. [面向对象编程](//bestace.github.io/fed/ppt/45.htm)
 15. [面向对象编程2](//bestace.github.io/fed/ppt/46.htm)
 16. [DOM详解](//bestace.github.io/fed/ppt/47.htm)
+17. [DOM详解2-Element对象](//bestace.github.io/fed/ppt/47.htm)
 
 ## 课程资源
-0.  自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。
-1.  著名常用web学习网站[w3school](//www.w3school.com.cn/)，入门必备。
-2.  [html标签参考手册](http://www.w3school.com.cn/tags/html_ref_byfunc.asp), [html 参考手册官方英文](https://www.w3.org/TR/html-markup/), [html5元素周期表](//zptcsoft.github.io/html5-elements-periodic-table/)
-3.  [css3手册在线版](http://css.doyoe.com/)，[css3手册下载](//css.doyoe.com/css.chm)，[css手册本地版](//zptcsoft.github.io/css3/)
-4.  史上最性感的编辑器-[**sublimetext**](www.sublimetext.com/), [安装步骤](https://github.com/zptcsoft/zptcsoft.github.io/blob/master/soft/01install%20sublime_text.md) , **sublime text常用插件集成版** [百度网盘下载](//pan.baidu.com/s/1nubND8l), [学习资源](//www.jianshu.com/p/d1b9a64e2e37)。
-5.  **GithubDesktop安装**，首先安装[**.net Framework 4.5**](//www.microsoft.com/zh-cn/download/details.aspx?id=30653), 其次解压缩安装**Github Desktop**[百度网盘下载](//pan.baidu.com/s/1i4bVR4T)。
+0. 自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。
+1. 著名常用web学习网站[w3school](//www.w3school.com.cn/)，入门必备。
+2. [html标签参考手册](http://www.w3school.com.cn/tags/html_ref_byfunc.asp), [html 参考手册官方英文](https://www.w3.org/TR/html-markup/), [html5元素周期表](//zptcsoft.github.io/html5-elements-periodic-table/)
+3. [css3手册在线版](http://css.doyoe.com/)，[css3手册下载](//css.doyoe.com/css.chm)，[css手册本地版](//zptcsoft.github.io/css3/)
+4. 史上最性感的编辑器-[**sublimetext**](www.sublimetext.com/), [安装步骤](https://github.com/zptcsoft/zptcsoft.github.io/blob/master/soft/01install%20sublime_text.md) , **sublime text常用插件集成版** [百度网盘下载](//pan.baidu.com/s/1nubND8l), [学习资源](//www.jianshu.com/p/d1b9a64e2e37)。
+5. **GithubDesktop安装**，首先安装[**.net Framework 4.5**](//www.microsoft.com/zh-cn/download/details.aspx?id=30653), 其次解压缩安装**Github Desktop**[百度网盘下载](//pan.baidu.com/s/1i4bVR4T)。
 6. [Github Desktop使用教程](https://github.com/zptcsoft/zptcsoft.github.io/blob/master/soft/02HowToUseGithubDesktop.md), [廖雪峰Git教程](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
-7.  网站制作[视频教程](http://v.dxsbb.com/topiclist/wangzhan.html)， 请大家帮忙整理网络系列学习教程。
+7. 网站制作[视频教程](http://v.dxsbb.com/topiclist/wangzhan.html)， 请大家帮忙整理网络系列学习教程。
 8. 采色软件colorspro[软件下载](http://pan.baidu.com/s/1eRvaJj8)，截屏软件FSCapture[网页下载](http://cy.cr173.com/fscapture_gr.zip)，[网盘下载](http://pan.baidu.com/s/1i39tjDj)，密码：7lpr。
 9. 飞速编码的极客工具，手指爽、眼睛爽的开发工具[HBuilder](http://www.dcloud.io/)。
 10. 一个不错的截图、编辑软件[picpick](http://pan.baidu.com/s/1o8yhFPC),支持截取整个网页、取色、量尺等。

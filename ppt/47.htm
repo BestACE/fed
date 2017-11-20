@@ -72,7 +72,7 @@
 <ul>
 <li>Document：整个文档树的顶层节点</li>
 <li>DocumentType：doctype标签（比如&lt;!DOCTYPE html&gt;）</li>
-<li>Element：网页的各种HTML标签（比如等）</li>
+<li>Element：网页的各种HTML标签（比如&#39;<body>、<a>&#39;等）</li>
 <li>Attribute：网页元素的属性（比如class=&quot;right&quot;）</li>
 <li>Text：标签之间或标签包含的文本</li>
 <li>Comment：注释</li>
@@ -173,6 +173,26 @@
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
+<h2>删除空白文本节点</h2>
+<pre><code class="javascript">//删除空白文本节点
+function cleanWhitespace(element)   
+{   
+    //遍历子节点
+    for(var i=0; i&lt;element.childNodes.length; i++)   
+    {   
+        var node = element.childNodes[i];
+        //如果是文本节点，空节点   
+        if(node.nodeType == 3 &amp;&amp; !/\S/.test(node.nodeValue))   
+        {   
+            node.parentNode.removeChild(node);   
+        }   
+    }   
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
 <h2>Node对象的方法</h2>
 <ul>
 <li>appendChild 附加节点</li>
@@ -236,6 +256,13 @@
 <li>document.compatMode</li>
 <li>document.cookie</li>
 </ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>解析URL</h2>
+<pre><code class="javascript">//解析URL
+</code></pre>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">

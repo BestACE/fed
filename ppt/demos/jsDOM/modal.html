@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.win {
+				width: 300px;
+				height: 300px;
+				background-color: #dfd;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				display: none;
+				z-index: 1000;
+			}
+			
+			.win .btn {
+				/*width: 20px;
+				height: 20px;*/
+				/*background-color: #333;*/
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				cursor: pointer;
+				z-index: 2;
+			}
+			
+			.win .content {}
+			
+			.mask {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background-color: rgba(0, 0, 0, .2);
+				z-index: 100;
+				display: none;
+				transition: all .5s;
+			}
+		</style>
+		<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<a href="#" class="modal" data-content="一些内容">打开模拟窗口</a>
+		<div class="modal" data-content="另外的一些内容">淡淡道</div>
+		<script type="text/javascript">
+			//alert("ok");
+			var oModal = document.getElementsByClassName('modal');
+			var oWin, oBtn, oContent,oMask;
+			if(oModal.length >= 1) {
+
+				oWin = document.createElement("div");
+				oWin.id = "win";
+				oWin.className = "win";
+				document.body.appendChild(oWin);
+
+				oBtn = document.createElement("div");
+				oBtn.id = "btn";
+				oBtn.className = "btn";
+				oBtn.innerHTML = "<i class='fa fa-close'></i>";
+				oWin.appendChild(oBtn);
+				oBtn.addEventListener("click", closeWin);
+
+				oContent = document.createElement("div");
+				oContent.className = "content";
+				oWin.appendChild(oContent);
+
+				oMask = document.createElement("div");
+				oMask.className = "mask";
+				document.body.appendChild(oMask);
+				for(var i = 0; i < oModal.length; i++) {
+					oModal[i].addEventListener("click", openWin);
+
+				}
+			} else {
+				document.write("没有可以模拟窗口的对象");
+			}
+
+			function openWin(event) {
+				oMask.style.display = "block";
+				oWin.style.display = "block";
+				oContent.innerHTML = event.target.dataset.content;
+			}
+
+			function closeWin(event) {
+				oMask.style.display = "none";
+				oWin.style.display = "none";
+				oContent.innerHTML = "";
+			}
+		</script>
+	</body>
+
+</html>
