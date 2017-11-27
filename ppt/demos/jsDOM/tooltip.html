@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.tooltip{
+				position: relative;
+			}
+			.tooltip span{
+				width: 180px;
+				padding: 5px 10px;
+				color: #FFFFFF;
+  				background: #000000;
+  				text-align: center;
+  				border-radius: 2px;
+  				position: absolute;
+  				left: -90px;
+  				top: -40px;
+  				opacity: 0;
+  				visibility:hidden;
+  				transition:opacity .5s;
+			}
+			.tooltip span::after{
+				content: "";
+				width: 0;
+				height: 0;;
+				position: absolute;
+				top: 100%;
+				left: 50%;
+  				margin-left: -8px;
+  				border-top: 8px solid black;
+  				border-right: 8px solid transparent;
+  				border-left: 8px solid transparent;
+			}
+			.tooltip span.show{
+				opacity: 1;
+				visibility: visible;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h2>tooltip提示框</h2>
+			<p>tooltip提示框是网页中常见页面<a href="#" class="tooltip" data-content="积件思维">组件</a>，在网页交互中应用广泛，我们利用该案例来演示提示文本的实现。</p>
+			<p>本案例利用html+css+javascript实现，html部分实现架构，css部分实现表现，js主要实现交互。html利用属性来控制效果，表现部分主要在css里实现，行为部分通过js来实现。</p>
+			<p>我们可以实现<a href="#" class="tooltip">上</a>、<a href="#" class="tooltip" data-content="下">下</a>、<a href="#" class="tooltip" data-content="左">左</a>、<a href="#" class="tooltip" data-content="右">右</a>四种效果</p>
+		</div>
+		<script type="text/javascript">
+			(function(){
+				//工具提示
+				
+				//获取页面中所有的提示框
+				var tips=document.querySelectorAll(".tooltip");
+				//如果没有退出
+				if (tips.length==0) {
+					return false;
+				}
+				//如果有，处理提示框
+				for (var i = 0; i < tips.length; i++) {
+					//初始化提示框
+					var content=document.createElement("span");
+					var data=tips[i].hasAttribute('data-content')?tips[i].getAttribute('data-content'):"目前为空";
+					content.innerHTML=data;
+					tips[i].appendChild(content);
+					
+					//提示框操作
+					tips[i].addEventListener("mouseover",function(event){
+						var event=event||window.event;
+						var target=event.target||event.srcElement;
+						var targetSpan=target.getElementsByTagName('span')[0];
+						targetSpan.classList.add('show');
+					});
+					tips[i].addEventListener("mouseout",function(event){
+						var event=event||window.event;
+						var target=event.target||event.srcElement;
+						var targetSpan=target.getElementsByTagName('span')[0];
+						targetSpan.classList.remove('show');
+					});
+				}
+			})();
+		</script>
+	</body>
+</html>
