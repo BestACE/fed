@@ -123,6 +123,7 @@
 			oBtn=document.createElement("div");
 			oBtn.className="btn";
 			oWin.appendChild(oBtn);
+			oBtn.addEventListener("click",closeWin);
 			
 			oMask=document.createElement("div");
 			oMask.className="mask";
@@ -142,7 +143,7 @@
 			oMask.style.display="block";
 			TweenMax.to(oWin, 2, {width:"400px",height:"400px",ease: Elastic.easeOut});
 			oContent.innerHTML=event.target.getAttribute("data-text");
-			oBtn.addEventListener("click",closeWin);
+			
 		}
 		
 		function closeWin(){
