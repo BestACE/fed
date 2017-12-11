@@ -11,7 +11,7 @@
 				width:400px;
 				padding:3px 2px 2px 10px;
 			}
-			#menu{
+			.menu{
 				overflow:hidden;
 			}
 			a{
@@ -27,7 +27,7 @@
 
 	<body>
 		<div class="menuContainer">
-			<div id="menu">
+			<div class="menu">
 				<a>1.请教高手帮我看下这段代码：FLASH显示不了</a>
 				<a>2.请教在UTF-8编辑下的符号显示问题</a>
 				<a>3.jquery做的一个滑动效果，不知如何增加延迟，现在太灵敏了</a>
@@ -37,24 +37,26 @@
 			</div>
 		</div>
 		<script language="javascript">
-			//显示行数
-			var n=2;
-			var menu=document.getElementById("menu");
-			var item=menu.getElementsByTagName("a");
-			var runHeight=item[0].offsetHeight*n;
-			var runFlag=true;
+			var n=2,
+				oMenu=document.querySelector(".menu"),
+				oMenuItem=document.querySelectorAll(".menuContainer a"),
+				runHeight=oMenuItem[0].offsetHeight*n,
+				runFlag=true;
+				
+				
 			
-			menu.style.height=runHeight+"px";
-			menu.innerHTML+=menu.innerHTML;
+			oMenu.style.height=runHeight+"px";
+			oMenu.innerHTML+=oMenu.innerHTML;
 			
-			menu.onmouseover=function(){runFlag=false};
-			menu.onmouseout=function(){runFlag=true};
-			new function (){
-				var stop=menu.scrollTop%runHeight==0&&!runFlag;
-				if(!stop)
-					menu.scrollTop==parseInt(menu.scrollHeight/2)?menu.scrollTop=0:menu.scrollTop++;
-				setTimeout(arguments.callee,menu.scrollTop%runHeight?10:1000);
-			};
+			oMenu.addEventListener("mouseover",function(){runFlag=false});
+			oMenu.addEventListener("mouseout",function(){runFlag=true});
+			(function(){
+				var stop=oMenu.scrollTop%runHeight==0&&!runFlag;
+				if(!stop){
+					parseInt(oMenu.scrollTop)==parseInt(oMenu.scrollHeight/2)?oMenu.scrollTop=0:oMenu.scrollTop++;
+				}
+				setTimeout(arguments.callee,oMenu.scrollTop%runHeight?10:1500);
+			})();
 		</script>
 	</body>
 
