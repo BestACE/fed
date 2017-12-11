@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>非常不错的逐行新闻滚动效果</title>
+		<meta charset="UTF-8" />
+		<style type="text/css">
+			.menuContainer{
+				border:1px dashed #333;
+				width:400px;
+				padding:3px 2px 2px 10px;
+			}
+			#menu{
+				overflow:hidden;
+			}
+			a{
+				display:block;
+				font-size:12px;
+				line-height:18px;
+				text-decoration:none;
+				color:#333;
+				font-family:Arial;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="menuContainer">
+			<div id="menu">
+				<a>1.请教高手帮我看下这段代码：FLASH显示不了</a>
+				<a>2.请教在UTF-8编辑下的符号显示问题</a>
+				<a>3.jquery做的一个滑动效果，不知如何增加延迟，现在太灵敏了</a>
+				<a>4.技术研究：QQ2009版按钮渐显渐隐的由来</a>
+				<a>5.Javascript读取Json数据并分页显示，支持键盘和滚轮翻页</a>
+				<a>6.奇怪的PNG文件，拜师以求解惑</a>
+			</div>
+		</div>
+		<script language="javascript">
+			//显示行数
+			var n=2;
+			var menu=document.getElementById("menu");
+			var item=menu.getElementsByTagName("a");
+			var runHeight=item[0].offsetHeight*n;
+			var runFlag=true;
+			
+			menu.style.height=runHeight+"px";
+			menu.innerHTML+=menu.innerHTML;
+			
+			menu.onmouseover=function(){runFlag=false};
+			menu.onmouseout=function(){runFlag=true};
+			new function (){
+				var stop=menu.scrollTop%runHeight==0&&!runFlag;
+				if(!stop)
+					menu.scrollTop==parseInt(menu.scrollHeight/2)?menu.scrollTop=0:menu.scrollTop++;
+				setTimeout(arguments.callee,menu.scrollTop%runHeight?10:1000);
+			};
+		</script>
+	</body>
+
+</html>
