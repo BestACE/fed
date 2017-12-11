@@ -39,11 +39,9 @@
 		<script language="javascript">
 			var n=2,
 				oMenu=document.querySelector(".menu"),
-				oMenuItem=document.querySelectorAll(".menuContainer a"),
+				oMenuItem=document.querySelectorAll(".menu a"),
 				runHeight=oMenuItem[0].offsetHeight*n,
 				runFlag=true;
-				
-				
 			
 			oMenu.style.height=runHeight+"px";
 			oMenu.innerHTML+=oMenu.innerHTML;
@@ -55,7 +53,7 @@
 				if(!stop){
 					parseInt(oMenu.scrollTop)==parseInt(oMenu.scrollHeight/2)?oMenu.scrollTop=0:oMenu.scrollTop++;
 				}
-				setTimeout(arguments.callee,oMenu.scrollTop%runHeight?10:1500);
+				setTimeout(arguments.callee,oMenu.scrollTop%runHeight==0?1000:10);
 			})();
 		</script>
 	</body>
