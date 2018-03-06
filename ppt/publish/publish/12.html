@@ -1,0 +1,634 @@
+<!--
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML表格 - By whqet</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>HTML表格</h1>
+<h2>演讲者：whqet</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol class="rollIn">
+<li>表格简介</li>
+<li>标签详解</li>
+<li>表格案例</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<!-- ## [元素概述](//w3school.com.cn/tags/html_ref_byfunc.asp) -->
+<iframe class="widder" src="///zptcsoft.github.io/html5-elements-periodic-table/" frameborder="0"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>表格简介</h2>
+<h3>表格不再用于布局页面，用于呈现网页数据</h3>
+<h3>表格呈现多维的结构性数据</h3>
+<h3>信息的可视化趋势，图化、表化</h3>
+<img src="./img/12/table.png" alt="">
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2><a href="///www.w3.org/TR/html/tabular-data.html" target="_blank">table元素</a></h2>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>流内容-Flow content <br>
+            可感知内容-Palpable content
+        </td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>需要流内容的地方</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>按照下列顺序依次排列：<br>
+            <ol style="margin-left:50px;">
+                <li>可选的caption元素</li>
+                <li>0~n个colgroup元素</li>
+                <li>可选的thead元素</li>
+                <li>可选的tfoot元素</li>
+                <li>0~n个tbody元素(1~n个tr元素)</li>
+                <li>1~n个tr元素</li>
+                <li>可选的tfoot元素(一个table只能有一个tfoot)</li>
+            </ol>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 <br>
+            border属性 - 设置边框 <br>
+            sortable属性 - 是否可排序
+        </td>
+    </tr>
+</table>
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>table示例</h2>
+<pre><code class="html">&lt;table border=&quot;1&quot; summary=&quot;学生信息表&quot;&gt;
+    &lt;caption&gt;学生信息表&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;&lt;th&gt;姓名&lt;/th&gt;&lt;th&gt;性别&lt;/th&gt;&lt;th&gt;年龄&lt;/th&gt;&lt;th&gt;班级&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;&lt;td colspan=&quot;4&quot;&gt;*描述学生信息&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;&lt;td&gt;张三&lt;/td&gt;&lt;td&gt;男&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;软件251&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;赵四&lt;/td&gt;&lt;td&gt;女&lt;/td&gt;&lt;td&gt;18&lt;/td&gt;&lt;td&gt;软件252&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;王五&lt;/td&gt;&lt;td&gt;男&lt;/td&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;软件257&lt;/td&gt;&lt;/tr&gt;
+        &lt;tr&gt;&lt;td&gt;田七&lt;/td&gt;&lt;td&gt;女&lt;/td&gt;&lt;td&gt;20&lt;/td&gt;&lt;td&gt;软件254&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<table border="1" summary="学生信息表">
+    <caption>学生信息表</caption>
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>班级</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="4">*描述学生信息</td>
+        </tr>
+    </tfoot>
+    <tbody>
+        <tr>
+            <td>张三</td>
+            <td>男</td>
+            <td>20</td>
+            <td>软件251</td>
+        </tr>
+        <tr>
+            <td>赵四</td>
+            <td>女</td>
+            <td>18</td>
+            <td>软件252</td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>男</td>
+            <td>21</td>
+            <td>软件257</td>
+        </tr>
+        <tr>
+            <td>田七</td>
+            <td>女</td>
+            <td>20</td>
+            <td>软件254</td>
+        </tr>
+    </tbody>
+</table>
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>table属性</h2>
+<p><table class="thin tag">
+    <tr>
+        <th>属性</th><th>取值及含义</th>
+    </tr>
+    <tr>
+        <td>border</td>
+        <td>取值为空字符串或&quot;1&quot;, 若为&quot;1&quot;，则为数据表格，否则为布局用表格</td>
+    </tr>
+    <tr>
+        <td>sortable</td>
+        <td>表格是否可排序</td>
+    </tr>
+    <tr>
+        <td>summary</td>
+        <td>表格摘要</td>
+    </tr>
+    <tr>
+        <td>cellspacing</td>
+        <td>单元格间距，单元格边框之间的距离</td>
+    </tr>
+    <tr>
+        <td>cellpadding</td>
+        <td>单元格填充，单元格内容与边框之间的距离</td>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td>表格宽度</td>
+    </tr>
+    <tr>
+        <td>frame</td>
+        <td>表格外边框可见性，void，above，below，hsides，lhs，rhs，vsides，box，border</td>
+    </tr>
+    <tr>
+        <td>rules</td>
+        <td>表格内边框可见性，none，groups，rows，cols，all</td>
+    </tr>
+</table></p>
+<h3>官方建议使用border属性表示是否为“布局”表格</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>table属性实验</h2>
+<iframe  class="widder" src="./demos/table.html" frameborder="0"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>caption元素</h2>
+<h3>表格标题元素，可以利用align属性设置位置，最好利用css设置位置。</h3>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>table元素的第一个子元素</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>流媒体，但是不能是th、tr、td等table的子元素标签</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 
+        </td>
+    </tr>
+</table>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>tr元素</h2>
+<h3>代表表格的行</h3>
+<h3>可以作为thead、tbody、tfoot或table的子元素</h3>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>可以作为thead、tbody、tfoot和table的子元素</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>0或者多个th或者td</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 
+        </td>
+    </tr>
+</table>
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>th元素</h2>
+<h3>代表表格的表头单元格，默认粗体居中显示</h3>
+<h3>tr元素的子元素</h3>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>tr元素的子元素</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>流内容，但不能是header、footer、节内容(article、side、nav、section)、标题元素(h1~h6)</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 <br>
+            colspan属性，单元格所跨的列数 <br>
+            rowspan属性，单元格所跨的行数 <br>
+            headers属性，跟单元格相关的表头 <br>
+            scope属性，规定某个单元格是否是列、行、列组或行组的表头，可取row、col、rowgroup、colgroup等四个值。<br>
+            abbr属性，规定单元格中内容的缩写版本<br>
+            sorted属性，列的排序方向和序数
+        </td>
+    </tr>
+</table>
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>th元素属性示例</h2>
+<pre><code class="html">&lt;table border=&quot;1&quot;&gt;
+  &lt;tr&gt;
+    &lt;th abbr=&quot;Company&quot; scope=&quot;col&quot;&gt;Company in USA&lt;/th&gt;
+    &lt;th scope=&quot;col&quot;&gt;Address&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Apple, Inc.&lt;/td&gt;
+    &lt;td&gt;1 Infinite Loop Cupertino, CA 95014&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Google, Inc.&lt;/td&gt;
+    &lt;td&gt;1600 Amphitheatre Parkway Mountain View, CA 94043&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>td元素</h2>
+<h3>代表表格的单元格</h3>
+<h3>tr元素的子元素</h3>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>tr元素的子元素</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>流内容</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 <br>
+            colspan属性，单元格所跨的列数 <br>
+            rowspan属性，单元格所跨的行数 <br>
+            headers属性，跟单元格相关的表头 
+        </td>
+    </tr>
+</table>
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>td元素示例</h2>
+<pre><code class="html">&lt;table border=&quot;1&quot; width=&quot;100%&quot;&gt;
+  &lt;tr&gt;
+    &lt;th id=&quot;name&quot;&gt;Name&lt;/td&gt;
+    &lt;th id=&quot;Email&quot;&gt;Email&lt;/td&gt;
+    &lt;th id=&quot;Phone&quot;&gt;Phone&lt;/td&gt;
+    &lt;th id=&quot;Address&quot;&gt;Address&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td headers=&quot;name&quot;&gt;George Bush&lt;/td&gt;
+    &lt;td headers=&quot;Email&quot;&gt;someone@example.com&lt;/td&gt;
+    &lt;td headers=&quot;Phone&quot;&gt;+789451236&lt;/td&gt;
+    &lt;td headers=&quot;Address&quot;&gt;Fifth Avenue New York,USA&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>col元素</h2>
+<h3>为表格中一个或多个列定义属性值</h3>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>没有span属性的colgroup</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>空</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 <br>
+            span属性，该元素横跨的列数
+        </td>
+    </tr>
+</table>
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h3>col元素示例</h3>
+<pre><code class="html">&lt;table width=&quot;100%&quot; border=&quot;1&quot;&gt;
+    &lt;col style=&quot;width: 20%;&quot;&gt;
+    &lt;col style=&quot;width: 40%;&quot;&gt;
+    &lt;col style=&quot;width: 40%;&quot;&gt;
+    &lt;tr&gt;
+        &lt;th&gt;ISBN&lt;/th&gt;
+        &lt;th&gt;Title&lt;/th&gt;
+        &lt;th&gt;Price&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;3476896&lt;/td&gt;
+        &lt;td&gt;My first HTML&lt;/td&gt;
+        &lt;td&gt;$53&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<table width="100%" border="1">
+    <colgroup>
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 70%;">
+       <col span="1" style="width: 15%;">
+    </colgroup>
+    <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>3476896</td>
+        <td>My first HTML</td>
+        <td>$53</td>
+    </tr>
+</table>
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<div class="magic"><div class="magicItem current pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h2>colgroup元素</h2>
+<h3>为表格中一个或多个列定义属性值</h3>
+<table class="thin tag">
+    <tr>
+        <th>类型</th><th>取值</th>
+    </tr>
+    <tr>
+        <td>分类</td>
+        <td>无</td>
+    </tr>
+    <tr>
+        <td>元素上下文</td>
+        <td>table元素的子元素，caption之后，thead\tfoot\tbody、tr之前</td>
+    </tr>
+    <tr>
+        <td>内容模型</td>
+        <td>col元素</td>
+    </tr>
+    <tr>
+        <td>属性</td>
+        <td>
+            全局属性 <br>
+            span属性，该元素横跨的列数
+        </td>
+    </tr>
+</table>
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="fadeIn"><article>
+<div class="magic-wrapper">
+<article>
+<h3>colgroup元素示例</h3>
+<pre><code class="html">&lt;table width=&quot;100%&quot; border=&quot;1&quot;&gt;
+    &lt;col style=&quot;background:none;&quot;&gt;
+    &lt;colgroup span=&quot;2&quot; style=&quot;background:rgba(0,0,100,.2);&quot;&gt;&lt;/colgroup&gt;
+    &lt;tr&gt;
+        &lt;th&gt;ISBN&lt;/th&gt;
+        &lt;th&gt;Title&lt;/th&gt;
+        &lt;th&gt;Price&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;3476896&lt;/td&gt;
+        &lt;td&gt;My first HTML&lt;/td&gt;
+        &lt;td&gt;$53&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+<table width="100%" border="1">
+    <colgroup>
+       <col span="1" style="width: 15%;">
+       <col span="1" style="width: 70%;">
+       <col span="1" style="width: 15%;">
+    </colgroup>
+    <tr>
+        <th>ISBN</th>
+        <th>Title</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>3476896</td>
+        <td>My first HTML</td>
+        <td>$53</td>
+    </tr>
+</table>
+</article>
+</div>
+</article></div></div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>表格综合实例</h2>
+<h3><a href="./demos/editor.html?file=table01" target="_blank">细线表格</a></h3>
+<h3><a href="./demos/editor.html?file=table02" target="_blank">隔行变色表格</a></h3>
+<h3><a href="./demos/editor.html?file=table03" target="_blank">渐变背景色表格</a></h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>前端开发</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'stick',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

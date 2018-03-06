@@ -65,6 +65,11 @@
 - 浏览器兼容性处理
 
 ## 课程讲义
+
+### 2017级讲义
+01. [课程概述](//bestace.github.io/fed//ppt/publish/50.htm)
+
+### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/01.htm)
 02. [web概述](//bestace.github.io/fed//ppt/02.htm)
 03. [HTML概述](//bestace.github.io/fed//ppt/03.htm)
@@ -109,6 +114,9 @@
 16. [DOM详解](//bestace.github.io/fed/ppt/47.htm)
 17. [DOM详解2-Element对象](//bestace.github.io/fed/ppt/48.htm)
 18. [BOM详解](//bestace.github.io/fed/ppt/49.htm)
+
+
+
 
 ## 课程资源
 0. 自制[在线html编辑器](//bestace.github.io/fed//ppt/demos/editor.html)。

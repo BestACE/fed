@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: #11113f;
+				color: white;
+				font-family: 'Petit Formal Script', cursive;
+				overflow: hidden;
+			}
+			
+			.title {
+				position: absolute;
+				text-align: center;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate3d(-50%, -50%, 0);
+				transform: translate3d(-50%, -50%, 0);
+				z-index: 0;
+				font-size: 1.6em;
+			}
+			
+			.snow {
+				position: absolute;
+				background-color: #fff;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="title">
+			<h1>Happy Holidays</h1>
+		</div>
+		<audio src="//katiebaca.com/codepen/merry-christmas-mr-lawrence.mp3" autoplay loop></audio>
+		<script type="text/javascript">
+			(function() {
+				//常用方法
+				function random(min, max, isInt) {
+					var a = min + Math.random() * (max - min);
+					return isInt ? parseInt(a) : a;
+				}
+
+				//Snow构造方法
+				function Snow() {
+					this.init();
+					this.draw();
+				}
+
+				//雪花的初始化
+				Snow.prototype.init = function() {
+					//大小 、颜色（透明度）、位置（x,y）、速度（水平方向的速度和垂直方向的速度）
+					this.size = random(1, 10, true);
+					this.alpha = random(0.3, 1, false);
+					this.x = random(0, Weather.width, true);
+					this.y = random(-Weather.height, 0, true);
+					this.z = random(0, 10, true);
+					this.wind = random(0, Weather.wind, true);
+					this.speed = random(1, 3, false);
+					this.reduce = random(1, 4, true);
+					this.angle = 0;
+					this.angleSpeed = random(0, 2 * Math.PI, false) / 100;
+				}
+
+				//雪花的 绘制
+				Snow.prototype.draw = function() {
+					this.o = document.createElement("div");
+					this.o.className = "snow";
+					document.body.appendChild(this.o);
+
+					this.o.style.width = this.o.style.height = this.size + "px";
+					this.o.style.opacity = this.alpha;
+					this.o.style.left = this.x + "px";
+					this.o.style.top = this.y + "px";
+					this.o.style.zIndex = this.z;
+					this.o.style.filter = blur(this.reduce + 'px');
+				}
+				//雪花运动
+				Snow.prototype.update = function() {
+					this.angle += this.angleSpeed;
+					this.x += Math.cos(this.angle);
+					this.x += this.wind;
+					this.y += this.speed;
+
+					if(this.y > Weather.height) {
+						this.init();
+					}
+
+					this.o.style.left = this.x + "px";
+					this.o.style.top = this.y + "px";
+				}
+
+				//天气对象的设置
+				var Weather = {
+					num: 100,
+					snowLevel: function(level) {
+						var a;
+						switch(level) {
+							case 'b':
+								a = 1000;
+								break;
+							case 'm':
+								a = 500;
+								break;
+							case 's':
+								a = 100;
+								break;
+							default:
+								break;
+						};
+						return Weather.num = a;
+					},
+					windDirection: 3,
+					width: window.innerWidth,
+					height: window.innerHeight,
+					snowArray: new Array(),
+					wind: 1,
+					createSnows: function() {
+						for(var i = 0; i < Weather.num; i++) {
+							var s = new Snow();
+							Weather.snowArray.push(s);
+						}
+					},
+					runSnows: function() {
+						for(var i = 0; i < Weather.num; i++) {
+							Weather.snowArray[i].update();
+						}
+						requestAnimationFrame(Weather.runSnows);
+					},
+					resize: function() {
+						Weather.width = window.innerWidth;
+						Weather.height = window.innerHeight;
+						console.log(Weather.width);
+					}
+				}
+
+				Weather.snowLevel('s');
+				Weather.createSnows();
+				Weather.runSnows();
+
+				addEventListener("resize", Weather.resize);
+			}());
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="flexboxDemoApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格属性试验场</title>
+		<link rel="stylesheet" href="lib/angular/angular-material.css">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			.ctrl {
+				border-right: 1px solid rgba(0, 0, 0, .1);
+				padding: 10px;
+				min-height: 720px;
+			}
+			
+			.show {
+				padding: 10px;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="AppCtrl">
+		<div layout-gt-md="row" layout="column">
+			<div class="ctrl right-padding" flex="30" layout="column" layout-align="left top">
+				<h2>控制区</h2>
+				<p>请拖动滑动条，测试各table属性用法</p>
+				<div layout="row" layout-align="center center">
+					<div flex="40">width: {{width}}%</div>
+					<md-slider flex="60" min="0" max="100" ng-model="width" aria-label="width"></md-slider>
+				</div>
+				<div layout="row" layout-align="center center">
+					<div flex="40">cellspacing: {{cellspacing}}</div>
+					<md-slider flex="60" min="0" max="100" ng-model="cellspacing" aria-label="cellspacing"></md-slider>
+				</div>
+				<div layout="row" layout-align="center center">
+					<div flex="40">cellpadding: {{cellpadding}}</div>
+					<md-slider flex="60" min="0" max="100" ng-model="cellpadding" aria-label="cellpadding"></md-slider>
+				</div>
+				<div layout="row" layout-align="center center">
+					<div flex="40">frame: {{frame}}</div>
+					<md-select flex="60" ng-model="frame" aria-label="align">
+						<md-option>void</md-option>
+						<md-option>above</md-option>
+						<md-option>below</md-option>
+						<md-option>hsides</md-option>
+						<md-option>lhs</md-option>
+						<md-option>rhs</md-option>
+						<md-option>vsides</md-option>
+						<md-option>box</md-option>
+						<md-option>border</md-option>
+					</md-select>
+				</div>
+				<div layout="row" layout-align="center center">
+					<div flex="40">rules: {{rules}}</div>
+					<md-select flex="60" ng-model="rules" aria-label="align">
+						<md-option>none</md-option>
+						<md-option>groups</md-option>
+						<md-option>rows</md-option>
+						<md-option>cols</md-option>
+						<md-option>all</md-option>
+					</md-select>
+				</div>
+			</div>
+			<div class="show" flex="70" layout="column">
+				<h2>预览区</h2>
+				<p>拖动滑动条之后，在这里预览表格变化</p>
+				<table border="1" summary="学生信息表" frame="{{frame}}" rules={{rules}} width="{{width}}%" cellspacing="{{cellspacing}}" cellpadding="{{cellpadding}}">
+					<caption>学生信息表</caption>
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>班级</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<td colspan="4">*描述学生信息</td>
+						</tr>
+					</tfoot>
+					<tbody>
+						<tr>
+							<td>张三</td>
+							<td>男</td>
+							<td>20</td>
+							<td>软件251</td>
+						</tr>
+						<tr>
+							<td>赵四</td>
+							<td>女</td>
+							<td>18</td>
+							<td>软件252</td>
+						</tr>
+						<tr>
+							<td>王五</td>
+							<td>男</td>
+							<td>21</td>
+							<td>软件257</td>
+						</tr>
+						<tr>
+							<td>田七</td>
+							<td>女</td>
+							<td>20</td>
+							<td>软件254</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- AngularJS -->
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular/angular-animate.min.js"></script>
+		<script src="lib/angular/angular-aria.min.js"></script>
+		<!-- Angular Material JavaScript -->
+		<script src="lib/angular/angular-material.js"></script>
+		<!-- App.js -->
+		<script type="text/javascript">
+			// Declare the flexboxDemoApp module and its dependency 'ngMaterial'
+			var app = angular.module('flexboxDemoApp', ['ngMaterial']);
+			// Declare the AppCtrl controller
+			app
+				.controller('AppCtrl', ['$scope', function($scope) {
+					$scope.width = 30; // %
+					$scope.cellspacing = 2;
+					$scope.cellpadding = 2;
+				}]);
+		</script>
+	</body>
+
+</html>

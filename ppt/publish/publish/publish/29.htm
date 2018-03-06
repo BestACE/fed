@@ -1,0 +1,697 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>综合案例1-个人主页 - By whqet</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>综合案例1-个人主页</h1>
+<h2>演讲者：whqet</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol>
+<li>案例分析</li>
+<li>网页布局流程</li>
+<li>关键步骤讲解</li>
+<li>核心知识点总结</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>案例分析</h2>
+<h3>极简网页效果</h3>
+<h3>案例效果  <a href="///zptcweb.github.io/website/index.html" target="_blank">完成版</a></h3>
+<h3>综合所学知识，系统应用到本项目中去</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>网页布局流程</h2>
+<ol>
+<li>实现内容架构-HTML</li>
+<li>选择需要设置样式的部分-CSS选择器</li>
+<li>设置样式-CSS</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-素材的准备与下载</h2>
+<ul>
+<li>选择高清图片、无版权图片作为背景图</li>
+<li>知名前端导航网站 <a href="///wwwhere.io" target="_blank">wwwhere.io</a>，里面有高清<a href="///wwwhere.io/tags/images" target="_blank">图片分享</a></li>
+<li>SVG(可缩放矢量图形)，比较流行的网络矢量图像格式，主要用于大小变化的网络图案中，或者比较简单的形状动画中。</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-html架构准备</h2>
+<pre><code class="html">&lt;!--整体架构，因为要整幅居中，所以需要本容器--&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;!--页面头部，包括logo、菜单、介绍三个部分--&gt;
+    &lt;header&gt;&lt;/header&gt;
+    &lt;!--页面中间，包括兴趣、项目、联系三个部分--&gt;
+    &lt;main&gt;&lt;/main&gt;
+    &lt;!--页面脚部，包括版权和向上跳转部分--&gt;
+    &lt;footer&gt;&lt;/footer&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>因为要整幅居中，所以需要div.wrapper</li>
+<li>emmet简写 .wrapper&gt;header+main+footer</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-header部分html实现</h2>
+<ul>
+<li>图片文字仅供参考，请大家体现出自己的特色。</li>
+<li>注意浮动的清除</li>
+</ul>
+<pre><code class="html">&lt;!--整体架构，因为要整幅居中，所以需要本容器--&gt;
+&lt;div class=&quot;wrapper&quot;&gt;
+    &lt;!--页面头部，包括logo、菜单、介绍三个部分--&gt;
+    &lt;header&gt;
+            &lt;a href=&quot;index.html&quot; class=&quot;logo&quot;&gt;
+                &lt;h1&gt;个人主页&lt;/h1&gt;
+                &lt;img src=&quot;img/steemit.svg&quot; alt=&quot;&quot; /&gt;
+            &lt;/a&gt;
+            &lt;div class=&quot;mainNav&quot;&gt;
+                &lt;ul class=&quot;clearfix&quot;&gt;
+                    &lt;li&gt;&lt;a href=&quot;#a&quot;&gt;关于&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#b&quot;&gt;工作&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#c&quot;&gt;联系&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;a id=&quot;a&quot;&gt;&lt;/a&gt;
+            &lt;h2&gt;大家好，我是王海庆。&lt;/h2&gt;
+            &lt;p&gt;我是一个前端迷，喜欢探索，喜欢研究，对一切未知而又充满质感的事物充满好奇心，永远保持一颗童心。&lt;/p&gt;
+            &lt;p&gt;浙江邮电职业技术学院青年教师一枚，执着于前端技术。html5、css3、javascript、jquery、vue.js、angularjs、babel、sass、markdown、git等等都是我的最爱！！&lt;/p&gt;
+            &lt;p&gt;来吧，让我们一起来畅游前端的世界。&lt;a href=&quot;http://codepen.io/ericthayer/pen/zNxMer&quot;&gt;模仿实现&lt;/a&gt;，但适度创意！！&lt;/p&gt;
+        &lt;/header&gt;
+    &lt;!--页面中间，包括兴趣、项目、联系三个部分--&gt;
+    &lt;main&gt;&lt;/main&gt;
+    &lt;!--页面脚部，包括版权和向上跳转部分--&gt;
+    &lt;footer&gt;&lt;/footer&gt;
+&lt;/div&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-整体设置</h2>
+<pre><code class="css">/*
+ 公共设置
+ * */
+*{
+    box-sizing: border-box;
+}
+.clearfix::after{
+    content: &quot;&quot;;
+    display: table;
+    clear: both;
+}
+ul{
+    padding: 0;
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+/*
+整体设置
+ * */
+body{
+    background: url(../img/bg.jpg) center top fixed;
+    min-height: 1200px;
+    color: #fff;
+}
+.wrapper{
+    max-width: 1200px;
+    padding: 20px;
+    margin: auto;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-logo设置</h2>
+<ul>
+<li>一个网页最好出现一个h1，便于搜索引擎收录。</li>
+<li>图片logo的时候可以不在网页中显示。</li>
+</ul>
+<pre><code class="css">/*
+ 头部设置
+ * */
+header{
+    position: relative;
+    margin: 30px 0px;
+}
+.logo h1{
+    display: none;
+}
+.logo img{
+    width: 80px;
+    height: auto;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-菜单设置</h2>
+<ul>
+<li>因为我们没有在logo和菜单外放容器，所以这里对菜单设置绝对定位</li>
+<li>水平菜单需要设置浮动和清除浮动</li>
+<li>注意动画前后位置的设置</li>
+</ul>
+<pre><code class="css">.mainNav{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.mainNav ul li{
+    float: left;
+    margin: 20px 30px;
+}
+.mainNav ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid transparent;
+    transition: color .5s,border .5s;
+    //这里注意，最好不用设置成 all .5s
+}
+.mainNav ul li a:hover{
+    color: #000;
+    border: 1px solid #fff;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-文字和链接设置</h2>
+<pre><code class="css">header h2{
+    margin: 50px 0;
+    font-size: 30px;
+}
+p a{
+    border-bottom:1px dashed #fff;
+    padding-bottom: 4px;
+    transition: border .5s;
+}
+p a:hover{
+    border-bottom:1px solid #fff;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-我的兴趣HTML</h2>
+<pre><code class="html">&lt;main&gt;
+    &lt;section class=&quot;favContainer&quot;&gt;
+        &lt;h2&gt;我的兴趣&lt;/h2&gt;
+        &lt;ul class=&quot;fav clearfix&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;响应式布局&quot;&gt;RWD&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;流体布局&quot;&gt;Flexbox&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;CSS的预处理器&quot;&gt;Sass&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;CSS的预处理&quot;&gt;Less&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;CSS前缀处理&quot;&gt;Autoprefix&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;CSS新式布局方式&quot;&gt;Grid&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;不错的鼠标悬停效果集&quot;&gt;iHover&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot; title=&quot;不错的动画库&quot;&gt;Animate.css&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-我的兴趣CSS</h2>
+<pre><code class="css">/*
+ * 中间部分设置
+ * */
+main section{
+    margin: 50px 0px;
+}
+main section h2{
+    margin-bottom: 0px;
+}
+.fav li{
+    float: left;
+    width: 160px;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    background-color:rgba(100,100,200,.6);
+    margin: 10px 20px 0px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background .5s,border-radius .5s;
+}
+.fav li:hover{
+    border-radius: 0px;
+    background-color:rgba(100,100,200,.8);
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-项目示例HTML</h2>
+<pre><code class="html">&lt;section class=&quot;workContainer&quot;&gt;
+    &lt;a id=&quot;b&quot;&gt;&lt;/a&gt;
+    &lt;h2&gt;项目示例&lt;/h2&gt;
+    &lt;div class=&quot;work clearfix&quot;&gt;
+        &lt;figure class=&quot;work&quot;&gt;
+            &lt;figcaption&gt;代表项目&lt;/figcaption&gt;
+            &lt;img src=&quot;img/office.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/figure&gt;
+        &lt;figure class=&quot;work&quot;&gt;
+            &lt;figcaption&gt;代表项目&lt;/figcaption&gt;
+            &lt;img src=&quot;img/office.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/figure&gt;
+        &lt;figure class=&quot;work&quot;&gt;
+            &lt;figcaption&gt;代表项目&lt;/figcaption&gt;
+            &lt;img src=&quot;img/office.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/figure&gt;
+        &lt;figure class=&quot;work&quot;&gt;
+            &lt;figcaption&gt;代表项目&lt;/figcaption&gt;
+            &lt;img src=&quot;img/office.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/figure&gt;
+        &lt;figure class=&quot;work&quot;&gt;
+            &lt;figcaption&gt;代表项目&lt;/figcaption&gt;
+            &lt;img src=&quot;img/office.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/figure&gt;
+        &lt;figure class=&quot;work&quot;&gt;
+            &lt;figcaption&gt;代表项目&lt;/figcaption&gt;
+            &lt;img src=&quot;img/office.jpg&quot; alt=&quot;&quot; /&gt;
+        &lt;/figure&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-项目示例CSS</h2>
+<pre><code class="css">.work{
+    padding: 0;
+    margin: 0;
+}
+.work figure{
+    width: 30%;
+    margin: calc(10% / 6) calc(10% / 2) 0 0;
+    float: left;
+    position: relative;
+}
+.work figure:nth-child(3n){
+    margin-right: 0px;
+}
+.work figure figcaption{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    z-index: 3;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    opacity: 0;
+    transition: opacity .5s;
+}
+.work figure:hover figcaption{
+    opacity: 1;
+}
+.work figure img{
+    width: 100%;
+    height: auto;
+    -webkit-filter: grayscale(.5);
+    transition: webkit-filter .5s;
+    cursor: pointer;
+}
+.work figure:hover img{
+    -webkit-filter: grayscale(0);
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-联系我们HTML</h2>
+<ul>
+<li>定义列表的使用</li>
+<li>表单的使用</li>
+</ul>
+<pre><code class="html">&lt;section class=&quot;contactContainer&quot;&gt;
+    &lt;a id=&quot;c&quot;&gt;&lt;/a&gt;
+    &lt;h2&gt;联系我们&lt;/h2&gt;
+    &lt;p&gt;前端技术发展非常迅速，个人视野有限，希望大家可以通过广泛的交流互动，实现共同提高！！期待您的回复！！&lt;/p&gt;
+    &lt;dl&gt;
+        &lt;dt&gt;邮箱&lt;/dt&gt;
+        &lt;dd&gt;whqet@qq.com&lt;/dd&gt;
+        &lt;dt&gt;QQ&lt;/dt&gt;
+        &lt;dd&gt;86079959&lt;/dd&gt;
+    &lt;/dl&gt;
+    &lt;div class=&quot;contact&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;名字&quot; /&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; placeholder=&quot;邮箱&quot; /&gt;
+        &lt;select name=&quot;fav&quot; id=&quot;fav&quot;&gt;
+            &lt;option value=&quot;fav&quot;&gt;兴趣&lt;/option&gt;
+            &lt;option value=&quot;web&quot;&gt;网页开发&lt;/option&gt;
+            &lt;option value=&quot;app&quot;&gt;应用开发&lt;/option&gt;
+            &lt;option value=&quot;html5&quot;&gt;html5开发&lt;/option&gt;
+            &lt;option value=&quot;chat&quot;&gt;微信开发&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;textarea name=&quot;message&quot; id=&quot;message&quot; placeholder=&quot;留言&quot;&gt;&lt;/textarea&gt;
+        &lt;input type=&quot;submit&quot; name=&quot;submit&quot; id=&quot;submit&quot; value=&quot;提交信息&quot;/&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-联系我们CSS</h2>
+<pre><code class="css">/*
+ contact 部分
+ * */
+.contactContainer dl dt{
+    padding:5px 20px;
+    background-color: #fff;
+    color: #000;
+    display: inline-block;
+}
+.contactContainer dl dd{
+    padding:5px 20px;
+    background-color: #000;
+    color: #fff;
+    margin: 0px 30px 0px 0px;
+    display: inline-block;
+}
+.contact input{
+    width: 31%;
+    margin: 5px 2% 5px 0px;
+    padding: 10px 16px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+}
+.contact select{
+    width: 32%;
+    padding: 10px 16px;
+    border-radius: 3px;
+    margin: 5px 0px 5px 4px;
+}
+.contact textarea,
+.contact input[type=&quot;submit&quot;]{
+    width: 48%;
+    height: 50px;
+    padding: 10px 16px;
+    border-radius: 3px;
+    margin: 5px 3% 5px 0px;
+    vertical-align: top;
+}
+.contact input[type=&quot;submit&quot;]{
+    margin: 5px 0px;
+    border:none;
+    outline: none;
+    background-color: #00BFFF;
+    cursor: pointer;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-footer</h2>
+<pre><code class="html">&lt;footer&gt;
+    &lt;p&gt;
+        &amp;copy; 王海庆版权所有，如有雷同，非常感谢！
+    &lt;/p&gt;
+    &lt;a id=&quot;goTop&quot; href=&quot;#&quot;&gt;顶部&lt;/a&gt;
+&lt;/footer&gt;
+</code></pre>
+<pre><code class="css">/*
+ 版权部分
+ * */
+#goTop{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid #fff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 0.8em;
+    color: #fff;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>关键步骤讲解-JS的使用（可选-感兴趣的同学可尝试）</h2>
+<pre><code class="html">&lt;script src=&quot;https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function() {
+        $(&#39;header a&#39;).on(&#39;click&#39;, function(e) {
+            e.preventDefault();
+            $(&#39;html, body&#39;).animate({ scrollTop: $($(this).attr(&#39;href&#39;)).offset().top}, 500);
+        });
+        $(&#39;#goTop&#39;).on(&#39;click&#39;, function(e) {
+            e.preventDefault();
+            $(&#39;html, body&#39;).animate({ scrollTop: 0}, 500);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结</h2>
+<ul>
+<li>CSS书写顺序</li>
+<li>CSS属性的使用</li>
+<li>水平居中</li>
+<li>单行文本垂直居中</li>
+<li>块元素的水平垂直居中</li>
+<li>浮动与定位的选择</li>
+<li>浮动与清除</li>
+<li>距离的设置</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-CSS书写顺序</h2>
+<pre><code class="css">/**
+ * CSS书写顺序 
+ * 先全局，再局部
+ * 先抽象，再具体
+ * 先上面，后下面
+ * hover前后紧挨着（行为处理前后选择器最好保持统一）
+ */
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-CSS属性的使用</h2>
+<pre><code class="css">/**
+ * CSS属性的使用-不知道写那些属性时考虑
+ * 显示方式，display为none、block、inline-block
+ * 宽高大小
+ * 颜色、背景, color,background
+ * 内外边距、边框、圆角，padding margin border border-radius
+ * 位置 float position left right top bottom
+ * 对齐方式  text-align vertical-align line-height
+ * 阴影 box-shadow
+ * 过渡 transition
+ * 等等
+ */
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-水平居中、单行文本垂直居中</h2>
+<pre><code class="css">/*
+ * 某文本元素需要居中，父元素里设置text-align:center
+ * 某块元素水平居中，固定宽度，水平方向margin为auto
+ * 单行文本垂直居中，设置行高=高度或设置上下相同的padding值
+ */
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-块元素的水平垂直居中</h2>
+<pre><code class="css">.center1{
+    width:400px;
+    height:400px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-top:-200px;
+    margin-left；-200px;
+}
+.center2{
+    width:400px;
+    height:400px;
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-浮动、定位的选择</h2>
+<pre><code class="css">/*
+ * 如果不用浮动、定位就可以实现效果，尽量不用浮动、定位
+ * 如果有多个元素同时需要脱离常规流，同时没有上下位置的区别，用浮动。
+ * 如果某个元素相对于某层父元素位置固定，用（绝对）定位。
+ */
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-浮动和清除</h2>
+<pre><code class="css">/*
+ * 如果浮动，一定清除
+ * 一般在产生浮动的父元素上，使用clearfix类清除浮动。
+ */
+.clearfix::after{
+    content:&quot;&quot;;
+    display:table;
+    clear:both;
+    /*也可以设置些隐藏内容的属性*/
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>核心知识点总结-距离的设置</h2>
+<pre><code class="css">/**
+ * 距离的设置
+ * padding和margin的使用
+ * 具体使用，结合背景、边框而定。
+ */
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>前端开发</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/img.css" />
+		<style type="text/css">
+			.demos {
+				width: 460px;
+				margin: 100px auto;
+			}
+			
+			.demo {
+				width: 200px;
+				height: 200px;
+				border: 2px solid #fff;
+				margin: 10px;
+				box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .2);
+				display: inline-block;
+				cursor: url(img/plus_cursor.png), pointer;
+			}
+			
+			.first {
+				background: url(img/h1_small.jpg) no-repeat;
+				background-size: cover;
+				background-position: 50% 50%;
+			}
+			
+			.second {
+				background: url(img/v1_small.jpg) no-repeat;
+				background-size: cover;
+				background-position: 50% 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="demos">
+			<div class="demo first" data-img='img/h1_small.jpg' data-title="一号标题1" data-text='二号标题'> </div>
+			<div class="demo second" data-img='img/v1_small.jpg' data-title="一号标题2" data-text='二号标题'></div>
+		</div>
+		<script type="text/javascript">
+			(function() {
+				var elements = document.querySelectorAll(".demo");
+				var target;
+				var winWidth = window.innerWidth;
+				var winHeight = window.innerHeight;
+				var ratio = winWidth / winHeight;
+				var mouse = { xCurr: 0, yCurr: 0, xDest: 0, yDest: 0 };
+				var horizontalOrientation;
+				var currentPosition=0,lastPosition=0;
+				var img,looper;
+
+				if(elements.length == 0) {
+					//如果没有元素，退出执行
+					return false;
+				} else {
+					//如果有，生成元素
+					
+					//container
+					var container = document.createElement('figure');
+					container.className = "container";
+					document.body.appendChild(container);
+					//img
+					img = document.createElement("img");
+					container.appendChild(img);
+					//figcaption
+					var figCaption = document.createElement("figcaption");
+					figCaption.className = "captionContainer";
+					container.appendChild(figCaption);
+					var h1 = document.createElement("h1");
+					var h2 = document.createElement("h2");
+					figCaption.appendChild(h1);
+					figCaption.appendChild(h2);
+
+					//绑定单击事件
+					for(var i = 0; i < elements.length; i++) {
+						elements[i].addEventListener("click", init, false);
+					}
+				}
+
+				function init() {
+					var event = event || window.event;
+					target = event.target || event.srcElement;
+					var imgSource = target.dataset.img;
+					var h1Text = target.dataset.title;
+					var h2Text = target.getAttribute("data-text");
+					img.src = imgSource;
+
+					img.onload=function(){
+						//判断图像，进行适配
+						if(img.naturalWidth / img.naturalHeight > ratio) {
+							img.height = winHeight;
+							img.width = winHeight * img.naturalWidth / img.naturalHeight;
+							img.style.marginLeft=(winWidth-img.width)/2+"px";
+							img.style.marginTop = 0;
+							horizontalOrientation=true;
+							console.log(img.width);
+						} else {
+							img.width = winWidth;
+							img.height = winWidth *img.naturalHeight/img.naturalWidth;
+							img.style.marginTop=(winHeight-img.height)/2+"px";
+							img.style.marginLeft = 0;
+							horizontalOrientation=false;
+						}
+						
+					}
+
+					h1.innerHTML = h1Text;
+					h2.innerHTML = h2Text;
+					
+					mouse.xCurr = mouse.xDest = window.innerWidth / 2;
+					mouse.yCurr = mouse.yDest = window.innerHeight / 2;
+
+					setTimeout(function() {
+						fadeIn(container, 'block');
+						container.style.cursor = 'url(img/close_cursor.png) 25 25, pointer';
+					}, 100);
+
+					container.addEventListener("click", function() {
+						container.style.cursor = 'url(img/plus_cursor.png) 25 25, pointer';
+						setTimeout(function() {
+							fadeOut(container);
+							container.style.cursor = 'url(img/plus_cursor.png) 25 25, pointer';
+						}, 100);
+						
+						stop();
+					});
+					
+					loop();
+					
+					container.addEventListener("mousemove",function(event){
+						event=event||window.event;
+						mouse.xDest=event.clientX;
+						mouse.yDest=event.clientY;
+					});
+					
+				}
+				
+				//loop动画函数
+				function loop () {
+					//console.log('ok');
+					positionImg(img);
+					looper=requestAnimationFrame(loop);
+				}
+				
+				function stop () {
+					cancelAnimationFrame(looper);
+				}
+				
+				function positionImg (target) {
+					
+					mouse.xCurr += (mouse.xDest - mouse.xCurr) * 0.05;
+					mouse.yCurr += (mouse.yDest - mouse.yCurr) * 0.05;
+					
+					if(horizontalOrientation === true) {
+						
+						// HORIZONTAL SCANNING
+						currentPosition += (mouse.xCurr - currentPosition - winWidth/2);
+						if(mouse.xCurr !== lastPosition) {
+							var position=(winWidth-img.width)/(winWidth)*currentPosition;
+							target.style.transform = 'translate3d(' + position + 'px, 0px, 0px)';
+							lastPosition = mouse.xCurr;
+						}
+						
+					} else if(horizontalOrientation === false) {
+
+						// VERTICAL SCANNING
+						currentPosition += (mouse.yCurr - currentPosition -winHeight/2);
+						if(mouse.yCurr !== lastPosition) {
+							var position=(winHeight-img.height)/(winHeight)*currentPosition;
+							target.style.transform = 'translate3d( 0px, ' + position + 'px, 0px)';
+							lastPosition = mouse.yCurr;
+							console.log(window.innerWidth);
+						}
+					}
+				}
+				
+				//自定义淡入函数
+				function fadeIn(el, display) {
+					el.style.opacity = 0;
+					el.style.display = display || "block";
+
+					(function fade() {
+						var val = parseFloat(el.style.opacity);
+						if(!((val += .1) > 1)) {
+							el.style.opacity = val;
+							//setinterval
+							//requestAnimationFrame  
+							requestAnimationFrame(fade);
+						}
+					})();
+				}
+				//自定义淡出函数
+				function fadeOut(el) {
+					el.style.opacity = 1;
+
+					(function fade() {
+						if((el.style.opacity -= .1) < 0) {
+							el.style.display = "none";
+						} else {
+							requestAnimationFrame(fade);
+						}
+					})();
+				}
+			})();
+		</script>
+	</body>
+
+</html>

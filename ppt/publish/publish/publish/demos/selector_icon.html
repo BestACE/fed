@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .file a[href] {
+        padding: 2px 20px;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        text-decoration: none;
+        color: black;
+        transition: all .5s;
+    }
+    
+    .file a[href]:hover {
+        text-decoration: underline;
+        color: rgba(250, 150, 20, .8);
+    }
+    
+    .file a[href$="doc"] {
+        background-image: url(img/word.png);
+    }
+    
+    .file a[href$="pdf"] {
+        background-image: url(img/pdf.png);
+    }
+    
+    .file a[href$="ppt"] {
+        background-image: url(img/ppt.png);
+    }
+    
+    .file a[href$="rar"] {
+        background-image: url(img/rar.png);
+    }
+    /*外链链接*/
+    
+    [href^="//"]:not([href*="zptcsoft.github.io"]) {
+        padding-right: 4em;
+    }
+    
+    [href^="//"]:not([href*="zptcsoft.github.io"])::after {
+        content: '【外链】';
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        white-space: nowrap;
+        text-indent: 1em;
+        background: url("img/Icon_External_Link.svg") center/16px no-repeat;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="file">
+        <a href="abc.doc">doc文件</a>
+        <a href="abc.pdf">pdf文件</a>
+        <a href="abc.ppt">ppt文件</a>
+        <a href="abc.rar">rar文件</a>
+    </div>
+    <hr>
+    <div class="link">
+        您可以查看本站的CSS<a href="selectors.html">选择器列表</a>，也可以<a href="//www.baidu.com">百度</a>更多。
+    </div>
+</body>
+
+</html>
