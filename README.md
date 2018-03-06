@@ -67,7 +67,7 @@
 ## 课程讲义
 
 ### 2017级讲义
-01. [课程概述](//bestace.github.io/fed//ppt/publish/50.htm)
+01. [课程概述](//bestace.github.io/fed//ppt/publish/50.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/01.htm)
