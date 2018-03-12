@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>单个盒子的尺寸计算</title>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			.test{
+				width: 100px;
+				height: 100px;
+				background-color: #9df;
+				padding: 20px 30px;
+				border: 5px solid #F06431;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="test"></div>
+<!--
+	盒子模型尺寸=边框+内补白+盒子的内容尺寸（边框内）
+		宽=5*2+30*2+100
+	盒子模型尺寸=外补白+边框+内补白+盒子的内容尺寸（边框外）
+		宽=10*2+5*2+30*2+100
+-->
+	</body>
+</html>

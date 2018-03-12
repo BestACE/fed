@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>兄弟块元素水平距离</title>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			.left,.right{
+				width: 100px;
+				height: 100px;
+				background-color: #9df;
+				border:10px solid #F06431;
+				padding: 10px;
+				float: left;
+			}
+			.left{
+				margin: 20px;
+			}
+			.right{
+				margin: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="left">左</div>
+		<div class="right">右</div>
+<!--
+	兄弟块元素水平距离（边框间）=左元素的右margin+右元素的左margin=sum(margin1,margin2)
+-->
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.win {
+				width: 300px;
+				height: 300px;
+				background-color: #dfd;
+				margin: auto;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				opacity: 0;
+				/*display: none;*/
+				z-index: 1000;
+			}
+			
+			.win .btn {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+				cursor: pointer;
+				z-index: 2;
+			}
+			
+			.win .content {}
+			
+			.mask {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				background-color: rgba(0, 0, 0, .2);
+				z-index: 100;
+				display: none;
+				transition: all .5s;
+			}
+			.show{
+				display: block;
+			}
+			
+			/*
+			 张振栋、徐凯楠、李康康、陈克行、韩浩浩、邬远峰
+			徐晗、章驰恒、夏彬慧、袁健苗、王挺、周伊翔
+			陈波、邵家栋、屠鑫波、包捷、屠林锋、杨熔倪
+			娄文依、王志豪、陈如谊、丁磊、兰庆峰、朱善鸿
+			陈耀泽、黄书琛、王成凯、鄢滟麟、卢孙仲、杨志谦
+			 * */
+		</style>
+		<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<a href="javascript:" class="modal" data-content="模拟窗口案例">打开模拟窗口</a>
+		<div class="modal" data-content="另外的一些内容">淡淡道</div>
+		<script type="text/javascript">
+			//alert("ok");
+			var oModal = document.getElementsByClassName('modal');
+			var oWin, oBtn, oContent,oMask;
+			if(oModal.length >= 1) {
+
+				oWin = document.createElement("div");
+				oWin.id = "win";
+				oWin.className = "win";
+				document.body.appendChild(oWin);
+
+				oBtn = document.createElement("div");
+				oBtn.id = "btn";
+				oBtn.className = "btn";
+				oBtn.innerHTML = "<i class='fa fa-close'></i>";
+				oWin.appendChild(oBtn);
+				oBtn.addEventListener("click", closeWin);
+
+				oContent = document.createElement("div");
+				oContent.className = "content";
+				oWin.appendChild(oContent);
+
+				oMask = document.createElement("div");
+				oMask.className = "mask";
+				document.body.appendChild(oMask);
+				for(var i = 0; i < oModal.length; i++) {
+					oModal[i].addEventListener("click", openWin);
+
+				}
+			} else {
+				document.write("没有可以模拟窗口的对象");
+			}
+
+			function openWin(event) {
+				oMask.classList.add('show');
+//				oWin.classList.add('show');
+				//利用setinval执行透明度变化
+				var opacity = 0;
+				var fader = setInterval(function() {
+				  opacity += 0.1;
+				  if (opacity <= 1) {
+				    oWin.style.opacity = opacity;
+				  } else {
+				    clearInterval(fader);
+				  }
+				}, 100);
+				oContent.innerHTML = event.target.dataset.content;
+			}
+
+			function closeWin(event) {
+				oMask.classList.remove('show');
+				oWin.style.opacity=0;
+				oContent.innerHTML = "";
+			}
+			
+		</script>
+	</body>
+
+</html>

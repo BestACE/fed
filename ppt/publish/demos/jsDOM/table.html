@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			table{
+				border-collapse:collapse;
+				border: 1px solid #888;
+				width: 600px;
+			}
+			th,td{
+				border: 1px solid #888;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="添加" />
+		<table id="user">
+			<caption>表格标题</caption>
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>地址</th>
+					<th>删除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>男</td>
+					<td>绍兴市</td>
+					<td><a href='javascript:'>删除</a></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>男</td>
+					<td>绍兴市</td>
+					<td><a href='javascript:'>删除</a></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>张三</td>
+					<td>男</td>
+					<td>绍兴市</td>
+					<td><a href='javascript:'>删除</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<script type="text/javascript">
+			var oUser=document.getElementById("user");
+			var oBtn=document.getElementsByTagName('input')[0];
+			
+			var oDel=document.querySelectorAll("td a");
+		
+			for (var i = 0; i < oDel.length; i++) {
+				oDel[i].addEventListener("click",function(event){
+					event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode);
+				})
+			}
+			
+			oBtn.onclick=function(){
+				
+				var row=oUser.insertRow(1);
+//				row.innerHTML="<td>3</td><td>3</td><td>3</td><td>3</td><td><a href='javascript:del(this)'>删除</a></td>";
+				var cell0=row.insertCell(0);
+				var cell1=row.insertCell(1);
+				var cell2=row.insertCell(2);
+				var cell3=row.insertCell(3);
+				var cell4=row.insertCell(4);
+//				
+				cell0.appendChild(document.createTextNode('4'));
+				cell1.appendChild(document.createTextNode('王五'));
+				cell2.appendChild(document.createTextNode('男'));
+				cell3.appendChild(document.createTextNode('湖州市'));
+				var cellLink=document.createElement('a');
+				cellLink.innerText="删除";
+				cellLink.setAttribute('href','#');
+				cell4.appendChild(cellLink);
+				cellLink.addEventListener("click",function(event){
+					//console.log(event.target.parentNode.parentNode.parentNode,event.target);
+					event.target.parentNode.parentNode.parentNode.removeChild(event.target.parentNode.parentNode);
+				});
+			}
+		</script>
+	</body>
+
+</html>

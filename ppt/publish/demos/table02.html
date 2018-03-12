@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>隔行变色的表格</title>
+    <style>
+		.stripe{
+			width: 480px;
+			border-collapse: collapse;
+			border: 1px solid rgba(0,0,0,.2);
+		}
+       .stripe th{
+         background-color: rgba(0,0,200,.3);
+         color:rgba(255,255,255,.9);
+       }
+		.stripe td, .stripe th{
+			border: 1px solid rgba(0,0,0,.2);
+			text-align: center;
+            padding:5px;
+		}
+        .stripe tbody tr:nth-child(2n){
+            background-color: rgba(0,0,0,.1);
+        }
+        .stripe tbody tr:hover{
+            cursor: pointer;
+            background-color: rgba(0,0,0,.2);
+        }
+        .stripe tbody tr td{
+            color: hsl(80,100%,30%);
+        }
+        .stripe tbody tr:hover td{
+            color: hsl(300,100%,50%);
+        }
+        .stripe tfoot td{
+            text-align: left;
+            color: rgba(0,0,0,.2);
+        }
+    </style>
+</head>
+
+<body>
+    <table class="stripe">
+        <caption>学生信息表</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>班级</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4">*描述学生信息</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>软件251</td>
+            </tr>
+            <tr>
+                <td>赵四</td>
+                <td>女</td>
+                <td>18</td>
+                <td>软件252</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>男</td>
+                <td>21</td>
+                <td>软件257</td>
+            </tr>
+            <tr>
+                <td>李六</td>
+                <td>男</td>
+                <td>20</td>
+                <td>软件256</td>
+            </tr>
+            <tr>
+                <td>田七</td>
+                <td>女</td>
+                <td>19</td>
+                <td>软件254</td>
+            </tr>
+            <tr>
+                <td>张十八</td>
+                <td>男</td>
+                <td>21</td>
+                <td>软件257</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

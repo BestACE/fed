@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				height: 100vh;
+				background-color: #2d5c8d
+			}
+			
+			* {
+				box-sizing: border-box
+			}
+			
+			.main-color {
+				background-color: #FFF;
+				color: #423939;
+			}
+			
+			.cont {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.box {
+				border: 10px solid #423939;
+			}
+			
+			.box {
+				width: 200px;
+				height: 200px;
+				padding: 25px;
+				border-radius: 50%;
+				position: relative;
+				margin: 60px auto;
+			}
+			
+			.box img {
+				width: 100%;
+				height: 100%;
+				border-radius: inherit;
+			}
+			
+			.box div {
+				position: absolute;
+				z-index: 1;
+				width: 40px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, .5)
+			}
+			
+			.box div:before,
+			.box div:after {
+				content: '';
+				position: absolute;
+				background-color: inherit;
+			}
+			
+			.top:before,
+			.bottom:after {
+				top: -20%;
+				height: 140%;
+				left: 0;
+				width: 100%;
+				z-index: -1
+			}
+			
+			.right:before,
+			.left:after {
+				left: -20%;
+				width: 140%;
+				top: 0;
+				height: 100%;
+				z-index: -1
+			}
+			
+			.box .face-box {
+				left: 50%;
+				top: 0;
+				transform: translate(-50%, -50%)
+			}
+			
+			.box .tw-box {
+				right: 0;
+				top: 50%;
+				transform: translate(50%, -50%)
+			}
+			
+			.box .gh-box {
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, 50%)
+			}
+			
+			.box .gl-box {
+				top: 50%;
+				left: 0;
+				transform: translate(-50%, -50%)
+			}
+			
+			.paint {
+				position: absolute;
+				top: 50%;
+				z-index: 999;
+				transform: translatey(-50%);
+				width: 40px;
+				border-radius: 0 5px 5px 0;
+				overflow: hidden;
+			}
+			
+			.paint span {
+				display: block;
+				height: 40px;
+				background-color: #FFF;
+				line-height: 40px;
+				text-align: center;
+			}
+			
+			.details {
+				border-top: 1px solid rgba(0, 0, 0, .1);
+				padding: 10px;
+				text-align: center
+			}
+			
+			.details * {
+				margin: 0;
+				padding: 10px;
+			}
+			
+			.details :nth-child(2) {
+				border-top: 1px solid rgba(0, 0, 0, .1);
+				border-bottom: 1px solid rgba(0, 0, 0, .1);
+			}
+			
+			.details .browser {
+				display: none;
+			}
+			/* ===== theme one ======*/
+			
+			[data-th="one"] .main-color {
+				background-color: #003989;
+				color: #fff;
+			}
+			
+			[data-th="one"] .box {
+				border: 10px solid #fff;
+			}
+			/* ===== end theme one ======*/
+			/* two */
+			
+			[data-th="two"] .main-color {
+				background-color: #f5e88f;
+				color: #151a70;
+			}
+			
+			[data-th="two"] .box {
+				border: 10px solid #151a70;
+			}
+			/* end theme two*/
+			/* ===== theme three ======*/
+			
+			[data-th="three"] .main-color {
+				background-color: #dc32a4;
+				color: #333333;
+			}
+			
+			[data-th="three"] .box {
+				border: 10px solid#333333;
+			}
+			/* ===== end theme three ======*/
+			/* ===== theme four ======*/
+			
+			[data-th="four"] .main-color {
+				background-color: #e2cdd6;
+				color: #1c362b;
+			}
+			
+			[data-th="four"] .box {
+				border: 10px solid #1c362b;
+			}
+			/* ===== end theme four ======*/
+			/* ===== theme five ======*/
+			
+			[data-th="five"] .main-color {
+				background-color: #b17b31;
+				color: #3c3c3c;
+			}
+			
+			[data-th="five"] .box {
+				border: 10px solid #3c3c3c;
+			}
+			/* ===== end theme five ======*/
+			/* ===== theme six ======*/
+			
+			[data-th="six"] .main-color {
+				background-color: #fff;
+				color: #8c9c47;
+			}
+			
+			[data-th="six"] .box {
+				border: 10px solid #8c9c47;
+			}
+			/* ===== end theme six ======*/
+			/* ===== theme seven ======*/
+			
+			[data-th="seven"] .main-color {
+				background-color: #2c0757;
+				color: #d6fda8;
+			}
+			
+			[data-th="seven"] .box {
+				border: 10px solid #d6fda8;
+			}
+			/* ===== end theme seven ======*/
+			/* ===== theme eight ======*/
+			
+			[data-th="eight"] .main-color {
+				background-color: #fff;
+				color: #74c1bb;
+			}
+			
+			[data-th="eight"] .box {
+				border: 10px solid #74c1bb;
+			}
+			/* ===== end theme eight ======*/
+			/* ===== theme nine ======*/
+			
+			[data-th="nine"] .main-color {
+				background-color: #f39b2f;
+				color: #282b32;
+			}
+			
+			[data-th="nine"] .box {
+				border: 10px solid #282b32;
+			}
+			/* ===== end theme nine ======*/
+			/* ===== theme ten ======*/
+			
+			[data-th="ten"] .main-color {
+				background-color: #ecc60d;
+				color: #0d1b1c;
+			}
+			
+			[data-th="ten"] .box {
+				border: 10px solid #0d1b1c;
+			}
+			/* ===== end theme ten ======*/
+		</style>
+	</head>
+
+	<body>
+		<div class="paint">
+			<span class="default"><i class="fa fa-rotate-left"></i></span>
+			<span data-theme="one" data-bg="#003989"></span>
+			<span data-theme="two" data-bg="#f5e88f"></span>
+			<span data-theme="three" data-bg="#dc32a4"></span>
+			<span data-theme="four" data-bg="#e2cdd6"></span>
+			<span data-theme="five" data-bg="#b17b31"></span>
+			<span data-theme="six" data-bg="#FFF"></span>
+			<span data-theme="seven" data-bg="#2c0757"></span>
+			<span data-theme="eight" data-bg="#74c1bb"></span>
+			<span data-theme="nine" data-bg="#f39b2f"></span>
+			<span data-theme="ten" data-bg="#ecc60d"></span>
+		</div>
+		<div class="cont main-color">
+			<div class="box">
+				<img src="https://cdn-s3.si.com/s3fs-public/2014/06/09/brion_oconnor_400x400.png" alt="">
+				<div class="face-box top main-color"><i class="fa fa-facebook"></i></div>
+				<div class="tw-box right main-color"><i class="fa fa-twitter"></i></div>
+				<div class="gh-box bottom main-color"><i class="fa fa-github"></i></div>
+				<div class="gl-box left main-color"><i class="fa fa-google"></i></div>
+			</div>
+			<div class="main-color details">
+				<h1>欢迎来到前端开发的世界，一起做极客！</h1>
+				<h3>by whqet</h3>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var spanList=document.querySelectorAll(".paint span");
+			var curTheme=localStorage.getItem('theme');
+			if(curTheme!=null){
+				document.body.dataset.th=curTheme;
+			}
+			for (var i = 0; i < spanList.length; i++) {
+				spanList[i].style.backgroundColor=spanList[i].dataset.bg;
+				spanList[i].addEventListener("click",function(event){
+					var target=event.target;
+					localStorage.setItem('theme',target.dataset.theme);
+					document.body.dataset.th=target.dataset.theme;
+				})
+			}
+		</script>
+	</body>
+
+</html>

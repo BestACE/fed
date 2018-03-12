@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>tab选项卡实现</title>
+		<style type="text/css">
+			.clearfix::after{
+				content: "";
+				display: table;
+				clear: both;
+			}
+			input{
+				display: none;
+			}
+			label{
+				display: inline-block;
+				width: 60px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			.content *{
+				box-sizing: border-box;
+			}
+			.contents{
+				width: 600px;
+				height: 480px;
+				overflow: hidden;
+				position: relative;
+				border: 1px solid #000;
+			}
+			.contents .contentList{
+				width: 1800px;
+				height: 480px;
+				position: absolute;
+				transition: left .5s;
+			}
+			.contents .contentList div{
+				float: left;
+				width: 600px;
+				height: 480px;
+			}
+			.contents .contentList div#con1{
+				background-color: #fdd;
+			}
+			.contents .contentList div#con2{
+				background-color: #dfd;
+			}
+			.contents .contentList div#con3{
+				background-color: #ddf;
+			}
+			#tab1:checked~.contents .contentList{
+				left: 0;
+			}
+			#tab2:checked~.contents .contentList{
+				left: -600px;
+			}
+			#tab3:checked~.contents .contentList{
+				left: -1200px;
+			}
+			#tab1:checked~#label1{
+				background-color: #000;
+				color: #fff;
+			}
+			#tab2:checked~#label2{
+				background-color: #000;
+				color: #fff;
+			}
+			#tab3:checked~#label3{
+				background-color: #000;
+				color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tabs">
+			<input type="radio" checked="checked" name="tab" id="tab1"/>
+			<input type="radio" name="tab" id="tab2"/>
+			<input type="radio" name="tab" id="tab3"/>
+			<label for="tab1" id="label1">新闻</label>
+			<label for="tab2" id="label2">通知</label>
+			<label for="tab3" id="label3">公告</label>
+			<div class="contents">
+				<div class="contentList clearfix">
+					<div id="con1">
+						新闻内容
+					</div>
+					<div id="con2">
+						通知内容
+					</div>
+					<div id="con3">
+						公告内容
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
