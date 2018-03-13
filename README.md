@@ -76,7 +76,7 @@
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)
 02. [web概述](//bestace.github.io/fed//ppt/publish/02.html)
 03. [HTML概述](//bestace.github.io/fed//ppt/publish/03.html)
-04. [HTML元素](//bestace.github.io/fed//ppt/publish/04.html)--[html5元素周期表](zptcsoft.github.io/html5-elements-periodic-table/)
+04. [HTML元素](//bestace.github.io/fed//ppt/publish/04.html)--[html5元素周期表](//zptcsoft.github.io/html5-elements-periodic-table/)
 05. [HTML属性](//bestace.github.io/fed//ppt/publish/05.html)
 06. [HTML文档元数据和脚本元素](//bestace.github.io/fed//ppt/publish/06.html)
 07. [HTML节点元素](//bestace.github.io/fed//ppt/publish/07.html)
