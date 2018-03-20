@@ -70,7 +70,7 @@
 01. [课程概述](//bestace.github.io/fed//ppt/publish/50.html)
 02. [Web概述](//bestace.github.io/fed//ppt/publish/51.html)
 03. [HTML基础](//bestace.github.io/fed//ppt/publish/52.html)
-
+04. [HTML链接](//bestace.github.io/fed//ppt/publish/53.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)
