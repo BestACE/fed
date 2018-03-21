@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: deepskyblue;
+			}
+			.form{
+				width: 400px;
+				height: 260px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				background-color: #fff;
+				box-shadow: 0px 0px 10px 1px rgba(0,0,0,.5);
+				text-align: center;	
+			}
+			.form h3{
+				text-align: center;
+				margin: 10px 0px;
+			}
+			.form>div{
+				position: relative;
+				width: 75%;
+				height: 30px;
+				margin: 10px 0px;
+				display: inline-block;
+			}
+			
+			.form input{
+				width: 100%;
+				height: 100%;
+				line-height: 30px;
+				border: none;
+				outline: none;
+				border: 1px dashed lightblue;
+				text-indent: 1em;
+				transition: all .5s;
+				background-color:transparent;
+			}
+			.form input:focus{
+				border: 1px solid lightblue;
+				box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,.5);
+			}
+			.form input+label{
+				position: absolute;
+				left: 1em;
+				top: 0.5em;
+				color: rgba(0,0,0,.8);
+				transition: all .5s;
+			}
+			.form input:focus+label{
+				left: 250px;
+				color: rgba(0,0,0,1);
+			}
+			.form input[type="submit"]{
+				width: 40%;
+				height: 40px;
+				line-height: 40px;
+				position: absolute;
+				left: 30%;
+				right: 30%;
+				bottom: -30px;
+				text-indent: 0;
+				color: #fff;
+				letter-spacing: 0px;
+				background-color: rgba(50,50,100,.9);
+				/*border: 1px solid #fff;*/
+				border: none;
+				box-shadow: 0px 3px rgba(50,50,100,.5),1px 1px 4px 0 rgba(0,0,0,.5);
+				cursor: pointer;
+			}
+			.form input[type="submit"]:hover{
+				letter-spacing: 5px;
+				background-color: #333;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<form action="#" class="form">
+			<h3>个人信息</h3>
+			<div>
+				<input type="text" name="name" id="name" />
+				<label for="name">姓名</label>
+			</div>
+			<div>
+				<input type="text" name="age" id="age"/>
+				<label for="age">年龄</label>
+			</div>
+			<div>
+				<input type="email" name="mail" id="mail"/>
+				<label for="email">邮箱</label>
+			</div>
+			<input type="submit" value="提交信息" />
+		</form>
+	</body>
+</html>

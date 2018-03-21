@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择符生成器</title>
+    <style>
+    body,
+    .misc * {
+        font-size: 16px;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        padding: 0 10px;
+        max-width: 1200px;
+        margin: 15px auto;
+        color: #666666;
+        background-image: url("http://www.lancefarrow.ca/wp-content/uploads/2014/06/triangle-background-17.png");
+        background-size: 150% auto;
+    }
+    
+    body h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    
+    .container {
+        border: 1px solid #CCCCCC;
+        border-radius: 4px;
+        overflow: hidden;
+        padding: 0 30px;
+        min-height: 600px;
+        display: block;
+        background: white;
+    }
+    
+    .container .generator {
+        border-top: 1px solid #CCCCCC;
+        padding-top: 30px;
+        overflow: hidden;
+    }
+    
+    .container .generator div.options {
+        width: 250px;
+        vertical-align: top;
+        float: left;
+        padding: 10px 20px 10px 0;
+    }
+    
+    .container .generator div.options > div {
+        margin-bottom: 25px;
+    }
+    
+    .container .generator div.options select {
+        display: inline-block;
+        -webkit-appearance: none;
+        box-sizing: border-box;
+        border: 1px solid #CCCCCC;
+        box-shadow: 0;
+        padding: 8px 30px 8px 10px;
+        font-size: 16px;
+        width: 100%;
+        background-color: #FFFFFF;
+        background-image: url("https://www.pigeonholelive.com/images/chevron-down.png");
+        background-repeat: no-repeat;
+        background-size: 20px;
+        background-position: right 10px center;
+        color: #555555;
+    }
+    
+    .container .generator div.options select.nth {
+        margin-top: 10px;
+    }
+    
+    .container .generator div.options .value {
+        font-size: 18px;
+        padding: 20px;
+        border: 1px dashed #CCCCCC;
+        background: #F1F1F1;
+        border-radius: 5px;
+        font-weight: 300;
+    }
+    
+    .container .generator div.example {
+        width: calc(100% - (250px + 1px));
+        float: left;
+        border-left: 1px solid #DDDDDD;
+        padding: 10px 0 10px 20px;
+    }
+    
+    .container .generator div.example > div {
+        background: #F1F1F1;
+        border: 1px dashed #CCCCCC;
+        border-radius: 5px;
+        overflow: hidden;
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    .container .generator div.example .list p {
+        margin-left: 20px;
+    }
+    
+    .container .generator div.example table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    .container .generator div.example table td {
+        padding: 20px 10px;
+        border: 1px solid #CCCCCC;
+        background: white;
+    }
+    
+    .container .generator div.example .misc label {
+        margin: 0;
+        font-size: 16px;
+    }
+    
+    .container .generator div.example .misc input {
+        background: white;
+    }
+    
+    .container .generator div.example .misc div *:not(.input) {
+        margin-bottom: 5px;
+        padding: 3px 0;
+    }
+    
+    .container .generator div.example .misc div > div:not(input) *:first-child:not(input),
+    .container .generator div.example .misc div:not(input) *:first-child:not(input) {
+        margin-top: 5px;
+    }
+    
+    .container .generator div.example .misc div *:not(input) {
+        margin-left: 20px;
+    }
+    
+    .container .generator div.example ul:before {
+        content: "<ul>";
+    }
+    
+    .container .generator div.example ul:after {
+        content: "</ul>";
+    }
+    
+    .container .generator div.example li:before {
+        content: "<li>";
+    }
+    
+    .container .generator div.example li:after {
+        content: "</li>";
+    }
+    
+    .container .generator div.example p:before {
+        content: "<p>";
+    }
+    
+    .container .generator div.example p:after {
+        content: "</p>";
+    }
+    
+    .container .generator div.example .misc div:not(.input):before {
+        content: "<div>";
+    }
+    
+    .container .generator div.example .misc div:not(.input):after {
+        content: "</div>";
+    }
+    
+    .container .generator div.example .misc label:before {
+        content: "<label>";
+    }
+    
+    .container .generator div.example .misc label:after {
+        content: "</label>";
+    }
+    
+    .container .generator label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    .container .generator ul {
+        float: left;
+        color: #666666;
+        margin: 0 0 0 10px;
+        padding: 0;
+    }
+    
+    .container .generator ul li {
+        list-style: none;
+        margin: 5px 0 5px 20px;
+        padding: 3px;
+    }
+    
+    .container .generator p {
+        margin: 0 0 5px 0;
+        padding: 3px;
+    }
+    
+    footer {
+        overflow: hidden;
+        margin: 10px auto;
+        text-align: center;
+    }
+    
+    footer a {
+        text-decoration: none;
+        color: blue;
+        font-size: 14px;
+        clear: both;
+    }
+    
+    footer a:hover {
+        text-decoration: underline;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>CSS3伪类选择符生成器</h1>
+        <div class="generator">
+            <div class="options">
+                <div>
+                    <label>选择html模型:</label>
+                    <select class="changehtml">
+                        <option value="list">列表</option>
+                        <option value="table">表格</option>
+                        <option value="misc">杂集</option>
+                    </select>
+                </div>
+                <div>
+                    <label>选择元素:</label>
+                    <select class="element list-elements">
+                        <option>li</option>
+                        <option>p</option>
+                    </select>
+                    <select class="element table-elements" style="display: none;">
+                        <option>tr</option>
+                        <option>td</option>
+                    </select>
+                    <select class="element misc-elements" style="display: none;">
+                        <option>p</option>
+                        <option>label</option>
+                        <option>input</option>
+                        <option>div</option>
+                    </select>
+                </div>
+                <div>
+                    <label>选择"选择符":</label>
+                    <select class="selector">
+                        <option value=":first-of-type">:first-of-type</option>
+                        <option value=":last-of-type">:last-of-type</option>
+                        <option value=":first-child">:first-child</option>
+                        <option value=":last-child">:last-child</option>
+                        <option value=":only-child">:only-child</option>
+                        <option value=":only-child">:only-of-type</option>
+                        <option value=":nth-child">:nth-child</option>
+                        <option value=":nth-last-child">:nth-last-child</option>
+                        <option value=":nth-last-of-type">:nth-last-of-type</option>
+                        <option value=":nth-of-type">:nth-of-type</option>
+                        <option value=":empty">:empty</option>
+                    </select>
+                    <select class="nth" style="display: none;">
+                        <option>(n)</option>
+                        <option>(2)</option>
+                        <option>(3)</option>
+                        <option>(n+1)</option>
+                        <option>(n+2)</option>
+                        <option>(n+3)</option>
+                        <option>(2n)</option>
+                        <option>(2n+1)</option>
+                        <option>(2n+2)</option>
+                        <option>(2n+3)</option>
+                        <option>(3n)</option>
+                        <option>(3n+1)</option>
+                        <option>(3n+2)</option>
+                        <option>(3n+3)</option>
+                        <option>(2n-1)</option>
+                        <option>(2n-2)</option>
+                        <option>(2n-3)</option>
+                        <option>(3n-1)</option>
+                        <option>(3n-2)</option>
+                        <option>(3n-3)</option>
+                        <option>(-n+1)</option>
+                        <option>(-n+2)</option>
+                        <option>(-n+3)</option>
+                        <option>(-2n)</option>
+                        <option>(-2n+1)</option>
+                        <option>(-2n+2)</option>
+                        <option>(-2n+3)</option>
+                        <option>(-3n)</option>
+                        <option>(-3n+1)</option>
+                        <option>(-3n+2)</option>
+                        <option>(-3n+3)</option>
+                    </select>
+                </div>
+                <div>
+                    <div class="value"></div>
+                </div>
+            </div>
+            <div class="example">
+                <label>Example:</label>
+                <div class="list">
+                    <ul>
+                        <li></li>
+                        <li>
+                            
+                        </li>
+                        <li>
+                            <p>1. This is example text</p>
+                        </li>
+                        <li>
+                            <p>1. This is example text</p>
+                            <p>2. This is example text</p>
+                        </li>
+                        <li>
+                            <p>1. This is example text</p>
+                            <p>2. This is example text</p>
+                            <p>3. This is example text</p>
+                        </li>
+                        <li>
+                            <p>1. This is example text</p>
+                            <p>2. This is example text</p>
+                            <p>3. This is example text</p>
+                            <p>4. This is example text</p>
+                        </li>
+                        <li>
+                            <p>1. This is example text</p>
+                            <p>2. This is example text</p>
+                            <p>3. This is example text</p>
+                            <p>4. This is example text</p>
+                            <p>5. This is example text</p>
+                        </li>
+                        <li>
+                            <p>1. This is example text</p>
+                            <p>2. This is example text</p>
+                            <p>3. This is example text</p>
+                            <p>4. This is example text</p>
+                            <p>5. This is example text</p>
+                            <p>6. This is example text</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="table" style="display: none;">
+                    <table>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>3</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>4</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>6</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>8</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="misc" style="display: none;">
+                    <div>
+                        <label>This is a label no.1</label>
+                        <div class="input">&lt;input
+                            <input type="text">&#47;&gt;</div>
+                        <p>Example text no.1</p>
+                        <label>This is a label no.2</label>
+                        <div class="input">&lt;input
+                            <input type="text">&#47;&gt;</div>
+                        <label>This is a label no.3</label>
+                        <div class="input">&lt;input
+                            <input type="text">&#47;&gt;</div>
+                        <p>Example text no.2</p>
+                        <div>
+                            <p>Example text no.3</p>
+                            <p>Example text no.4</p>
+                            <div>
+                                <p>Example text no.5</p>
+                            </div>
+                        </div>
+                        <div>
+                            <label>This is a label no.3</label>
+                            <div class="input">&lt;input
+                                <input type="text">&#47;&gt;</div>
+                            <p>Example text no.2</p>
+                            <label>This is a label no.3</label>
+                            <div class="input">&lt;input
+                                <input type="text">&#47;&gt;</div>
+                            <p>Example text no.2</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- misc -->
+            </div>
+            <!-- example -->
+        </div>
+        <footer>
+            基于jquery实现，zptcsoft改编自网络。
+        </footer>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script>
+    var changeExample = $("select.changehtml")
+    var selectElement = $("select.element")
+    var select1 = $("select.selector")
+    var select2 = $("select.nth")
+
+    function clearvalues() {
+        $(".example li, .example p, .example tr, .example td, .example label, .example .misc div, .example .input").css("background", "none");
+    }
+
+    function changeValuesWithN() {
+
+        var exampletype = changeExample.val();
+        var element = $("select." + exampletype + "-elements").val();
+        var value = select1.val();
+        var nth = select2.val();
+
+        if (exampletype == "misc" && element == "input") {
+            $("." + exampletype + " ." + element + value + nth).css("background", "aquamarine");
+        } else {
+            $("." + exampletype + " " + element + value + nth).css("background", "aquamarine");
+        }
+        $(".value").text(element + value + nth);
+
+    }
+
+    function changeValues() {
+
+        var exampletype = changeExample.val();
+        var element = $("select." + exampletype + "-elements").val();
+        var value = select1.val();
+
+        if (exampletype == "misc" && element == "input") {
+            $(".misc .input" + value).css("background", "aquamarine");
+        } else {
+            $("." + exampletype + " " + element + value).css("background", "aquamarine");
+        }
+        $(".value").text(element + value);
+
+    }
+
+    function ifcontainsnth() {
+        if ($("select.selector option:selected").filter(":contains('nth')").length > 0) {
+            select2.css("display", "inline-block");
+            changeValuesWithN();
+        } else {
+            changeValues();
+        }
+    }
+
+    $(document).ready(function() {
+
+        changeValues();
+
+        changeExample.change(function() {
+            var exampletype = changeExample.val();
+
+            selectElement.css("display", "none");
+            $("select." + exampletype + "-elements").css("display", "block");
+            $(".example > div").css("display", "none");
+            $("." + exampletype).css("display", "block");
+            ifcontainsnth();
+        });
+
+        selectElement.change(function() {
+            clearvalues();
+            ifcontainsnth();
+        });
+
+        select1.change(function() {
+            clearvalues();
+            select2.css("display", "none");
+            ifcontainsnth();
+        });
+
+        select2.change(function() {
+            clearvalues();
+            changeValuesWithN();
+        });
+
+    });
+    </script>
+</body>
+
+</html>

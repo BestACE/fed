@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .banner {
+        position: fixed;
+        left: 0;
+        right: 0;
+        background: #444;
+        height: 40px;
+        line-height: 40px;
+        color: white;
+        top: -36px;
+        transition: all 1s ease;
+    }
+
+    .banner a#close-menu {
+        display: none;
+    }
+    
+    .banner:target {
+        top: 0;
+        transition: all 1s ease;
+    }
+    
+    .banner:target a#open-menu {
+        display: none;
+    }
+    
+    .banner:target a#close-menu {
+        display: block;
+    }
+    
+    .ribbon {
+        position: absolute;
+        top: 0;
+        left: 1em;
+    }
+    
+    .ribbon h4 {
+        position: relative;
+        padding-top: 10px;
+    }
+    
+    .ribbon h4 a {
+        color: #444;
+        text-decoration: none;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <header class="banner" id="banner">
+        <nav>这里可以放您的菜单</nav>
+        <div class="ribbon">
+            <h4>
+                <a href="#banner" id="open-menu">打开</a>
+                <a href="#" id="close-menu">关闭</a>
+            </h4>
+        </div>
+    </header>
+</body>
+
+</html>
