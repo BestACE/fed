@@ -73,6 +73,8 @@
 04. [HTML链接](//bestace.github.io/fed//ppt/publish/53.html)
 05. [HTML列表](//bestace.github.io/fed//ppt/publish/54.html)
 06. [HTML节点元素、分组元素](//bestace.github.io/fed//ppt/publish/55.html)
+07. [CSS初步](//bestace.github.io/fed//ppt/publish/56.html)
+08. [CSS选择器](//bestace.github.io/fed//ppt/publish/57.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)
