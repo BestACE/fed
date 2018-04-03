@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>带图标的表单案例</title>
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<style>
+			form * {
+				box-sizing: border-box;
+			}
+			
+			fieldset {
+				width: 800px;
+				margin: auto;
+				border: 1px solid #ddd;
+			}
+			
+			legend {
+				border: 1px dashed #ddd;
+				padding: 6px 15px;
+				cursor: pointer;
+				transition: all .5s;
+			}
+			
+			legend:hover {
+				border: 1px solid #ddd;
+				padding: 6px 50px 6px 15px;
+			}
+			
+			ul {
+				list-style-type: none;
+				padding: 0;
+			}
+			
+			li {
+				margin: 20px 0;
+			}
+			
+			label {
+				display: inline-block;
+				width: 260px;
+				height: 30px;
+				line-height: 30px;
+				text-align: right;
+				margin-right: 30px;
+			}
+			
+			div.inputContainer {
+				display: inline-block;
+				position: relative;
+			}
+			
+			div.inputContainer i {
+				display: inline-block;
+				width: 50px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				background-color: #666;
+				color: #eee;
+				border-radius: 6px 0px 0px 6px;
+			}
+			
+			div.inputContainer select,
+			div.inputContainer textarea,
+			div.inputContainer input {
+				position: absolute;
+				left: 50px;
+				top: 0px;
+				width: 250px;
+				height: 30px;
+				padding: 5px 20px;
+				border: none;
+				outline: none;
+				border: 1px solid #666;
+				border-radius: 0px 6px 6px 0px;
+				transition: width .5s;
+			}
+			
+			div.inputContainer textarea:focus,
+			div.inputContainer input:focus {
+				width: 300px;
+			}
+			
+			div.inputContainer textarea {
+				height: 100px;
+			}
+			
+			li:last-child {
+				margin-top: 90px;
+				text-align: center;
+			}
+			
+			input[type="submit"] {
+				width: 300px;
+				height: 40px;
+				line-height: 36px;
+				text-align: center;
+				margin: auto;
+				border: none;
+				outline: none;
+				background-color: #eee;
+				border: 2px solid #eee;
+				transition: all .5s;
+				cursor: pointer;
+			}
+			
+			input[type="submit"]:hover {
+				background-color: #fff;
+				border: 2px solid #666;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="#">
+			<fieldset>
+				<legend>联系我们</legend>
+				<ul>
+					<li>
+						<label for="name">姓名</label>
+						<div class="inputContainer">
+							<i class="fa fa-user"></i>
+							<input type="text" name="name" id="name" placeholder="用户名" />
+						</div>
+					</li>
+					<li>
+						<label for="mail">邮箱</label>
+						<div class="inputContainer">
+							<i class="fa fa-envelope"></i>
+							<input type="text" name="mail" id="mail" placeholder="邮箱" />
+						</div>
+					</li>
+					<li>
+						<label for="city">城市</label>
+						<div class="inputContainer">
+							<i class="fa fa-home"></i>
+							<select name="city" id="city">
+								<option value="hangzhou">杭州</option>
+								<option value="ningbo">宁波</option>
+								<option value="wenzhou">温州</option>
+								<option value="shaoxing" selected="selected">绍兴</option>
+								<option value="jiaxing">嘉兴</option>
+								<option value="huzhou">湖州</option>
+								<option value="quzhou">衢州</option>
+								<option value="taizhou">台州</option>
+								<option value="jinhua">金华</option>
+								<option value="lishui">丽水</option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<label for="post">邮政编码</label>
+						<div class="inputContainer">
+							<i class="fa fa-mail-forward"></i>
+							<input type="text" name="post" id="post" placeholder="邮政编码" />
+						</div>
+					</li>
+					<li>
+						<label for="word">留言</label>
+						<div class="inputContainer">
+							<i class="fa fa-comment"></i>
+							<textarea name="word" id="word"></textarea>
+						</div>
+					</li>
+					<li>
+						<input type="submit" name="submit" id="submit" value="联系我们" />
+					</li>
+				</ul>
+			</fieldset>
+		</form>
+	</body>
+</html>

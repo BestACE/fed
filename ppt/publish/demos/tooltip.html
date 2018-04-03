@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>纯CSS实现的工具提示</title>
+    <style>
+    body {
+        text-align: center;
+        background: #C2E2F2;
+        font-size: 18px;
+        color: #444;
+    }
+    
+    a {
+        color: #1A5A7A;
+        text-decoration: none;
+    }
+
+    /**
+	 * HINT- A CSS tooltip library
+	 */
+    
+    .hint {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .hint:before,
+    .hint:after {
+        position: absolute;
+        opacity: 0;
+        z-index: 1000000;
+        transition:all 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .hint:hover:before,
+    .hint:hover:after {
+        opacity: 1;
+    }
+    
+    .hint:before {
+        content: '';
+        background: transparent;
+        border: 6px solid transparent;
+    }
+    
+    .hint:after {
+        content: attr(data-hint);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 8px 10px;
+        font-size: 12px;
+        white-space: nowrap;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* top */
+    .hint-top:before {
+        bottom: 100%;
+        left: 50%;
+        margin: 0 0 -18px 0;
+        border-top-color: rgba(0, 0, 0, 0.8);
+    }
+    .hint-top:after {
+        bottom: 100%;
+        left: 50%;
+        margin: 0 0 -6px -10px;
+    }
+    .hint-top:hover:before {
+        margin-bottom: -10px;
+    }
+    .hint-top:hover:after {
+        margin-bottom: 2px;
+    }
+
+    /* default: bottom */
+    .hint-bottom:before {
+        top: 100%;
+        left: 50%;
+        margin: -14px 0 0 0;
+        border-bottom-color: rgba(0, 0, 0, 0.8);
+    }
+    .hint-bottom:after {
+        top: 100%;
+        left: 50%;
+        margin: -2px 0 0 -10px;
+    }
+    .hint-bottom:hover:before {
+        margin-top: -6px;
+    }
+    .hint-bottom:hover:after {
+        margin-top: 6px;
+    }
+
+    /* right */
+    .hint-right:before {
+        left: 100%;
+        bottom: 50%;
+        margin: 0 0 -4px -8px;
+        border-right-color: rgba(0, 0, 0, 0.8);
+    }
+    .hint-right:after {
+        left: 100%;
+        bottom: 50%;
+        margin: 0 0 -13px 4px;
+    }
+    .hint-right:hover:before {
+        margin: 0 0 -4px -0;
+    }
+    .hint-right:hover:after {
+        margin: 0 0 -13px 12px;
+    }
+
+    /* left */
+    .hint-left:before {
+        right: 100%;
+        bottom: 50%;
+        margin: 0 -8px -4px 0;
+        border-left-color: rgba(0, 0, 0, 0.8);
+    }
+    .hint-left:after {
+        right: 100%;
+        bottom: 50%;
+        margin: 0 4px -13px 0;
+    }
+    .hint-left:hover:before {
+        margin: 0 0 -4px 0;
+    }
+    .hint-left:hover:after {
+  	   margin: 0 12px -13px 0;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>工具提示</h2>
+    <p>利用::before、::after伪对象实现的工具提示</p>
+    <article>
+        <a href="#" class="hint  hint-top" data-hint="工具提示">上</a>
+        <a href="#" class="hint  hint-right" data-hint="工具提示">右</a>
+        <a href="#" class="hint  hint-bottom" data-hint="工具提示">下</a>
+        <a href="#" class="hint  hint-left" data-hint="工具提示">左</a>
+    </article>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>兄弟块元素垂直距离</title>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			.top,.bottom{
+				width: 100px;
+				height: 100px;
+				background-color: #9df;
+				border:10px solid #F06431;
+				padding: 10px;
+				float: left;
+			}
+			.top{
+				margin: 20px;
+			}
+			.bottom{
+				margin: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top">上</div>
+		<div class="bottom">下</div>
+<!--
+	兄弟块元素垂直距离（边框间）=上元素的下margin和下元素的上margin中较大的值=max(margin1,margin2)
+-->
+	</body>
+</html>
