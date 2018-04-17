@@ -75,6 +75,8 @@
 06. [HTML节点元素、分组元素](//bestace.github.io/fed//ppt/publish/55.html)
 07. [CSS初步](//bestace.github.io/fed//ppt/publish/56.html)
 08. [CSS选择器](//bestace.github.io/fed//ppt/publish/57.html)
+09. [CSS盒模型](//bestace.github.io/fed//ppt/publish/58.html)
+10. [CSS边框](//bestace.github.io/fed//ppt/publish/59.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)
