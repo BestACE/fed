@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>猜数字游戏</title>
+		<style type="text/css">
+			*,
+			*::before,
+			*::after{
+				box-sizing: border-box;
+			}
+			.guessNumberContainer{
+				width: 250px;
+				min-height: 240px;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+			.guessNumberContainer h3{
+				text-align: center;
+			}
+			.guessNumberContainer .inputGroup{
+				height: 40px;
+				position: relative;
+			}
+			.guessNumberContainer .inputGroup input{
+				border: none;
+				outline: none;
+				background: none;
+				border: 1px solid #000;
+				height: 30px;
+				position: absolute;
+				cursor: pointer;
+			}
+			.guessNumberContainer .inputGroup input[disabled]{
+				border: 1px solid #999;
+			}
+			.guessNumberContainer .inputGroup #num{
+				width: 200px;
+				height: 30px;
+				border-radius: 20px 0 0 20px;
+				left: 0;
+				text-indent: 1em;
+			}
+			.guessNumberContainer .inputGroup #guess,
+			.guessNumberContainer .inputGroup #repeat{
+				width: 50px;
+				border-radius: 0 20px 20px 0;
+				right: 0;
+				border-left-width: 0px;
+			}
+			.guessNumberContainer .inputGroup #repeat{
+				display: none;
+			}
+			.guessNumberContainer .resultPanel{
+				max-height: 200px;
+				overflow-y: auto;
+				font-size: 16px;
+			}
+			.guessNumberContainer .page1{
+				text-align: center;
+			}
+			.guessNumberContainer .page1 input{
+				width: 80%;
+				height: 40px;
+				margin: 6px auto;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="guessNumberContainer">
+			<h3>猜数字游戏</h3>
+			
+			<div class="page page1">
+				<input id="easy" type="button" value="简单" onclick="initGame(10,1);" >
+				<input id="medium" type="button" value="中等" onclick="initGame(50,1);">
+				<input id="hard" type="button" value="复杂" onclick="initGame(100,1);" >
+			</div>
+			
+			<div class="page page2">
+				<div class="inputGroup">
+					<input type="number" id="num" required="required"/>
+					<input type="button" id="guess" value="提交" />
+					<input type="button" id="repeat" value="重来" />
+				</div>
+				<div class="resultPanel">
+					<div class="times">剩余次数：<span></span><br></div>
+					<div class="info">猜测历史：<br><span></span></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var numRange=10,
+			    targetNumber=0,
+			    guessTimes=6,
+			    numTemp=0,
+			    oNum=document.querySelector(".guessNumberContainer #num"),
+			    oGuess=document.querySelector(".guessNumberContainer #guess"),
+			    oRepeat=document.querySelector(".guessNumberContainer #repeat"),
+			    oTimes=document.querySelector(".guessNumberContainer .times span"),
+			    oInfo=document.querySelector(".guessNumberContainer .info span"),
+			    oPage1=document.querySelector(".guessNumberContainer .page1"),
+			    oPage2=document.querySelector(".guessNumberContainer .page2");
+			    
+			oGuess.addEventListener("click",checkGuess);
+			oRepeat.addEventListener("click",repeatGame);	
+			
+			
+			function initGame (num,state) {
+				numRange=num;
+				targetNumber=Math.floor(Math.random()*(numRange+1));
+			    console.log(targetNumber);
+				oTimes.innerHTML=guessTimes=6;
+				oNum.placeholder="0-"+numRange+"整数，"+guessTimes+"次机会";
+				if (state==1) {
+					oPage1.style.display="none";
+					oPage2.style.display="block";
+				}else{
+					oPage2.style.display="none";
+					oPage1.style.display="block";
+				}
+			}
+			
+			initGame(10,2);
+			
+			
+			function checkGuess () {
+				numTemp=parseInt(oNum.value);
+				guessTimes--;
+				oTimes.innerHTML=guessTimes;
+				
+				if (isNaN(numTemp)) {
+					oInfo.innerHTML+="该次输入"+numTemp+"不是数字，我非常怀疑你的智商。<br>";
+					//return;
+				}
+				
+				if (guessTimes>0) {
+					if (numTemp>targetNumber) {
+						oInfo.innerHTML+="这次猜的数"+numTemp+",有点偏大<br>";
+					}else if(numTemp<targetNumber){
+						oInfo.innerHTML+="这次猜的数"+numTemp+"有点偏小<br>";
+					}else if(numTemp==targetNumber){
+						oInfo.innerHTML+="恭喜猜对了，正确答案正是"+numTemp+"。<br>";
+						closeGame();
+					}else{
+						oInfo.innerHTML+="非正常情况<br>";
+					}
+				}else{
+					oInfo.innerHTML+="次数用完，游戏结束！<br>";
+					closeGame();
+				}
+				
+				
+				oNum.value="";
+				oNum.focus();
+			}
+			
+			function closeGame () {
+				guessTimes=0;
+				oTimes.innerHTML=guessTimes;
+				oNum.disabled=true;
+				oGuess.style.display="none";
+				oRepeat.style.display="block";
+			}
+			
+			function repeatGame () {
+				
+				oPage2.style.display="none";
+				oPage1.style.display="block";
+				
+			    targetNumber=Math.floor(Math.random()*(numRange+1));
+			    console.log(targetNumber);
+			    guessTimes=6;
+			    oNum.disabled=false;
+			    oGuess.style.display="block";
+				oRepeat.style.display="none";
+				oInfo.innerHTML="新一轮游戏开始，请猜数字！<br>";
+				oNum.focus();
+			}
+		</script>
+	</body>
+</html>

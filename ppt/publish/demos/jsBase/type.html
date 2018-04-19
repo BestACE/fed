@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,
+			html {
+			  height: 100%;
+			  background: #C11B17;
+			  color: #fff;
+			}
+			
+			h1,h2{
+				margin: 100px;
+				font-size: 4em;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="title">
+			中华人民共和国万岁！
+		</h1>
+		<h2 class="text">
+			中国共产党万岁!
+		</h2>
+		<script type="text/javascript">
+			function typeText(ele,speed,loop){
+				var oTitle=ele;
+				var str=oTitle.innerText;
+				var i=0;
+				var loop=loop||false;
+				oTitle.innerText="";
+	
+				var a=setInterval(function () {
+					if(i<str.length){
+						oTitle.innerText+=str[i];
+					}else{
+						if(loop){
+						i=-1;
+						oTitle.innerText="";
+						}else{
+							clearInterval(a);
+						}
+					}
+					i++;
+				},speed);
+			}
+			
+			var oH1=document.querySelector(".title");
+			var oH2=document.querySelector(".text");
+			typeText(oH1,100);
+			typeText(oH2,200,true);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form里其他标签</title>
+	</head>
+	<body>
+<!--
+	form 定义一个提交
+	label input
+		CSS单击事件（模拟实现）
+			label和input建立联系，实现单击
+			:checked和~配合实现单击之后的响应
+	fieldset legend
+		对表单内容进行分组
+	textarea 多行文本
+	select option
+	
+	form仅仅是样子，如果实现交互，需要JS。如果实现提交，需要JSP和数据库。
+-->
+	<form action="#" method="post">
+		<fieldset>
+			<legend>个人信息</legend>
+			<label for="user">用户名</label>
+			<input type="text" name="user" id="user" />
+			<label for="age">年龄</label>
+			<input type="text" name="age" id="age"/>
+		</fieldset>
+		<fieldset id="">
+			<legend>相关信息</legend>
+			<label for="user">爱好</label>
+			<input type="text" name="user" id="user" />
+			<label for="age">性格</label>
+			<input type="text" name="age" id="age"/>
+			<label for="area">家乡</label>
+			<select name="area" id="area">
+				<option value="hangzhou">杭州</option>
+				<option value="ningbo">宁波</option>
+				<option value="wenzhou">温州</option>
+				<option value="shaoxing">绍兴</option>
+			</select>
+			<label for="liuyan">留言</label>
+			<textarea id="liuyan" name="liuyan" rows="8" cols="50"></textarea>
+		</fieldset>
+	</form>
+	</body>
+</html>

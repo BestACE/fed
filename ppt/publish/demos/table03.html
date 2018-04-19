@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐变背景色表格</title>
+    <style>
+		.gradient{
+			width: 480px;
+			border-collapse: collapse;
+			border: 1px solid rgba(0,0,0,.2);
+		}
+       .gradient th{
+         background-color: rgba(0,0,200,.3);
+         color:rgba(255,255,255,.9);
+       }
+		.gradient td, .gradient th{
+			border: 1px solid rgba(0,0,0,.2);
+			text-align: center;
+            padding:5px;
+		}
+        .gradient tbody tr:nth-child(1){
+            background-color: rgba(0,0,200,.25);
+        }
+        .gradient tbody tr:nth-child(2){
+            background-color: rgba(0,0,200,.2);
+        }
+        .gradient tbody tr:nth-child(3){
+            background-color: rgba(0,0,200,.15);
+        }
+        .gradient tbody tr:nth-child(4){
+            background-color: rgba(0,0,200,.1);
+        }
+        .gradient tbody tr:nth-child(5){
+            background-color: rgba(0,0,200,.05);
+        }
+
+        .gradient tbody tr td{
+            color: hsl(80,100%,30%);
+        }
+        .gradient tbody tr:hover td{
+            cursor: pointer;
+            color: hsl(300,100%,50%);
+        }
+        .gradient tfoot td{
+            text-align: left;
+            color: rgba(0,0,0,.2);
+        }
+    </style>
+</head>
+<body>
+    <table class="gradient">
+        <caption>学生信息表</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>班级</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4">*描述学生信息</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>软件251</td>
+            </tr>
+            <tr>
+                <td>赵四</td>
+                <td>女</td>
+                <td>18</td>
+                <td>软件252</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>男</td>
+                <td>21</td>
+                <td>软件257</td>
+            </tr>
+            <tr>
+                <td>李六</td>
+                <td>男</td>
+                <td>20</td>
+                <td>软件256</td>
+            </tr>
+            <tr>
+                <td>田七</td>
+                <td>女</td>
+                <td>19</td>
+                <td>软件254</td>
+            </tr>
+            <tr>
+                <td>张十八</td>
+                <td>男</td>
+                <td>21</td>
+                <td>软件255</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

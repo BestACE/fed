@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Document </title>
+	<style type="text/css">
+		#banner{
+			width: 840px;
+			height: 372px;
+			margin: 0 auto;	
+			position: relative;
+			box-shadow: 1px 1px 4px 0 rgba(0,0,0,.2);
+		}
+		#banner .tip{
+			position: absolute;
+			left: 2em;
+			top: 2em;
+			color: #fff;
+		}
+	</style>
+</head>
+<body id="bd">
+	<div id="banner">
+		<div class="tip">刷新页面体验随机效果</div>
+	</div>
+	<script type="text/javascript">
+		//给#banner对象一个随机的背景图像（background-image: url(img/1.jpg);
+		var sStr="1.jpg|2.jpg|3.jpg|4.jpg";
+		var aStr=sStr.split("|");
+		var oBanner=document.getElementById('banner');
+		var num=parseInt(Math.random()*4);  // [0,1)
+		oBanner.style.backgroundImage="url(img/"+aStr[num]+")";
+	</script>
+</body>
+</html>

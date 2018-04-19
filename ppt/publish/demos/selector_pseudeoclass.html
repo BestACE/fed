@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <style>
+    * {
+        box-sizing: border-box;
+
+    }
+    hr{
+        margin: 20px 0;
+        color: rgba(0,0,0,.1);
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    a:link {
+        color: pink;
+        border-bottom: 1px dashed rgba(200, 100, 60, .5);
+    }
+    
+    a:visited {
+        color: grey;
+    }
+    /*
+    :visited 仅能应用color, background-color, border-color, outline-color, column-rule-color, fill and stroke等属性
+    */
+    
+    a:hover {
+        color: red;
+    }
+    
+    a:active {
+        color: black;
+    }
+    
+    .k {
+        width: 100px;
+        height: 100px;
+        background-color: #f00;
+        border-radius: 0px;
+        transition: all .5s;
+    }
+    
+    .k:hover {
+        background-color: #00f;
+        border-radius: 50%;
+    }
+    
+    input.user,
+    input.info {
+        border: none;
+        outline: none;
+        border: 1px dashed #000;
+    }
+    
+    input.user:focus {
+        border: 1px solid #000;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, .5);
+    }
+    
+    input.info:disabled {
+        border: 1px solid #rgba(0, 0, 0, 0.1);
+        color: rgba(0, 0, 0, 0.1);
+    }
+    
+    input.favor {
+        border: none;
+        outline: none;
+        border: 1px dashed #000;
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        transition: all .5s;
+    }
+    
+    input.favor::after {
+        content: "\f00c";
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        font: normal normal normal 20px/1 FontAwesome;
+        transition: all .5s;
+        opacity: 0;
+    }
+    
+    input.favor:checked {
+        border: 1px solid #000;
+    }
+    
+    input.favor:checked::after {
+        opacity: 1;
+    }
+    
+    div.c {
+        width: 300px;
+        height: 300px;
+    }
+    
+    div.c div {
+        width: 100px;
+        height: 100px;
+        background-color: hsl(210, 100%, 25%);
+        float: left;
+        transition: all .5s;
+    }
+    
+    div.c div:hover {
+        background-color: hsl(340, 100%, 25%);
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    
+    div.c:hover div:not(:hover) {
+        background-color: hsla(210, 100%, 25%, 0.15);
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+    }
+    </style>
+</head>
+
+<body>
+    <a href="https://www.baidu.com">链接</a>
+    <hr>
+    <div class="k"></div>
+    <hr>
+    <input type="text" class="user" "输入点内容试试">
+    <input type="text" disabled class="info" value="被禁用的表单">
+    <hr>
+    <input type="checkbox" class="favor" name="favor" checked>
+    <input type="checkbox" class="favor" name="favor">
+    <hr>
+    <div class="c">
+        <div>01</div>
+        <div>02</div>
+        <div>03</div>
+        <div>04</div>
+        <div>05</div>
+        <div>06</div>
+        <div>07</div>
+        <div>08</div>
+        <div>09</div>
+    </div>
+</body>
+
+</html>
