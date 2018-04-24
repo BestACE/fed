@@ -77,6 +77,7 @@
 08. [CSS选择器](//bestace.github.io/fed//ppt/publish/57.html)
 09. [CSS盒模型](//bestace.github.io/fed//ppt/publish/58.html)
 10. [CSS边框](//bestace.github.io/fed//ppt/publish/59.html)
+11. [CSS背景](//bestace.github.io/fed//ppt/publish/60.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)
