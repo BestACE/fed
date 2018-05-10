@@ -1,0 +1,313 @@
+<!--
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>html概述 - By whqet</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>html概述</h1>
+<h2>演讲者：whqet</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol class="rollIn">
+<li>html简介</li>
+<li>html历史</li>
+<li>html语法</li>
+<li>html规范</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide" style="background:url(./img/02/html.jpg) left 20% no-repeat; background-size:100%"  data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><div class="magic"><div class="magicItem current pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>html简介</h2>
+<blockquote>
+<p>超文本标记语言</p>
+</blockquote>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>html简介</h2>
+<blockquote>
+<p>结构标准语言</p>
+</blockquote>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem far-next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>html简介</h2>
+<blockquote>
+<p>网页文件基石</p>
+</blockquote>
+
+</article>
+</div>
+</article></div></div></section></slide>
+<slide class="slide" style="background:#fff url(./img/03/html5Timeline.png) left bottom no-repeat; background-size:100%"><section class="slide-wrapper"><article>
+<h2>html历史</h2>
+
+</article></section></slide>
+<slide class="slide" style="background:#fff url(./img/03/html5Feature.png) left center no-repeat; background-size:100%"><section class="slide-wrapper"><article>
+<h2>html5特性</h2>
+
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><div class="magic"><div class="magicItem current pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>浏览器支持</h2>
+<blockquote>
+<p>数据来源 <a href="///caniuse.com" target="_blank">caniuse</a></p>
+</blockquote>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h3>canvas 支持情况</h3>
+<img src="./img/03/canvasSupport.png">
+
+</article>
+</div>
+</article></div>
+<div class="magicItem far-next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h3>Drag and Drop 支持情况</h3>
+<img src="./img/03/dragAndDropSupport.png" alt="">
+
+</article>
+</div>
+</article></div></div></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>html文件架构</h2>
+<pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;网页标题&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p class=&quot;info&quot;&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>html元素</h2>
+<img src="./img/03/Periodic-Table-of-HTML-Elements-large.png" style="width:840px;" >
+
+</article></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><div class="magic"><div class="magicItem current pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>html语法</h2>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h3>语法规则</h3>
+<pre><code class="html">&lt;!-- 标签名、属性名均为小写 --&gt;
+&lt;!-- 双标签必须关闭 --&gt;
+&lt;双标签 属性名=&quot;属性值&quot; 无值属性&gt;&lt;/双标签&gt;
+&lt;a href=&quot;//github.com/zptcsoft&quot; title=&quot;欢迎follow我！&quot;&gt;follow me&lt;/a&gt;
+
+&lt;!-- 单标签必须关闭 --&gt;
+&lt;单标签 属性名=&quot;属性值&quot; 无值属性&gt;
+&lt;input type=&quot;text&quot; value=&quot;无值属性用法&quot; disabled&gt;
+</code></pre>
+<p><a href="///github.com/zptcsoft" title="欢迎follow我！">follow me</a><input type="text" value="无值属性用法" disabled></p>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem far-next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h3>嵌套规则</h3>
+<pre><code class="html">&lt;!-- 标签正确嵌套，二级菜单为例 --&gt;
+&lt;nav role=&quot;navigation&quot;&gt;
+    &lt;ul class=&quot;nav&quot;&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;网站首页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;has-submenu&quot;&gt;新闻公告&lt;/a&gt;
+            &lt;ul class=&quot;submenu&quot;&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;企业新闻&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;通知公告&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;has-submenu&quot;&gt;服务项目&lt;/a&gt;
+            &lt;ul class=&quot;submenu&quot;&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;网站建设&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;移动应用&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot;&gt;互联网运维&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;服务宗旨&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+
+</article>
+</div>
+</article></div></div></section></slide>
+<slide class="slide"   data-on-build="Slide.magic" data-on-enter="Slide.magic.init"><section class="slide-wrapper"><div class="magic"><div class="magicItem current pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>html规范</h2>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>结构表现行为分离</h2>
+<pre><code class="html">&lt;!-- 1. 禁用“仅用于”表现的标签 --&gt;
+    &lt;b&gt;粗体&lt;/b&gt;
+    &lt;i&gt;斜体&lt;/i&gt;
+    &lt;center&gt;居中显示&lt;/center&gt;
+&lt;!-- 2. 禁用html标签的“表现”属性 --&gt;
+    &lt;h2 align=&quot;center&quot; bgcolor=&quot;#f00&quot;&gt;禁用表现属性&lt;/h2&gt;
+&lt;!-- 3. 禁用html标签的“行为”属性 --&gt;
+    &lt;a href=&quot;#&quot; onclick=&quot;alert(&#39;ok&#39;)&quot;&gt;禁用行为属性&lt;/a&gt;
+</code></pre>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem far-next pagedown"  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>语义化标签</h2>
+<ul style="color:#fff;">
+<li>切忌过量使用div</li>
+<li>根据标签本义使用标签</li>
+</ul>
+
+</article>
+</div>
+</article></div>
+<div class="magicItem "  data-transition="earthquake"><article>
+<div class="magic-wrapper">
+<article>
+<h2>语义化</h2>
+<p><img src="./img/03/yy.png" alt="" >
+<img src="./img/03/yy2.png" alt="" ></p>
+
+</article>
+</div>
+</article></div></div></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>前端开发</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'stick',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body {
+				min-height: 1000px;
+				padding: 0;
+				margin: 0;
+			}
+			
+			.zoomPic {
+				width: 400px;
+				margin: 30px;
+				position: relative;
+				border: 1px solid rgba(0, 0, 0, .1);
+				z-index: 1;
+			}
+			
+			.zoomHandler {
+				position: fixed;
+				border: 1px solid rgba(0, 0, 0, .1);
+				background: rgba(255, 255, 255, .2);
+				box-shadow: 0px 0px 2px rgba(0,0,0,.5);
+				z-index: 1000;
+				transform: translate(-50%, -50%);
+				pointer-events: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<img src="img/FE.jpg" class="zoomPic" />
+		<script type="text/javascript">
+			(function() {
+				var ratio = [];
+				var winWidth=window.innerWidth;
+				var winHeight=window.innerHeight;
+				var zoom = document.querySelectorAll('.zoomPic');
+				if(zoom.length == 0) {
+					return false;
+				}
+				var zoomHandler = document.createElement('div');
+				zoomHandler.className = 'zoomHandler';
+				document.body.appendChild(zoomHandler);
+
+				for(var i = 0; i < zoom.length; i++) {
+
+					zoom[i].addEventListener("load", (function(n) {
+						return function() {
+							ratio[n] = zoom[n].naturalWidth / zoom[n].width;
+						}
+					})(i));
+
+					zoom[i].addEventListener("mousemove", (function(n) {
+						return function(event) {
+
+							if(ratio[n] <= 1) {
+								return false;
+							}
+
+							var event = event || window.event;
+							var target = event.target || event.srcElement;
+							//x,y 相对于浏览器的位置
+							var cx = event.clientX;
+							var cy = event.clientY;
+							//ox,oy 相对于图像的位置
+							var ox=event.offsetX||event.layerX;
+							var oy=event.offsetY||event.layerY;
+
+							var zoomShowWidth = 100;
+							var zoomShowHeight = 100;
+
+							zoomHandler.style.width = zoomShowWidth + "px";
+							zoomHandler.style.height = zoomShowHeight + "px";
+							zoomHandler.style.left = cx + "px";
+							zoomHandler.style.top =  cy + "px";	
+							zoomHandler.style.backgroundImage = 'url(' + target.src + ')';
+							zoomHandler.style.backgroundPosition = (-ratio[n] *ox + zoomShowWidth / 2) + "px "+(-ratio[n] * oy + zoomShowHeight / 2) + "px";
+							zoomHandler.style.display = "block";
+						}
+					})(i));
+					zoom[i].addEventListener("mouseout", function() {
+						zoomHandler.style.display = "none";
+					});
+				}
+
+			})();
+		</script>
+	</body>
+
+</html>

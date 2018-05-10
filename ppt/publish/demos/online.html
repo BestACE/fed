@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Online or offline?</title>
+	<script>
+		function update(online) {
+			document.getElementById('status').textContent = online ? 'Online' : 'Offline';
+		}
+	</script>
+</head>
+<body ononline="update(true)"
+	  onoffline="update(false)"
+	  onload="update(navigator.onLine)">
+	<p>You are: <span id="status">(Unknown)</span></p>
+</body>
+</html>
