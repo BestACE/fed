@@ -146,6 +146,7 @@
 12. 一个不错的布局学习资源《[学习CSS布局](http://zh.learnlayout.com/)》！！
 13. colreDraw2017以及colreDraw注册机下载[下载](http://pan.baidu.com/s/1pLG0ZsZ) 密码：f4cf
 14. CSS3||HTML5资源教程[链接](https://www.html5tricks.com/)
+15. DedeCMS[官网](http://www.dedecms.com/),DedeCMS[新手视频教程](http://www.dede888.com/),DedeCMS[模板](http://www.dede58.com/)，个别[会员模板](https://pan.baidu.com/s/1XDyXhYRApCFzj_EFyLiOYQ) 提取码：aknc
 
 ## 学友链接
 
