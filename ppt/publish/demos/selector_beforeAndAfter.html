@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    /*伪对象选择符*/
+    .link2 a {
+        font-weight: bold;
+        line-height: 2.8;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #fff;
+        display: inline-block;
+        margin: .25em;
+        padding-right: 1em;
+        border-radius: .25em;
+        overflow: hidden;
+    }
+    
+    .link2 a:before {
+        content: attr(class);
+        background: rgba(0, 0, 0, .375);
+        display: inline-block;
+        width: 2.8em;
+        height: 2.8em;
+        margin-right: .875em;
+        text-align: center;
+    }
+    
+    .link2 .✔ {
+        background: #090;
+    }
+    
+    .link2 .✘ {
+        background: #c00;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="link2">
+        <a class="✔" href="#">Accept</a>
+        <a class="✘" href="#">Decline</a>
+    </div>
+</body>
+
+</html>

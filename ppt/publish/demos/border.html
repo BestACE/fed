@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="flexboxDemoApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>border属性试验场</title>
+		<link rel="stylesheet" href="lib/angular/angular-material.css">
+		<style type="text/css">
+			body {
+				padding: 10px;
+			}
+			.ctrl {
+				border-right: 1px solid rgba(0, 0, 0, .1);
+				padding: 10px;
+				min-height: 720px;
+			}
+			
+			.show {
+				padding: 10px;
+			}
+			.show .demo{
+				width:200px;
+				height:200px;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="AppCtrl">
+		<div layout-gt-md="row" layout="column">
+			<div class="ctrl right-padding" flex="30" layout="column" layout-align="left top">
+				<h2>控制区</h2>
+				<p>测试border属性用法</p>
+				<div layout="row" layout-align="center center">
+					<div flex="40">border-width: {{width}}</div>
+					<md-slider flex="60" min="0" max="100" ng-model="width" aria-label="width"></md-slider>
+				</div>
+				<div layout="row" layout-align="center center">
+					<div flex="40">border-style: {{style}}</div>
+					<md-select flex="60" ng-model="style" aria-label="align">
+						<md-option>none</md-option>
+						<md-option>hidden</md-option>
+						<md-option>dotted</md-option>
+						<md-option>dashed</md-option>
+						<md-option>solid</md-option>
+						<md-option>double</md-option>
+						<md-option>groove</md-option>
+						<md-option>ridge</md-option>
+						<md-option>inset</md-option>
+						<md-option>outset</option>
+					</md-select>
+				</div>
+				<div layout="row" layout-align="center center">
+					<div flex="40">border-color: {{color}}</div>
+					<md-select flex="60" ng-model="color" aria-label="align">
+						<md-option>black</md-option>
+						<md-option>red</md-option>
+						<md-option>green</md-option>
+						<md-option>blue</md-option>
+						<md-option>pink</md-option>
+						<md-option>orange</md-option>
+						<md-option>purple</md-option>
+						<md-option>fuchsia</md-option>
+						<md-option>yellow</md-option>
+						<md-option>teal</option>
+					</md-select>
+				</div>
+			</div>
+			<div class="show" flex="70" layout="column">
+				<h2>预览区</h2>
+				<p>拖动滑动条之后，在这里预览边框变化</p>
+				<div class="demo" style="border-width:{{width}}px;border-style:{{style}};border-color:{{color}}">
+				</div>
+			</div>
+		</div>
+		<!-- AngularJS -->
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular/angular-animate.min.js"></script>
+		<script src="lib/angular/angular-aria.min.js"></script>
+		<!-- Angular Material JavaScript -->
+		<script src="lib/angular/angular-material.js"></script>
+		<!-- App.js -->
+		<script type="text/javascript">
+			// Declare the flexboxDemoApp module and its dependency 'ngMaterial'
+			var app = angular.module('flexboxDemoApp', ['ngMaterial']);
+			// Declare the AppCtrl controller
+			app
+				.controller('AppCtrl', ['$scope', function($scope) {
+					$scope.width = 2; //px
+					$scope.style = 'solid';
+					$scope.color = 'black';
+
+				}]);
+		</script>
+	</body>
+
+</html>

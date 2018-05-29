@@ -1,0 +1,271 @@
+<!--
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS背景-background属性 - By whqet</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>CSS背景</h1>
+<h2>演讲者：前端开发课程组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol class="rollIn">
+<li>CSS背景</li>
+<li>背景属性</li>
+<li>实验与案例</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2><a href="https://zptcsoft.github.io/css3/properties/background/index.htm" target="_blank">CSS背景</a></h2>
+<h3>设置网页中某元素的背景</h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>背景属性</h2>
+<div style="max-height:500px;overflow:scroll">
+<table class="thin">
+    <thead>
+        <tr>
+            <th>属性</th>
+            <th>版本</th>
+            <th>继承性</th>
+            <th>描述</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="background.htm" class="g-color-css3-change">background</a></td>
+            <td>CSS1/3</td>
+            <td>无</td>
+            <td>复合属性。设置或检索对象的背景特性</td>
+        </tr>
+        <tr>
+            <td><a href="background-color.htm">background-color</a></td>
+            <td>CSS1</td>
+            <td>无</td>
+            <td>设置或检索对象的背景颜色</td>
+        </tr>
+        <tr>
+            <td><a href="background-image.htm" class="g-color-css3-change">background-image</a></td>
+            <td>CSS1/3</td>
+            <td>无</td>
+            <td>设置或检索对象的背景图像</td>
+        </tr>
+        <tr>
+            <td><a href="background-repeat.htm" class="g-color-css3-change">background-repeat</a></td>
+            <td>CSS1/3</td>
+            <td>无</td>
+            <td>设置或检索对象的背景图像如何铺排填充</td>
+        </tr>
+        <tr>
+            <td><a href="background-attachment.htm" class="g-color-css3-change">background-attachment</a></td>
+            <td>CSS1/3</td>
+            <td>无</td>
+            <td>设置或检索对象的背景图像是随对象内容滚动还是固定的</td>
+        </tr>
+        <tr>
+            <td><a href="background-position.htm" class="g-color-css3-change">background-position</a></td>
+            <td>CSS1/3</td>
+            <td>无</td>
+            <td>设置或检索对象的背景图像位置</td>
+        </tr>
+        <tr>
+            <td><a href="background-origin.htm" class="g-color-css3-new">background-origin</a></td>
+            <td>CSS3</td>
+            <td>无</td>
+            <td>设置或检索对象的背景图像显示的原点</td>
+        </tr>
+        <tr>
+            <td><a href="background-clip.htm" class="g-color-css3-new">background-clip</a></td>
+            <td>CSS3</td>
+            <td>无</td>
+            <td>检索或设置对象的背景向外裁剪的区域</td>
+        </tr>
+        <tr>
+            <td><a href="background-size.htm" class="g-color-css3-new">background-size</a></td>
+            <td>CSS3</td>
+            <td>无</td>
+            <td>检索或设置对象的背景图像的尺寸大小</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>背景颜色</h2>
+<h3>语法</h3>
+<pre><code>background-color：&lt;color&gt;
+</code></pre><h3>注意事项</h3>
+<ol>
+<li>设置或检索对象的背景颜色。</li>
+<li>当同时定义了背景颜色和背景图像时，背景图像覆盖在背景颜色之上。</li>
+<li>如果设置了 &lt;&#39; background-image &#39;&gt;，同时也建议设置 &lt;&#39; background-color &#39;&gt; 用于当背景图像不可见时保持与文本颜色有一定的对比度。</li>
+<li>对应的脚本特性为backgroundColor。</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>背景图像</h2>
+<h3>语法</h3>
+<pre><code>background-image：&lt;bg-image&gt; [ , &lt;bg-image&gt; ]*
+&lt;bg-image&gt; = &lt;image&gt; | none
+</code></pre><h3>注意事项</h3>
+<ol>
+<li>如果设置了 &lt;&#39; background-image &#39;&gt;，同时也建议设置 &lt;&#39; background-color &#39;&gt; 用于当背景图像不可见时保持与文本颜色有一定的对比度。</li>
+<li>如果定义了多组背景图，且背景图之间有重叠，写在前面的将会盖在写在后面的图像之上。</li>
+<li>对应的脚本特性为backgroundImage。</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>背景平铺</h2>
+<h3>语法</h3>
+<pre><code>background-repeat：&lt;repeat-style&gt; [ , &lt;repeat-style&gt; ]*
+&lt;repeat-style&gt; = repeat-x | repeat-y | [repeat | no-repeat | space | round]{1,2}
+</code></pre><h3>注意事项</h3>
+<ol>
+<li>必须先指定 &lt;&#39; background-image &#39;&gt; 属性。</li>
+<li>允许提供2个参数，如果提供全部2个参数，第1个用于横向，第二个用于纵向。</li>
+<li>如果只提供1个参数，则用于横向和纵向。特殊值repeat-x和repeat-y除外，因为repeat-x相当于repeat no-repeat，repeat-y相当于no-repeat repeat，即其实repeat-x和repeat-y等价于提供了2个参数值</li>
+<li>对应的脚本特性为backgroundRepeat。</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>背景固定</h2>
+<h3>语法</h3>
+<pre><code>background-attachment：&lt;attachment&gt; [ , &lt;attachment&gt; ]*
+&lt;attachment&gt; = fixed | scroll | local
+</code></pre><h3>取值</h3>
+<dl>
+<dt>fixed</dt>
+<dd>背景图像相对于窗体固定。</dd>
+<dt>scroll</dt>
+<dd>背景图像相对于元素固定，也就是说当元素内容滚动时背景图像不会跟着滚动，因为背景图像总是要跟着元素本身。但会随元素的祖先元素或窗体一起滚动。</dd>
+<dt>local</dt>
+<dd>背景图像相对于元素内容固定，也就是说当元素随元素滚动时背景图像也会跟着滚动，因为背景图像总是要跟着内容。（CSS3）</dd>
+</dl>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>背景位置</h2>
+<h3>语法</h3>
+<pre><code>background-position：&lt;position&gt; [ , &lt;position&gt; ]*
+</code></pre><h3>注意事项</h3>
+<ol>
+<li>该属性提供2个参数值（CSS3中已允许提供3，4个值）。</li>
+<li>如果提供三或四个，每个<percentage>或<length>偏移前都必须跟着一个边界关键字（即left | right | top | bottom，不包括center），偏移量相对关键字位置进行偏移。</li>
+<li>如果提供两个，第一个用于横坐标，第二个用于纵坐标。</li>
+<li>如果只提供一个，该值将用于横坐标；纵坐标将默认为50%（即center）。</li>
+<li>对应的脚本特性为backgroundPosition。</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>前端开发</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

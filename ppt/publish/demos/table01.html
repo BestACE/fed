@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>细线表格</title>
+    <style>
+    .thin {
+        width: 480px;
+        border-collapse: collapse;
+        border: 1px solid rgba(0, 0, 0, .2);
+    }
+    
+    .thin th {
+        background-color: rgba(0, 0, 200, .3);
+        color: rgba(255, 255, 255, .9);
+    }
+    
+    .thin td,
+    .thin th {
+        border: 1px solid rgba(0, 0, 0, .2);
+        text-align: center;
+        padding: 5px;
+    }
+    .thin tfoot td{
+        text-align: left;
+        color: rgba(0,0,0,.2);
+    }
+    </style>
+</head>
+
+<body>
+    <table class="thin">
+        <caption>学生信息表</caption>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>班级</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4">*描述学生信息</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>20</td>
+                <td>软件251</td>
+            </tr>
+            <tr>
+                <td>赵四</td>
+                <td>女</td>
+                <td>18</td>
+                <td>软件252</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>男</td>
+                <td>21</td>
+                <td>软件257</td>
+            </tr>
+            <tr>
+                <td>田七</td>
+                <td>女</td>
+                <td>20</td>
+                <td>软件254</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

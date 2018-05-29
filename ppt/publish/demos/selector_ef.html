@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*后代选择器与子代选择器的不同*/
+	.menu li{
+		color:red;
+	}
+	.menu>li{
+		color:green;
+	}
+	</style>
+</head>
+<body>
+	<ul class="menu">
+		<li>首页</li>
+		<li>新闻
+		<ul>
+			<li>通知</li>
+			<li>公告</li>
+		</ul>
+		</li>
+		<li>简介</li>
+		<li>关于</li>
+	</ul>
+</body>
+</html>

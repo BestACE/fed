@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>选择符列表</title>
+    <base href="//www.w3.org/TR/selectors/">
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    .selectors {
+        border-collapse: collapse;
+        border: 1px solid rgba(200, 200, 200, .1);
+        width: 98%;
+        margin: auto;
+    }
+    
+    .selectors caption {
+        text-align: left;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    
+    .selectors th {
+        border: 1px solid rgba(200, 200, 200, .1);
+        text-align: center;
+        padding: 5px 10px;
+        background-color: rgba(0, 100, 200, .2);
+    }
+    
+    .selectors th:nth-child(1) {
+        width: 18%;
+    }
+    
+    .selectors th:nth-child(2) {
+        width: 54%;
+    }
+    
+    .selectors th:nth-child(3) {
+        width: 10%;
+    }
+    
+    .selectors td:nth-child(4) {
+        width: 5%;
+        text-align: center;
+    }
+    
+    .selectors td {
+        border: 1px solid rgba(200, 200, 200, .1);
+        text-align: left;
+        padding: 3px 10px;
+    }
+    
+    .selectors tbody tr:nth-child(2n) {
+        background-color: rgba(200, 250, 200, .2);
+    }
+    
+    .selectors tbody tr:hover {
+        cursor: pointer;
+        background-color: rgba(200, 250, 200, .2);
+        box-shadow: 0px 0px 21px rgba(0,0,255,.5) inset;
+    }
+    </style>
+</head>
+
+<body>
+    <table class="selectors">
+        <caption>css选择符列表</caption>
+        <thead>
+            <tr>
+                <th class="pattern">模式
+                </th>
+                <th>意义
+                </th>
+                <th>分类
+                </th>
+                <th>定义
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="pattern">*
+                </td>
+                <td>任意元素
+                </td>
+                <td><a href="#universal-selector">通配选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E
+                </td>
+                <td>E类型的元素
+                </td>
+                <td><a href="#type-selectors">类型选择符</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo]
+                </td>
+                <td>具有"foo"属性的E类型元素
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo="bar"]
+                </td>
+                <td>具有"foo"属性且值为"bar"的E类型元素
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo~="bar"]
+                </td>
+                <td>具有"foo"属性且值为用空格分隔的列表，其中一个为"bar"的E元素(包含只有一个值且该值等于val的情况)
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo^="bar"]
+                </td>
+                <td>具有"foo"属性且值以"bar"开头的E元素
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo$="bar"]
+                </td>
+                <td>具有"foo"属性且值以"bar"结尾的E元素
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo*="bar"]
+                </td>
+                <td>具有"foo"属性且值包含"bar"字符串的E元素
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E[foo|="en"]
+                </td>
+                <td>具有"foo"属性且值为以"en"开头并用"-"分隔的字符串的E元素，包含值仅为"en"的E元素
+                </td>
+                <td><a href="#attribute-selectors">属性选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:root
+                </td>
+                <td>作为文档根元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:nth-child(n)
+                </td>
+                <td>作为第n个子元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:nth-last-child(n)
+                </td>
+                <td>作为倒数第n个子元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:nth-of-type(n)
+                </td>
+                <td>第n个同类型的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:nth-last-of-type(n)
+                </td>
+                <td>倒数第n个同类型的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:first-child
+                </td>
+                <td>作为第一个子元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:last-child
+                </td>
+                <td>作为第一个子元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:first-of-type
+                </td>
+                <td>作为同类型中一个元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:last-of-type
+                </td>
+                <td>作为同类型中最后一个元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:only-child
+                </td>
+                <td>作为“独生”子元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:only-of-type
+                </td>
+                <td>作为唯一同类型元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:empty
+                </td>
+                <td>没有子元素的E元素
+                </td>
+                <td><a href="#structural-pseudos">结构性伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:link
+                    <br>E:visited
+                </td>
+                <td>未访问过和访问过的E元素
+                </td>
+                <td><a href="#link">链接伪类</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:active
+                    <br>E:hover
+                    <br>E:focus
+                </td>
+                <td>E元素的指定交互状态
+                </td>
+                <td><a href="#useraction-pseudos">用户交互伪类</a>
+                </td>
+                <td>1、2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:target
+                </td>
+                <td>相关URL指向的E元素
+                </td>
+                <td><a href="#target-pseudo">目标伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:lang(fr)
+                </td>
+                <td>使用特殊语言(fr)的E元素
+                </td>
+                <td><a href="#lang-pseudo">语言伪类</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:enabled
+                    <br>E:disabled
+                </td>
+                <td>处于启用或禁用状态的UI元素
+                </td>
+                <td><a href="#UIstates">UI状态伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:checked
+                </td>
+                <td>处于checked状态的UI元素
+                </td>
+                <td><a href="#UIstates">UI状态伪类</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E::first-line
+                </td>
+                <td>E对象的第一行样式
+                </td>
+                <td><a href="#first-line">伪对象选择符</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E::first-letter
+                </td>
+                <td>E对象的第一个字符样式
+                </td>
+                <td><a href="#first-letter">伪对象选择符</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E::before
+                </td>
+                <td>E元素的生成对象before
+                </td>
+                <td><a href="#gen-content">伪对象选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E::after
+                </td>
+                <td>E元素的生成对象after
+                </td>
+                <td><a href="#gen-content">伪对象选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E.warning
+                </td>
+                <td>具有"warning"class的E元素
+                </td>
+                <td><a href="#class-html">类选择符</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E#myid
+                </td>
+                <td>id值为"myid"的E元素
+                </td>
+                <td><a href="#id-selectors">ID选择符</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E:not(s)
+                </td>
+                <td>不匹配"s"选择符的E元素
+                </td>
+                <td><a href="#negation">非伪类选择符</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E F
+                </td>
+                <td>E元素的后代F元素
+                </td>
+                <td><a href="#descendant-combinators">后代选择符</a>
+                </td>
+                <td>1
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E &gt F
+                </td>
+                <td>E元素的子代元素F
+                </td>
+                <td><a href="#child-combinators">子代选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E + F
+                </td>
+                <td>跟E后面相邻的F元素
+                </td>
+                <td><a href="#adjacent-sibling-combinators">相邻选择符</a>
+                </td>
+                <td>2
+                </td>
+            </tr>
+            <tr>
+                <td class="pattern">E ~ F
+                </td>
+                <td>E元素的后面兄弟F元素
+                </td>
+                <td><a href="#general-sibling-combinators">兄弟选择符</a>
+                </td>
+                <td>3
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
