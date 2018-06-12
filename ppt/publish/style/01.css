@@ -1,0 +1,39 @@
+.file-setting{
+    color: yellow;
+}
+#incallback,#outcallback{
+    margin-top:10px;
+    background-color: rgba(0,0,0,.5);
+}
+.thin td, .thin th{
+	padding: 5px;
+}
+.thinner td, .thinner th{
+	padding: 2px 5px;
+}
+.tag td:nth-child(1){
+	width: 240px;
+	font-weight:normal;
+}
+.widder{
+	min-height: 640px;
+}
+table[border="1"]{
+	width: 100%;
+	border-collapse: collapse;
+    border: 1px solid #000;
+}
+table[border="1"] caption{
+	margin: .4em 0;
+}
+table[border="1"] thead th{
+	background:rgba(255,255,255,.2);
+}
+table[border="1"] tr{
+	background: none;
+}
+table[border="1"] th,table[border="1"] td{
+	padding: .2em .5em;
+	border: 1px solid #000;
+	text-align: center;
+}

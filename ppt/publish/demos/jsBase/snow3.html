@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #00f;
+				overflow: hidden;
+			}
+			.snow{
+				position: absolute;
+				background-color: #fff;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+		<script type="text/javascript">
+			/*
+			 雪花 大小  透明度  位置 下落速度  风的大小
+			 * */
+			
+			//跨范围的随机数
+			function random(min, max, isInt) {
+				var a = min + Math.random() * (max - min);
+				return isInt ? parseInt(a) : a;
+			}
+			
+			
+			var snowArray=new Array();
+			var winH=window.innerHeight;
+			var num=300;
+			
+			class Snow{
+				constructor(){
+					this.init();
+					this.draw();
+				}
+				
+				//初始化参数
+				init(){
+					this.size=random(1,10,false);
+					this.alpha=random(0.1,1,false);
+					this.x=random(0,1600);
+					this.y=random(-200,0);
+					this.wind=random(-2,2);
+					this.speed=random(0.5,4);
+				}
+				
+				//绘制雪花
+				draw(){
+					this.o=document.createElement("div");
+					this.o.className="snow";
+					document.body.appendChild(this.o);
+					
+					this.o.style.width=this.o.style.height=this.size+"px";
+					this.o.style.opacity=this.alpha;
+					this.o.style.left=this.x+"px";
+					this.o.style.top=this.y+"px";
+				}
+				
+				//运动雪花
+				update(){
+					this.x+=this.wind;
+					this.y+=this.speed;
+					
+					if(this.y>winH){
+						this.y=-2;
+					}
+					
+					this.o.style.left=this.x+"px";
+					this.o.style.top=this.y+"px";
+				}
+			}
+			
+			//生成很多雪花
+			for (var i = 0; i < num; i++) {
+				var s=new Snow();
+				snowArray.push(s);
+			}
+			
+			//运动很多雪花
+			(function(){
+				for (var i = 0; i < snowArray.length; i++) {
+					snowArray[i].update();
+				}
+				
+				requestAnimationFrame(arguments.callee);
+			})();
+		</script>
+	</body>
+
+</html>

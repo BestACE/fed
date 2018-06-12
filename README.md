@@ -81,6 +81,7 @@
 12. [浮动与定位](//bestace.github.io/fed//ppt/publish/61.html)
 13. [阶段案例](//bestace.github.io/fed//ppt/publish/62.html)
 14. [表单](//bestace.github.io/fed//ppt/publish/63.html)
+15. [CSS3高级属性](//bestace.github.io/fed//ppt/publish/64.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)

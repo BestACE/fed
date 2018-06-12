@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="result"></div>
+		<script type="text/javascript">
+			var now;
+			var eleResult=document.getElementById("result");
+			function doZero(num){
+				if(num<10){
+					num="0"+num;
+				}
+				return num;
+			}
+			function getTime(){
+				now=new Date();
+				eleResult.innerHTML="现在时间是"+now.getFullYear()+"年"+doZero(now.getMonth()+1)+"月"+doZero(now.getDate())+"日"+doZero(now.getHours())+":"+doZero(now.getMinutes())+":"+doZero(now.getSeconds());
+				//延迟1000ms，执行getTime函数
+				//setTimeout(getTime,1000);
+			};
+			
+			getTime();
+			//间隔1000ms，执行getTime函数
+			setInterval(getTime,1000);
+		</script>
+	</body>
+</html>
