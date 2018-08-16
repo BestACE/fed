@@ -1,0 +1,203 @@
+<!--
+    Powered By nodePPT - This is probably the best web presentation tool so far!
+    version: 1.4.2
+    site: https://github.com/ksky521/nodePPT
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS初步 - By whqet</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>CSS初步</h1>
+<h2>演讲者：whqet</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol class="rollIn">
+<li>CSS简介</li>
+<li>CSS语法</li>
+<li>CSS历史</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide" style="background:#25A1E1 url(./img/13/css3.jpg) left center no-repeat; background-size:100%" ><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>CSS简介</h2>
+<h3>层叠样式表-<a href="///" target="_blank">Cascading Style Sheets</a></h3>
+<h3>网页内容的布局、美化，如果html是造房子，css就负责搞装修。</h3>
+<h3><a href="///www.csszengarden.com/" target="_blank">CSS zengarden</a></h3>
+<h3><a href="///github.com/doyoe/css-handbook" target="_blank">CSS参考手册Github开源地址</a>,<a href="///zptcsoft.github.io/css3/" target="_blank">在线版</a>，<a href="///css.doyoe.com/css.chm" target="_blank">离线手册下载</a></h3>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>CSS特性</h2>
+<h4>继承 &amp; 覆盖</h4>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>CSS语法</h2>
+<h3>CSS基本逻辑——找见某个、某些元素“玩弄”它（们）</h3>
+<pre><code class="css">/*
+选择符{
+    一个属性: 属性值;
+  另一个属性: 属性值;
+            ……
+}
+*/
+p{
+    text-indent:2em;
+    line-height:1.5;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>使用css</h2>
+<ol class="rollIn">
+<li>内联方式 Inline Styles</li>
+<li>页内方式 Embedding a Style Block</li>
+<li>外部样式表 Linking to a Style Sheet</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>使用css-内联样式</h2>
+<h3>使用对象标签的style属性里定义样式</h3>
+<h3>作用域限于本对象，且优先级最高</h3>
+<h3>不推荐使用，因其丧失CSS的灵活性</h3>
+<iframe src="./demos/editor.html?file=inline" style="height:300px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>使用css-页内方式</h2>
+<h3>head标签中插入style标签定义样式</h3>
+<h3>作用域限于本文档</h3>
+<h3>如果确定某部分页码只限本页有效，且更新不频繁，页内方式使用css</h3>
+<iframe src="./demos/editor.html?file=style" style="height:480px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>使用css-外部样式表</h2>
+<h3>head标签中插入link标签导入外部CSS文件</h3>
+<h3>作用域限于所有链接CSS的网页文档</h3>
+<iframe src="./demos/editor.html?file=linkcss" style="height:360px;"></iframe>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>css历史</h2>
+<ol>
+<li>1996.12.17, css1发布</li>
+<li>1998.05.12，css2发布</li>
+<li>2011.06.17，CSS2.1发布</li>
+<li>css3将CSS划分为小的模块逐个开发，目前进度不一。</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>w3工作流程</h2>
+<ol>
+<li>工作草案-Working Draft (WD)-标准的设计阶段</li>
+<li>候选标准-Candidate Recommendation (CR)-标准的测试阶段</li>
+<li>推荐标准-Recommendation (REC)-标准的完成阶段</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide" style="background:#25A1E1 url(./img/13/CSS3_taxonomy_and_status-v2.png) center center no-repeat;background-size:contain" ><section class="slide-wrapper"><article>
+<h2><a href="///www.w3.org/Style/CSS/current-work" target="_blank">css现状</a></h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>前端开发</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'rollIn',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>
