@@ -1,0 +1,246 @@
+<!--
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
+    date: 
+-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3高级应用 - By miracaly</title>
+    <link rel="stylesheet" media="all" href="./css/nodeppt.css">
+    <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
+    
+    <link rel="stylesheet" href="./js/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="./css/font-awesome.css">
+    
+<link rel="stylesheet" href="./css/theme.colors.css">
+</head>
+<body>
+<div class="slides">
+    <slides id="container">
+        <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>CSS3高级应用</h1>
+<h2>演讲者：前端开发课程组</h2>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>内容提纲</h2>
+<ol class="rollIn">
+<li>过渡</li>
+<li>变形</li>
+<li>动画</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>过渡</h2>
+<ol>
+<li>CSS3 过渡是元素从一种样式逐渐改变为另一种的效果。</li>
+<li>要实现这一点，必须规定两项内容：<h3>规定您希望把效果添加到哪个 CSS属性上：transition-property</h3>
+<h3>规定效果的时长:transition-duration</h3>
+</li>
+</ol>
+<h2>示例</h2>
+<pre><code class="html">div
+{
+width:100px
+transition: width 2s;
+-moz-transition: width 2s;    /* Firefox 4 */
+-webkit-transition: width 2s;    /* Safari 和 Chrome */
+-o-transition: width 2s;    /* Opera */
+}
+
+div:hover
+{
+width:300px;
+}
+</code></pre>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>transition-property属性</h2>
+<ol>
+<li>transition-property 属性用于指定应用过渡效果的CSS属性的名称，其过渡效果通常在用户将指针移动到元素上时发生。当指定的CSS属性改变时，过渡效果才开始。</li>
+<li>基本语法格式：<pre><code>transition-property: none | all | property;
+</code></pre><h3>none:没有属性会获得过渡效果。</h3>
+<h3>all:所有属性都将获得过渡效果。</h3>
+<h3>property:定义应用过渡效果的CSS属性名称，多个属性之间以逗号分隔。</h3>
+</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>transition-duration属性</h2>
+<ol>
+<li>transition-duration属性用于定义过渡效果花费的时间，默认值为0，常用单位是秒（s）或者毫秒（ms）</li>
+<li>基本语法格式：<pre><code>transition-duration:time;
+</code></pre></li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>transition-timing-function属性</h2>
+<ol>
+<li>用于规定过渡效果的速度曲线，默认值为ease。</li>
+<li>基本语法格式：<pre><code>transition-timing-function:linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n);
+</code></pre></li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>transition-delay属性</h2>
+<ol>
+<li>规定过渡效果何时开始，默认值为0，常用单位是秒（s）或者毫秒（ms）。</li>
+<li>可以为正整数、负整数和0。当设置为负数时，过渡动作会从该时间点开始，之前的动作被截断；设置为正数时，过渡动作会延迟触发。</li>
+<li>基本语法格式：<pre><code>transition-delay:time;
+</code></pre></li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>transition属性</h2>
+<ol>
+<li>复合属性: 在一个属性中设置transition-property、transition-duration、transition-timing-function、transition-delay四个过渡属性</li>
+<li>基本语法格式：<pre><code>transition：property duration timing-function delay;
+</code></pre></li>
+<li>各个参数必须按照顺序进行定义，不能颠倒。</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>变换</h2>
+<ol>
+<li>transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。</li>
+<li>基本语法：<pre><code>transform: none|transform-functions;
+</code></pre></li>
+<li><a href="http://www.w3school.com.cn/cssref/pr_transform.asp" target="_blank">变换函数</a></li>
+<li>案例练习：3D变换</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>动画</h2>
+<h3>@keyframes 规则用于创建动画。在 @keyframes 中规定某项 CSS 样式，就能创建由当前样式逐渐改为新样式的动画效果。</h3>
+<pre><code>@keyframes myfirst
+{
+from {background: red;}
+to {background: yellow;}
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>捆绑到选择器</h2>
+<h3>把 &quot;myfirst&quot; 动画捆绑到 div 元素，时长：5 秒：</h3>
+<pre><code>div
+{
+animation: myfirst 5s;
+-moz-animation: myfirst 5s;    /* Firefox */
+-webkit-animation: myfirst 5s;    /* Safari 和 Chrome */
+-o-animation: myfirst 5s;    /* Opera */
+}
+</code></pre>
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article>
+<h2>其他属性</h2>
+<ol>
+<li>animation-delay属性</li>
+<li>animation-iteration-count属性</li>
+<li>animation-direction属性</li>
+<li>animation属性</li>
+</ol>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
+<h1>前端开发</h1>
+<h2>旨为前端开发工程师的前端开发基础课程</h2>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+
+</article></section></slide>
+        
+
+        <!-- <slide class="slide logoslide dark nobackground">
+            <article class="flexbox vcenter">
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
+            </article>
+        </slide> -->
+        <div class="slideTip" id="tip"></div>
+    </slides>
+</div>
+<canvas id="drawBoard" class="draw-board" width="900" height="700"></canvas>
+<div class="progress"><span id="progress"></span></div>
+<div id="_buttons">
+    <div class="_btn-box" id="_btn-box" style="display:none;">
+        <button class="fa fa-arrow-circle-left" id="_btn-prev"></button>
+        <button class="fa fa-arrow-circle-right" id="_btn-next"></button>
+        <button class="fa fa-paint-brush" id="_btn-brush"></button>
+        <button class="fa fa-compress" id="_btn-overview" data-toggle="fa fa-expand"></button>
+    </div>
+    <button class="fa fa-bars" id="_btn-bar"  data-toggle="fa fa-close"></button>
+</div>
+<script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
+<script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
+var base = location.protocol + '//' + location.host;
+
+var path = (location.pathname + '#').split('/').filter(function(v){
+    return !!v;
+});
+path.pop();
+path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
+MixJS.config({
+    baseURL: [ base, path, 'js'].join('/')+'/'
+});
+
+</script>
+<script src="./js/mixjs/lib/event/broadcast.js"></script>
+<script src="./js/nodeppt.js"></script>
+<script>
+Slide.init({
+    containerID: 'container',
+    drawBoardID: 'drawBoard',
+    slideClass: '.slide',
+    buildClass: '.build',
+    progressID: 'progress',
+    transition: 'stick',
+    width: 1100,
+    dir: './',
+    
+    //打开下面的注释就开启postMessage方式
+    //访问网址127.0.0.1:8080/ppt/demo#client
+    control:{
+        type: 'postMessage',
+        args:{
+            isControl:  false
+        }
+    },
+    
+    tipID: 'tip'
+});
+MixJS.loadJS('highlight/highlight.pack.js',function(){
+    hljs.tabReplace = '  ';
+    hljs.initHighlightingOnLoad();
+});
+</script>
+<script src="./js/demo.js"></script>
+<link rel="stylesheet" href="./style/01.css">
+<script src="./js/zoom.js"></script>
+
+<!--placeholder-->
+</body>
+</html>

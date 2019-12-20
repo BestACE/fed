@@ -1,14 +1,14 @@
 <!--
-    Powered By nodePPT - This is probably the best web presentation tool so far!
-    version: 1.4.2
-    site: https://github.com/ksky521/nodePPT
+    Powered By nodeppt - This is probably the best web presentation tool so far!
+    version: 1.4.5
+    site: https://github.com/ksky521/nodeppt
     date: 
 -->
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>HTML节点元素 - By whqet</title>
+    <title>HTML节点元素 - By 前端开发课程组</title>
     <link rel="stylesheet" media="all" href="./css/nodeppt.css">
     <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./css/phone.css">
     
@@ -21,77 +21,29 @@
 <div class="slides">
     <slides id="container">
         <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
-<h1>HTML节点元素-Sections elements</h1>
-<h2>演讲者：whqet</h2>
+<h1>HTML节点元素、分组元素</h1>
+<h2>演讲者：前端开发课程组</h2>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
 <h2>内容提纲</h2>
-<ol class="rollIn">
-<li>body元素</li>
-<li>header元素</li>
-<li>footer元素</li>
-<li>nav元素</li>
-<li>aside元素</li>
-<li>article元素</li>
-<li>section元素</li>
-<li>address元素</li>
-<li>h1~h6元素</li>
+<ol>
+<li>语义化标签</li>
+<li>节点元素</li>
+<li>分组元素</li>
 </ol>
 
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article>
-<h2><a href="///w3school.com.cn/tags/html_ref_byfunc.asp" target="_blank">元素概述</a></h2>
-<iframe class="widder" src="///zptcsoft.github.io/html5-elements-periodic-table/" frameborder="0"></iframe>
-</article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+<h2>语义化标签</h2>
+<p>HTML5之前
+<img src="./img/55/1.gif" alt="">
+缺点：不利于SEO搜索引擎对页面内容的抓取；文档结构定义不明确</p>
+<p>HTML5之后
+<img src="./img/55/2.gif" alt="">
+优点：文档结构清晰；对搜索引擎友好</p>
+<p><a href="///www.cnblogs.com/zjf-1992/archive/2016/12/16/6182406.html" target="_blank">参考资料</a></p>
 
-<h2><a href="///www.w3.org/TR/html/semantics.html#semantics" target="_blank">元素分类</a> <a href="///w3school.com.cn/tags/html_ref_byfunc.asp" target="_blank">w3school</a></h2>
-<table class="thinner tag">
-    <tr>
-        <th>类型</th><th>标签</th>
-    </tr>
-    <tr>
-        <td>根元素<br>The root element</td>
-        <td>html</td>
-    </tr>
-    <tr>
-        <td>文档元数据<br> Document metadata</td>
-        <td>head, title, base, meta, link, style</td>
-    </tr>
-    <tr>
-        <td>节点 Sections</td>
-        <td>body, article, section, nav, aside, h1, h2, h3, h4, h5, h6, header, footer, address</td>
-    </tr>
-    <tr>
-        <td>组合内容<br> Grouping content</td>
-        <td>div, p, main, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption</td>
-    </tr>
-    <tr>
-        <td>文本级<br>Text-level semantics</td>
-        <td>span, a, em, strong, q, cite, mark, i, b, u, s, sup, sub, big, small, var, code, samp, kbd, data, time, ruby, rb, rp, rt, rtc, bdi, bdo, dfn, br, wbr</td>
-    </tr>
-    <tr>
-        <td>编辑 Edits</td>
-        <td>ins, del</td>
-    </tr>
-    <tr>
-        <td>嵌入内容 <br>Embedded content</td>
-        <td>img, iframe, embed, object, param, vedio, audio, surce, track, map, area</td>
-    </tr>
-    <tr>
-        <td>表格 Tabular data</td>
-        <td>table, caption, tr, th, td, thead, tbody, tfoot, col, colgroup</td>
-    </tr>
-    <tr>
-        <td>表单 Forms</td>
-        <td>form, label, input, button, select, datalist, optgroup, option, textarea, keygen, output, progress, meter, fieldset, legend</td>
-    </tr>
-    <tr>
-        <td>脚本 Scripting</td>
-        <td>script, noscript, template, canvas</td>
-    </tr>
-</table>
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
@@ -220,7 +172,6 @@
     </tr>
     <tr>
         <td>内容模型</td>
-        <td>流内容，但是不能使header、footer和main三个标签。</td>
         <td>流内容，但是不能使header、footer和main三个标签。</td>
     </tr>
     <tr>
@@ -522,61 +473,42 @@
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
 
-<h2>h1~h6元素</h2>
-<table class="thin tag">
-    <tr>
-        <th>类型</th><th>取值</th>
-    </tr>
-    <tr>
-        <td>分类</td>
-        <td>
-            流内容-Flow content <br>
-            标题内容-Heading content <br>
-            可感知内容-Palpable content
-        </td>
-    </tr>
-    <tr>
-        <td>元素上下文</td>
-        <td>需要短句内容的地方</td>
-    </tr>
-    <tr>
-        <td>内容模型</td>
-        <td>短句内容-<a href="///www.w3.org/TR/html/dom.html#phrasing-content-1" target="_blank">Phrasing content</a></td>
-    </tr>
-    <tr>
-        <td>属性</td>
-        <td>全局属性</td>
-    </tr>
-</table>
+<h2>分组元素</h2>
+<ul>
+<li>figure元素用于定义独立的流内容（图像、图表、照片、代码等）</li>
+<li>figcaption用于为figure元素组添加标题，可以放在figure元素的第一个或者最后一个元素的位置</li>
+<li>案例</li>
+</ul>
+
 </article></section></slide>
-<slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
-<p>{:.flexbox.vleft}</p>
-<h2>h1~h6元素示例</h2>
-<pre><code class="html">&lt;h1&gt;一号标题&lt;/h1&gt;
-&lt;h2&gt;二号标题&lt;/h2&gt;
-&lt;h3&gt;三号标题&lt;/h3&gt;
-&lt;h4&gt;四号标题&lt;/h4&gt;
-&lt;h5&gt;五号标题&lt;/h5&gt;
-&lt;h6&gt;六号标题&lt;/h6&gt;
-</code></pre>
-<p><h1>一号标题</h1></p>
-<p><h2>二号标题</h2></p>
-<p><h3>三号标题</h3></p>
-<p><h4>四号标题</h4></p>
-<p><h5>五号标题</h5></p>
-<h6>六号标题</h6>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>分组元素</h2>
+<ul>
+<li>hgroup元素：用于将多个标题（主标题、副标题或者子标题）组成一个标题组，通常放在header元素中。</li>
+<li>案例</li>
+</ul>
+
+</article></section></slide>
+<slide class="slide"><section class="slide-wrapper"><article class="flexbox vleft">
+
+<h2>阶段案例</h2>
+<ul>
+<li>案例 (<a href="https://miracaly.github.io/moviediscus/index.html" target="_blank">https://miracaly.github.io/moviediscus/index.html</a>)</li>
+</ul>
+
 </article></section></slide>
 <slide class="slide"><section class="slide-wrapper"><article class="flexbox vcenter">
 <h1>前端开发</h1>
 <h2>旨为前端开发工程师的前端开发基础课程</h2>
-<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=zptcsoft&repo=zptcsoft.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
+<p><small style="vertical-align:middle;display:inline-block"><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=star&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20" style="width:110px;height:20px;  background-color: transparent;"></iframe><iframe src="///ghbtns.com/github-btn.html?user=miracaly&repo=miracaly.github.io&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="20" style="width:170px;height:20px;  background-color: transparent;"></iframe></small></p>
 
 </article></section></slide>
         
 
         <!-- <slide class="slide logoslide dark nobackground">
             <article class="flexbox vcenter">
-                <h2 style="color: white;">Powered By nodePPT v1.4.2</h2>
+                <h2 style="color: white;">Powered By nodeppt v1.4.5</h2>
             </article>
         </slide> -->
         <div class="slideTip" id="tip"></div>
@@ -595,6 +527,9 @@
 </div>
 <script src="./js/mixjs/lib/mix.0.3.0.min.js"></script>
 <script>
+    var ASSET_RELATIVE_DIR = ".";
+</script>
+<script>
 var base = location.protocol + '//' + location.host;
 
 var path = (location.pathname + '#').split('/').filter(function(v){
@@ -602,6 +537,9 @@ var path = (location.pathname + '#').split('/').filter(function(v){
 });
 path.pop();
 path = path.join('/');
+if (typeof ASSET_RELATIVE_DIR === 'string') {
+    path = path + '/' + ASSET_RELATIVE_DIR;
+}
 MixJS.config({
     baseURL: [ base, path, 'js'].join('/')+'/'
 });

@@ -70,13 +70,24 @@
 01. [课程概述](//bestace.github.io/fed//ppt/publish/50.html)
 02. [Web概述](//bestace.github.io/fed//ppt/publish/51.html)
 03. [HTML基础](//bestace.github.io/fed//ppt/publish/52.html)
-
+04. [HTML链接](//bestace.github.io/fed//ppt/publish/53.html)
+05. [HTML列表](//bestace.github.io/fed//ppt/publish/54.html)
+06. [HTML节点元素、分组元素](//bestace.github.io/fed//ppt/publish/55.html)
+07. [CSS初步](//bestace.github.io/fed//ppt/publish/56.html)
+08. [CSS选择器](//bestace.github.io/fed//ppt/publish/57.html)
+09. [CSS盒模型](//bestace.github.io/fed//ppt/publish/58.html)
+10. [CSS边框](//bestace.github.io/fed//ppt/publish/59.html)
+11. [CSS背景](//bestace.github.io/fed//ppt/publish/60.html)
+12. [浮动与定位](//bestace.github.io/fed//ppt/publish/61.html)
+13. [阶段案例](//bestace.github.io/fed//ppt/publish/62.html)
+14. [表单](//bestace.github.io/fed//ppt/publish/63.html)
+15. [CSS3高级属性](//bestace.github.io/fed//ppt/publish/64.html)
 
 ### 2016级讲义
 01. [课程概述](//bestace.github.io/fed//ppt/publish/01.html)
 02. [web概述](//bestace.github.io/fed//ppt/publish/02.html)
 03. [HTML概述](//bestace.github.io/fed//ppt/publish/03.html)
-04. [HTML元素](//bestace.github.io/fed//ppt/publish/04.html)--[html5元素周期表](zptcsoft.github.io/html5-elements-periodic-table/)
+04. [HTML元素](//bestace.github.io/fed//ppt/publish/04.html)--[html5元素周期表](//zptcsoft.github.io/html5-elements-periodic-table/)
 05. [HTML属性](//bestace.github.io/fed//ppt/publish/05.html)
 06. [HTML文档元数据和脚本元素](//bestace.github.io/fed//ppt/publish/06.html)
 07. [HTML节点元素](//bestace.github.io/fed//ppt/publish/07.html)
@@ -136,6 +147,8 @@
 11. 简洁、美观的命令行神奇cmder[官方网站](http://cmder.net/), 本课资源[下载](http://pan.baidu.com/s/1bLpGPS)
 12. 一个不错的布局学习资源《[学习CSS布局](http://zh.learnlayout.com/)》！！
 13. colreDraw2017以及colreDraw注册机下载[下载](http://pan.baidu.com/s/1pLG0ZsZ) 密码：f4cf
+14. CSS3||HTML5资源教程[链接](https://www.html5tricks.com/)
+15. DedeCMS[官网](http://www.dedecms.com/),DedeCMS[新手视频教程](http://www.dede888.com/),DedeCMS[模板](http://www.dede58.com/)，个别[会员模板](https://pan.baidu.com/s/1XDyXhYRApCFzj_EFyLiOYQ) 提取码：aknc
 
 ## 学友链接
 

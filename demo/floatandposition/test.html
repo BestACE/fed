@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				border: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			.container{
+				width: 1100px;
+				height: 600px;
+				margin: 50px auto;
+				position: relative;
+			}
+			.imgs{
+				width: 1100px;
+				height: 600px;
+				margin: 0px 100px 0px 100px;	
+			}
+			img{
+				width: 900px;
+				height: 600px;
+			}
+			a{
+				text-decoration: none;
+				font-size: 60px;
+				color: #fff;
+				width: 100px;
+				height: 600px;
+				line-height: 600px;
+				background: #222222;
+				opacity: 0.4;
+				text-align: center;
+				display: none;
+			}
+			.navi{
+				width: 1100px;
+				height: 600px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			.left{
+				border-radius: 10px 0px 0px 10px;
+				float: left;
+			}
+			.right{
+				
+				border-radius: 0px 10px 10px 0px;
+				float: right;
+			}
+			ul{
+				width: 110px;
+				height: 30px;
+				text-align: center;
+				position: absolute;
+				/*top:850px;
+				left: 550px;*/
+				right: 150px;
+				bottom: 50px;
+			}
+			li{
+				width: 5px;
+				height: 5px;
+				background: #333333;
+				border-radius: 50%;
+				display: inline-block;
+			}
+			.max{
+				width: 12px;
+				height: 8px;
+				background: #6495ED;
+			}
+			div:hover a{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="imgs">
+				<img src="img/timg.jpg" />
+			</div>
+			<div class="navi">
+				<a class="left"><</a>
+				<a class="right">></a>
+			</div>
+			<ul>
+				<li class="max"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>
