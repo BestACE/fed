@@ -45,6 +45,12 @@
 				text-align: center;
 				line-height: 30px;
 			}
+			.container p#resultText.center{
+				color: green;
+				transition: transform .5s;
+				transform: translate(0px,50px) scale(2);
+				text-align: center;
+			}
 			body{
 				padding: 0;
 				margin: 0;
@@ -147,6 +153,9 @@
 
 			function stop() {
 				window.clearInterval(a);
+				setTimeout(function(){
+					resultText.classList.add("center");
+				},500);
 			}
 		</script>
 		<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js" type="text/javascript" charset="utf-8"></script>
@@ -327,7 +336,7 @@
 			            if(!_this.active) return;
 			            ctx.beginPath();
 			            ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-			            ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
+			            ctx.fillStyle = 'rgba(156,200,255,'+ _this.active+')';
 			            ctx.fill();
 			        };
 			    }
