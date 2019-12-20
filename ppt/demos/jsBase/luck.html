@@ -45,12 +45,14 @@
 				text-align: center;
 				line-height: 30px;
 			}
-			.container p#resultText.center{
-				text-indent: 0;
+			.container p#resultText{
 				color: green;
+				text-indent: 30px;
+			}
+			.container p#resultText.center{
+				transform-origin: 0 0;
 				transition: transform .5s;
-				transform: translate(0px,50px) scale(2);
-				text-align: center;
+				transform: scale(2);
 			}
 			body{
 				padding: 0;
@@ -119,6 +121,7 @@
 		<script type="text/javascript">
 			var numInput = document.getElementById("numInput");
 			var btnInput = document.getElementById("btnInput");
+			var btn2Input = document.getElementById("btn2Input");
 			var canText = document.getElementById("canText");
 			var resultText = document.getElementById('resultText');
 
@@ -150,13 +153,15 @@
 
 			function go() {
 				a = setInterval("luck()", 100);
+				btnInput.setAttribute("disabled","disabled");
 			}
 
 			function stop() {
+				btn2Input.setAttribute("disabled","disabled");
 				window.clearInterval(a);
 				setTimeout(function(){
 					resultText.classList.add("center");
-				},500);
+				},1000);
 			}
 		</script>
 		<script src="https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js" type="text/javascript" charset="utf-8"></script>
