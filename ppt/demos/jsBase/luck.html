@@ -6,7 +6,7 @@
 		<style type="text/css">
 			.container{
 				width: 600px;
-				height: 400px;
+				height: 450px;
 				background-color: rgba(255,255,255,.9);
 				padding: 20px;
 				box-shadow: 1px 1px 10px 0 rgba(0,0,0,.2);
@@ -22,8 +22,28 @@
 				text-align: center;
 				font-size: 1.5em;
 			}
-			.container p#canText{
+			.container h2{
+				font-size: 1.2em;
+			}
+			.container p{
+				text-indent: 2em;
+				line-height: 1.5em;
+			}
+			.container p em{
+				font-style: normal;
+				font-weight: bold;
+				background-color:rgba(0,0,0,.8);
+				color: #fff;
+			}
+			.container #numInput{
+				width: 40px;
+				height: 24px;
+			}
+			.container input{
+				width: 60px;
+				height: 30px;
 				text-align: center;
+				line-height: 30px;
 			}
 			body{
 				padding: 0;
@@ -40,7 +60,7 @@
 			  z-index: 1;
 			}
 			#large-header {
-			  background-image: url("https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/img/demo-1-bg.jpg");
+			  background-image: url("http://zptc.cn/__local/E/B4/9F/063DDBFC652CF7688BF7237A934_BD33523B_168D8.jpg");
 			}
 			.main-title {
 			  position: absolute;
@@ -75,10 +95,17 @@
 		</div>
 		<div class="container">
 			<h1>管理与信息学院新教师微课分享活动</h1>
+			<p>为扎实分院新教师教学基本功，提高课堂教学质量，促进新教师专业发展和教学能力提升，特开展此次新教师微课交流活动。</p>
+			<h2>参加对象</h2>
+			<p>近三年入校的新教师：</p>
 			<p id="canText"></p>
-			<input id="numInput" type="text" />
+			<h2>参加方式</h2>
+			<p>为公平起见，使用<em>随机抽签</em>的方式抽出<em>5</em>名教师<em>现场分享</em>!</p>
+			<p>抽出人数：
+			<input id="numInput" value="5" type="text" />
 			<input id="btnInput" type="button" value="开始" onclick="go();" />
-			<input id="btn2Input" type="button" value="抽奖" onclick="stop();" />
+			<input id="btn2Input" type="button" value="抽签" onclick="stop();" />
+			</p>
 			<p id="resultText"></p>
 		</div>
 
@@ -95,7 +122,7 @@
 			var arrResult;
 			var a;
 
-			canText.innerText = arrStu.join(", ");
+			canText.innerText += arrStu.join(", ");
 
 			function luck() {
 				var num = Number(numInput.value);
