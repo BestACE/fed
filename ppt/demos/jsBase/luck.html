@@ -7,7 +7,8 @@
 			.container{
 				width: 640px;
 				height: 480px;
-				background-color: rgba(255,255,255,.9);
+				border-radius: 5px;
+				background-color: rgba(255,255,255,.5);
 				padding: 20px;
 				box-shadow: 1px 1px 10px 0 rgba(0,0,0,.2);
 				margin: auto;
@@ -17,17 +18,25 @@
 				top: 0;
 				bottom: 0;
 				z-index: 999;
+				transition: background-color 2s ease,box-shadow 1s; 
+			}
+			.container:hover{
+				background-color: rgba(255,255,255,.95);
+				box-shadow: 1px 1px 10px 0 rgba(0,0,0,.8);
+				cursor: pointer;
 			}
 			.container h1{
 				text-align: center;
 				font-size: 1.5em;
 			}
+			
 			.container h2{
 				font-size: 1.2em;
 			}
 			.container p{
 				text-indent: 2em;
 				line-height: 1.5em;
+				
 			}
 			.container p em{
 				font-style: normal;
@@ -44,6 +53,9 @@
 				height: 30px;
 				text-align: center;
 				line-height: 30px;
+			}
+			.container input[type='button']{
+				cursor: pointer;
 			}
 			.container p#resultText{
 				color: green;
